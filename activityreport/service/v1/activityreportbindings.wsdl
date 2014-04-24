@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!--Revision date November 9, 2006-->
+<definitions xmlns = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd = "http://www.w3.org/2001/XMLSchema" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace = "http://ns.medbiq.org/activityreport/service/v1/" xmlns:tns = "http://ns.medbiq.org/activityreport/service/v1/">  <types>  
+	  
+		<xsd:schema xmlns = "http://ns.medbiq.org/activityreport/service/v1/" targetNamespace = "http://ns.medbiq.org/activityreport/service/v1/">  <xsd:include schemaLocation = "http://ns.medbiq.org/activityreport/service/v1/activityreporttypes.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name = "readActivityReportRequest">
+		<part name = "payload" element = "tns:readActivityReport"/>
+	</message>
+	<message name = "readActivityReportResponse">
+		<part name = "payload" element = "tns:readActivityReportResponse"/>
+	</message>
+	<message name = "updateActivityReportRequest">
+		<part name = "payload" element = "tns:updateActivityReport"/>
+	</message>
+	<message name = "updateActivityReportResponse">
+		<part name = "payload" element = "tns:updateActivityReportResponse"/>
+	</message>
+	<message name = "createActivityReportRequest">
+		<part name = "payload" element = "tns:createActivityReport"/>
+	</message>
+	<message name = "createActivityReportResponse">
+		<part name = "payload" element = "tns:createActivityReportResponse"/>
+	</message>
+	<message name = "deleteActivityReportRequest">
+		<part name = "payload" element = "tns:deleteActivityReport"/>
+	</message>
+	<message name = "deleteActivityReportResponse">
+		<part name = "payload" element = "tns:deleteActivityReportResponse"/>
+	</message>
+	<portType name = "ActivityReportServicePortType">
+		<operation name = "readActivityReport">
+			<input name = "readActivityReportRequest" message = "tns:readActivityReportRequest"/>
+			<output name = "readActivityReportResponse" message = "tns:readActivityReportResponse"/>
+		</operation>
+		<operation name = "updateActivityReport">
+			<input name = "updateActivityReportRequest" message = "tns:updateActivityReportRequest"/>
+			<output name = "updateActivityReportResponse" message = "tns:updateActivityReportResponse"/>
+		</operation>
+		<operation name = "createActivityReport">
+			<input name = "createActivityReportRequest" message = "tns:createActivityReportRequest"/>
+			<output name = "createActivityReportResponse" message = "tns:createActivityReportResponse"/>
+		</operation>
+		<operation name = "deleteActivityReport">
+			<input name = "deleteActivityReportRequest" message = "tns:deleteActivityReportRequest"/>
+			<output name = "deleteActivityReportResponse" message = "tns:deleteActivityReportResponse"/>
+		</operation>
+	</portType>
+	<binding name = "ActivityReportServiceSoapBinding" type = "tns:ActivityReportServicePortType">
+		<soap:binding style = "document" transport = "http://schemas.xmlsoap.org/soap/http"/>
+		<operation name = "readActivityReport">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+		<operation name = "updateActivityReport">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+		<operation name = "createActivityReport">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+		<operation name = "deleteActivityReport">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+	</binding>
+</definitions>

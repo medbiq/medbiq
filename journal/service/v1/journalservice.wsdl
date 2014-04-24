@@ -1,0 +1,17 @@
+
+<definitions name="JournalService"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	targetNamespace="http://fake.namespace.com/journal/service/v1/"
+	xmlns:tns="http://fake.namespace.com/journal/service/v1/"
+	xmlns:bind="http://ns.medbiq.org/journal/service/v1/" >
+
+	<import namespace="http://ns.medbiq.org/journal/service/v1/" location="./journalbindings.wsdl"/>
+
+	<service name="JournalService">
+		<port name="JournalPort" binding="bind:JournalServiceSoapBinding">
+			<soap:address location="http://fake.location.com/medbiq/services/JournalService"/>
+		</port>
+	</service>
+</definitions>

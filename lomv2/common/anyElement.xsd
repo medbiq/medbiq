@@ -1,0 +1,51 @@
+<xs:schema targetNamespace="http://ltsc.ieee.org/xsd/LOM"
+           xmlns="http://ltsc.ieee.org/xsd/LOM"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           version="IEEE LTSC LOM XML 1.0">
+
+   <xs:annotation>
+      <xs:documentation>
+         This work is licensed under the Creative Commons Attribution-ShareAlike
+         License.  To view a copy of this license, see the file license.txt,
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
+         Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+      </xs:documentation>
+
+      <xs:documentation>
+         This component schema definition provides the element group declaration and the
+         attribute group declaration used for extension XML elements and attributes.
+      </xs:documentation>
+      <xs:documentation>
+        *****************************************************************************
+        **                                                                         ** 
+        ** NOTE THIS CHANGE HISTORY IS USED TO DOCUMENT CHANGES TO THE XML SCHEMA  **
+        ** DEFINITION DURING THE BALLOTING PROCESS.  THIS CHANGE HISTORY WILL BE   **
+        ** REMOVED ONCE THE FINAL VERSION OF THE STANDARD IS PUBLISHED.  A NEW     **
+        ** CHANGE HISTORY WILL BE INCLUDED TO INDICATE THE INITIAL RELEASE THAT    **
+        ** MAPS TO THE FINAL STANDARD.                                             **
+        **                                                                         **
+        *****************************************************************************
+        **                            CHANGE HISTORY                               **
+        *****************************************************************************
+        ** 08/24/2004:  1)Updated the Creative Commons Licensing agreement to      **
+        **                reference the Attribution-ShareAlike 2.0                 **
+        **                                                                         ** 
+        ** 09/16/2004:  1)Added a attributeGroup customAttributes to support       **
+        **                attribute extensions                                     **
+        **                                                                         ** 
+        ** 09/27/2004   1)Updated file documentation to correspond with working    **
+        **                draft 3.                                                 **
+        **                                                                         ** 
+        ** 10/11/2004   1)Removed attributeGroup customAttributes declaration.     **
+        *****************************************************************************
+      </xs:documentation>
+   </xs:annotation>
+
+   <xs:group name="customElements">
+      <xs:choice>
+         <xs:any namespace="##other" processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+
+</xs:schema>

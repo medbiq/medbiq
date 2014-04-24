@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!--Revision date November 9, 2006-->
+<definitions xmlns = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd = "http://www.w3.org/2001/XMLSchema" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace = "http://ns.medbiq.org/member/service/v1/" xmlns:tns = "http://ns.medbiq.org/member/service/v1/">  <types>  
+	  
+		<xsd:schema xmlns = "http://ns.medbiq.org/member/service/v1/" targetNamespace = "http://ns.medbiq.org/member/service/v1/">  <xsd:include schemaLocation = "http://ns.medbiq.org/member/service/v1/membertypes.xsd"/>
+		</xsd:schema>
+	</types>
+	<message name = "readMemberRequest">
+		<part name = "payload" element = "tns:readMember"/>
+	</message>
+	<message name = "readMemberResponse">
+		<part name = "payload" element = "tns:readMemberResponse"/>
+	</message>
+	<message name = "updateMemberRequest">
+		<part name = "payload" element = "tns:updateMember"/>
+	</message>
+	<message name = "updateMemberResponse">
+		<part name = "payload" element = "tns:updateMemberResponse"/>
+	</message>
+	<message name = "createMemberRequest">
+		<part name = "payload" element = "tns:createMember"/>
+	</message>
+	<message name = "createMemberResponse">
+		<part name = "payload" element = "tns:createMemberResponse"/>
+	</message>
+	<message name = "deleteMemberRequest">
+		<part name = "payload" element = "tns:deleteMember"/>
+	</message>
+	<message name = "deleteMemberResponse">
+		<part name = "payload" element = "tns:deleteMemberResponse"/>
+	</message>
+	<portType name = "MemberServicePortType">
+		<operation name = "readMember">
+			<input name = "readMemberRequest" message = "tns:readMemberRequest"/>
+			<output name = "readMemberResponse" message = "tns:readMemberResponse"/>
+		</operation>
+		<operation name = "updateMember">
+			<input name = "updateMemberRequest" message = "tns:updateMemberRequest"/>
+			<output name = "updateMemberResponse" message = "tns:updateMemberResponse"/>
+		</operation>
+		<operation name = "createMember">
+			<input name = "createMemberRequest" message = "tns:createMemberRequest"/>
+			<output name = "createMemberResponse" message = "tns:createMemberResponse"/>
+		</operation>
+		<operation name = "deleteMember">
+			<input name = "deleteMemberRequest" message = "tns:deleteMemberRequest"/>
+			<output name = "deleteMemberResponse" message = "tns:deleteMemberResponse"/>
+		</operation>
+	</portType>
+	<binding name = "MemberServiceSoapBinding" type = "tns:MemberServicePortType">
+		<soap:binding style = "document" transport = "http://schemas.xmlsoap.org/soap/http"/>
+		<operation name = "readMember">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+		<operation name = "updateMember">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+		<operation name = "createMember">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+		<operation name = "deleteMember">
+			<soap:operation soapAction = ""/>
+			<input>
+				<soap:body parts = "payload" use = "literal"/>
+			</input>
+			<output>
+				<soap:body parts = "payload" use = "literal"/>
+			</output>
+		</operation>
+	</binding>
+</definitions>

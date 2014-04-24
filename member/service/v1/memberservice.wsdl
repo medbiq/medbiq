@@ -1,0 +1,5 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!--Revision date November 9, 2006-->
+<definitions name = "Member" xmlns = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd = "http://www.w3.org/2001/XMLSchema" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace = "http://yournamespacehere.com" xmlns:tns = "http://yournamespacehere.com" xmlns:bind = "http://ns.medbiq.org/member/service/v1/"> <import namespace = "http://ns.medbiq.org/member/service/v1/" location = "http://ns.medbiq.org/member/service/v1/memberbindings.wsdl"/>   <service name = "Member">      <port name = "MemberPort" binding = "bind:MemberServiceSoapBinding">         <soap:address location = "http://yourserviceaddresshere.com" xmlns:wsdl = "http://schemas.xmlsoap.org/wsdl/"/>      </port>   </service>
+</definitions>

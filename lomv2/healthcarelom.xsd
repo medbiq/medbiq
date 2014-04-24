@@ -1,0 +1,64 @@
+<xs:schema xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" xmlns:hv="http://ns.medbiq.org/lom/vocab/v1/" xmlns:ag="http://ltsc.ieee.org/xsd/LOM/unique" xmlns:ex="http://ltsc.ieee.org/xsd/LOM/extend" xmlns:voc="http://ltsc.ieee.org/xsd/LOM/vocab" xmlns:a="http://ns.medbiq.org/address/v1/" targetNamespace="http://ltsc.ieee.org/xsd/LOM" elementFormDefault="qualified" version="IEEE LTSC LOM XML 1.0">
+	<xs:annotation>
+		<xs:documentation>
+         This work is licensed under the Creative Commons Attribution-ShareAlike
+         License.  To view a copy of this license, see the file license.txt,
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
+         Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+      </xs:documentation>
+		<xs:documentation>
+         This file represents a composite schema for validation of the following:
+         1) The use of custom vocabulary source/value pairs and 
+            LOMv1.0 base schema (i.e., 1484.12.1-2002) vocabulary source/value pairs
+         2) Uniqueness constraints defined by LOMv1.0 base schema
+         3) The use of XML element/attribute extensions to the LOMv1.0 base schema
+      </xs:documentation>
+		<xs:documentation>
+        *****************************************************************************
+        **                                                                         ** 
+        ** NOTE THIS CHANGE HISTORY IS USED TO DOCUMENT CHANGES TO THE XML SCHEMA  **
+        ** DEFINITION DURING THE BALLOTING PROCESS.  THIS CHANGE HISTORY WILL BE   **
+        ** REMOVED ONCE THE FINAL VERSION OF THE STANDARD IS PUBLISHED.  A NEW     **
+        ** CHANGE HISTORY WILL BE INCLUDED TO INDICATE THE INITIAL RELEASE THAT    **
+        ** MAPS TO THE FINAL STANDARD.                                             **
+        **                                                                         **
+        *****************************************************************************
+        **                            CHANGE HISTORY                               **
+        *****************************************************************************
+        ** 11/14/2003:  1)Updated comment describing vocab/strict.xsd.  Indicated  **
+        **                that the strict.xsd is used to validate vocabularies     **
+        **                defined in the LOM V1.0 Base Schema.                     **
+        **              2)Moved included schema elementNames.xsd just before       **
+        **                elementTypes.xsd.                                        **
+        **              3)Moved the element declaration for the top-level lom      **
+        **                metadata element to a separate file (rootElement.xsd)    **
+        **                and included this file just after elementTypes.xsd.      **
+        **              4)Moved the XML Schema import statements before the XML    **
+        **                Schema include statements.                               **
+        **              5)Moved the element group declaration named                **
+        **                lom:customElements to a separate file (anyElement.xsd)   **
+        **                and included this new file just before the XML Schema    **
+        **                import statments.                                        **
+        **                                                                         **
+        ** 09/27/2004   1)Updated file documentation to correspond with working    **
+        **                draft 3.                                                 **
+        **              2)Updated the Creative Commons Licensing agreement to      **
+        **                reference the Attribution-ShareAlike 2.0                 **
+        *****************************************************************************
+      </xs:documentation>
+	</xs:annotation>
+	<!-- Learning Object Metadata -->
+	<xs:include schemaLocation="common/anyElement.xsd"/>
+	<xs:import namespace="http://ltsc.ieee.org/xsd/LOM/unique" schemaLocation="unique/strict.xsd"/>
+	<xs:import namespace="http://ltsc.ieee.org/xsd/LOM/vocab" schemaLocation="vocab/custom.xsd"/>
+	<xs:import namespace="http://ltsc.ieee.org/xsd/LOM/extend" schemaLocation="extend/custom.xsd"/>
+	<xs:import namespace="http://ns.medbiq.org/lom/extend/v1/" schemaLocation="healthcare/healthcaremetadata.xsd"/>
+	<xs:import namespace="http://ns.medbiq.org/lom/vocab/v1/" schemaLocation="healthcare/healthcarevocabularies.xsd"/>
+	<xs:import namespace="http://ns.medbiq.org/address/v1/" schemaLocation="http://ns.medbiq.org/address/v1/address.xsd"/>
+	<xs:include schemaLocation="common/dataTypes.xsd"/>
+	<xs:include schemaLocation="common/elementNames.xsd"/>
+	<xs:include schemaLocation="common/elementTypes.xsd"/>
+	<xs:include schemaLocation="common/rootElement.xsd"/>
+	<xs:include schemaLocation="common/vocabValues.xsd"/>
+	<xs:include schemaLocation="common/vocabTypes.xsd"/>
+</xs:schema>

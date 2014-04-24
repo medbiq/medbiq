@@ -1,0 +1,5 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!--Revision date February 3, 2012-->
+<definitions name = "ActivityReport" xmlns = "http://schemas.xmlsoap.org/wsdl/" xmlns:xsd = "http://www.w3.org/2001/XMLSchema" xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace = "http://yournamespacehere.com" xmlns:tns = "http://yournamespacehere.com" xmlns:bind = "http://ns.medbiq.org/activityreport/service/v2/"> <import namespace = "http://ns.medbiq.org/activityreport/service/v2/" location = "http://ns.medbiq.org/activityreport/service/v2/activityreportbindings.wsdl"/>   <service name = "ActivityReport">      <port name = "ActivityReportPort" binding = "bind:ActivityReportServiceSoapBinding">         <soap:address location = "http://yourservicehere.com" xmlns:wsdl = "http://schemas.xmlsoap.org/wsdl/"/>      </port>   </service>
+</definitions>

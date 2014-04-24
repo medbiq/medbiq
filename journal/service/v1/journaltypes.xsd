@@ -1,0 +1,211 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xsd:schema xmlns:xsd = "http://www.w3.org/2001/XMLSchema"
+            targetNamespace = "http://ns.medbiq.org/journal/service/v1/"
+            xmlns = "http://ns.medbiq.org/journal/service/v1/"
+            elementFormDefault="qualified"
+		attributeFormDefault="unqualified">
+
+<!--
+
+The following elements are the global elements defined for the
+"http://ns.medbiq.org/journal/service/v1/" namespace. The elements
+below utilize the simple and complex types defined afer the elements.
+
+-->             
+
+	<!-- The journalList operation input payload -->           
+       <xsd:element name="journalList">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- The journalList operation output payload -->
+	<xsd:element name="journalListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Journals" type="JournalsType" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- The issueList operation input payload                                            -->
+	<!-- JournalIdentifier is the value returned in the journalListResponse -->
+	<xsd:element name="issueList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="JournalIdentifier" type="IdentifierType" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- The issueList operation output payload -->
+	<xsd:element name="issueListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Issues" type="IssuesType" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- The articleList operation input payload                                      -->
+	<!-- IssueIdentifier is the value returned in the issueListResponse -->
+	<xsd:element name="articleList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="IssueIdentifier" type="IdentifierType"/>
+			</xsd:sequence>
+		</xsd:complexType>			
+	</xsd:element>
+
+	<!-- The articleList operation output payload -->		
+	<xsd:element name="articleListResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Articles" type="ArticlesType" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>	
+	</xsd:element>
+                            
+<!--
+
+The following types are the global simplex and complex types for the
+"http://ns.medbiq.org/journal/service/v1/" namespace. 
+
+-->                           
+        
+	<xsd:complexType name="JournalsType">
+		<xsd:sequence>
+			<xsd:element name="Journal" type="JournalType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="JournalType">
+		<xsd:sequence>
+				<xsd:element name="FullTitle" type="FullTitleType" />
+				<xsd:element name="AbbrevTitle" type="AbbrevTitleType" />
+				<xsd:element name="Issn"  type="IssnType" />
+				<xsd:element name="Coden" type="CodenType" minOccurs="0"/>
+				<xsd:element name="Publisher" type="PublisherType" />
+				<xsd:element name="JournalIdentifier" type="IdentifierType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:simpleType name="FullTitleType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="AbbrevTitleType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="IssnType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CodenType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>	
+		
+	<xsd:complexType name="PublisherType">
+		<xsd:sequence>
+			<xsd:element name="PublisherName" type="xsd:string"/>
+			<xsd:element name="PublisherPlace" type="xsd:string" minOccurs="0"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="IdentifierType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>		
+			
+	<xsd:complexType name="IssuesType">
+		<xsd:sequence>
+			<xsd:element name="Issue" type="IssueType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="IssueType">
+		<xsd:sequence>
+			<xsd:element name="Contributors" type="ContributorsType" minOccurs="0"/>
+			<xsd:element name="PublicationDate" type="PublicationDateType"/>
+			<xsd:element name="VolumeNumber" type="VolumeNumberType" minOccurs="0"/>
+			<xsd:element name="IssueNumber" type="IssueNumberType" minOccurs="0"/>
+			<xsd:element name="Pages" type="PagesType" minOccurs="0"/>
+			<xsd:element name="SpecialNumbering" type="SpecialNumberingType" minOccurs="0"/>				<xsd:element name="IssueIdentifier" type="IdentifierType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+               
+	<xsd:complexType name="ContributorsType">
+		<xsd:sequence>
+			<xsd:element name="PersonName" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="GivenName"  type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Surname" type="xsd:string"/>
+						<xsd:element name="Suffix" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	               
+	<xsd:complexType name="PublicationDateType">
+		<xsd:sequence>
+			<xsd:element name="Month" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Day" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Year" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+				               
+	<xsd:simpleType name="VolumeNumberType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>		
+	
+	<xsd:simpleType name="IssueNumberType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>		
+	
+	<xsd:complexType name="PagesType">
+		<xsd:sequence>
+			<xsd:element name="FirstPage" type="xsd:string" />
+			<xsd:element name="LastPage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OtherPages" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+		
+	<xsd:simpleType name="SpecialNumberingType">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>		
+	
+	<xsd:complexType name="ArticlesType">
+		<xsd:sequence>
+			<xsd:element name="Article" type="ArticleType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+			                     	
+	<!-- ArticleIdentifier should be a URL to retrieve the article.  This could either be -->
+	<!-- a DOI type URL or it could be a home-grown URL.                                         -->		                     
+	<xsd:complexType name="ArticleType">
+		<xsd:sequence>
+			<xsd:element name="Titles" type="TitlesType"/>				
+			<xsd:element name="Contributors" type="ContributorsType"  minOccurs="0"/>
+			<xsd:element name="PublicationDate" type="PublicationDateType"/>
+			<xsd:element name="VolumeNumber" type="VolumeNumberType" minOccurs="0"/>
+			<xsd:element name="IssueNumber" type="IssueNumberType"  minOccurs="0"/>
+			<xsd:element name="Pages" type="PagesType" minOccurs="0"/>
+			<xsd:element name="ArticleIdentifier" type="IdentifierType"/>								</xsd:sequence>
+	</xsd:complexType>	
+      	
+      	<!-- It might be necessary to wrap Title and SubTitle in CDATA in situations where these -->
+      	<!-- fields could contain addition embedded markup such as <b>, <sup>, <it>, etc.            -->
+	<xsd:complexType name="TitlesType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="xsd:string" />
+			<xsd:element name="SubTitle" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	      	
+</xsd:schema>
+

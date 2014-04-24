@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/xhtml" targetNamespace="http://www.w3.org/1999/xhtml" blockDefault="#all" xmlns:vpd="http://ns.medbiq.org/virtualpatientdata/v1/">
+	<xsd:import namespace="http://ns.medbiq.org/virtualpatientdata/v1/" schemaLocation="virtualpatientdata.xsd"/>
+	
+	
+	<xsd:redefine schemaLocation="xhtml/xhtml11.xsd">
+		<xsd:group name="xhtml.Misc.class">
+			<xsd:choice>
+				<xsd:group ref="xhtml.Misc.class"/>
+				<xsd:element ref="vpd:media"/>
+			</xsd:choice>
+		</xsd:group>
+	</xsd:redefine>
+	<xsd:element name="div" type="xhtml.div.type"/>
+</xsd:schema>

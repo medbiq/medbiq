@@ -1,0 +1,92 @@
+
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	targetNamespace="http://ns.medbiq.org/journal/service/v1/"
+	xmlns:tns="http://ns.medbiq.org/journal/service/v1/"
+	xmlns:types="http://ns.medbiq.org/journal/service/v1/">
+	
+<types>
+	<xsd:import namespace="http://ns.medbiq.org/journal/service/v1/" schemaLocation="./journaltypes.xsd"/>
+</types>
+
+<message name="journalListRequest">
+	<part name="payload" element="types:journalList"/>
+</message>
+
+<message name="journalListResponse">
+	<part name="payload" element="types:journalListResponse"/>
+</message>
+
+<message name="issueListRequest">
+	<part name="payload" element="types:issueList"/>
+</message>
+
+<message name="issueListResponse">
+	<part name="payload" element="types:issueListResponse"/>
+</message>
+
+<message name="articleListRequest">
+	<part name="payload" element="types:articleList"/>
+</message>
+
+<message name="articleListResponse">
+	<part name="payload" element="types:articleListResponse"/>
+</message>
+
+<portType name="JournalServicePortType">
+
+	<operation name="journalList">
+		<input name="journalListRequest" message="tns:journalListRequest"/>
+		<output name="journalListResponse" message="tns:journalListResponse"/>
+	</operation>
+
+	<operation name="issueList">
+		<input name="issueListRequest" message="tns:issueListRequest"/>
+		<output name="issueListResponse" message="tns:issueListResponse"/>
+	</operation>
+
+	<operation name="articleList">
+		<input name="articleListRequest" message="tns:articleListRequest"/>
+		<output name="articleListResponse" message="tns:articleListResponse"/>
+	</operation>
+
+</portType>
+
+<binding name="JournalServiceSoapBinding" type="tns:JournalServicePortType">
+
+	<soap:binding style="document"  transport="http://schemas.xmlsoap.org/soap/http/"/>
+
+	<operation name="journalList">
+		<soap:operation soapAction=""/>
+		<input>
+			<soap:body parts="payload" use="literal"/>	
+		</input>
+		<output>
+			<soap:body parts="payload" use="literal"/>	
+		</output>
+	</operation>
+
+	<operation name="issueList">
+		<soap:operation soapAction=""/>
+		<input>
+			<soap:body parts="payload" use="literal"/>
+		</input>
+		<output>
+			<soap:body parts="payload" use="literal"/>	
+		</output>
+	</operation>
+
+	<operation name="articleList">
+		<soap:operation soapAction=""/>
+		<input>
+			<soap:body parts="payload" use="literal"/>
+		</input>
+		<output>
+			<soap:body parts="payload" use="literal"/>	
+		</output>
+	</operation>
+
+</binding>
+
+</definitions>

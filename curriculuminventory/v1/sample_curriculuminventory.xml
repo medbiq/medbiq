@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CurriculumInventory xsi:schemaLocation="http://ns.medbiq.org/curriculuminventory/v1/ curriculuminventory.xsd" xmlns="http://ns.medbiq.org/curriculuminventory/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:a="http://ns.medbiq.org/address/v1/" xmlns:cf="http://ns.medbiq.org/competencyframework/v1/" xmlns:co="http://ns.medbiq.org/competencyobject/v1/" xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" xmlns:m="http://ns.medbiq.org/member/v1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ReportID domain="idd:nosuch.edu:cip">12345</ReportID>
+	<Institution>
+		<m:InstitutionName>NoSuch University School of Medicine</m:InstitutionName>
+		<m:InstitutionID domain="idd:aamc.org:institution">987</m:InstitutionID>
+		<m:Address>
+			<a:StreetAddressLine>720 Main Street</a:StreetAddressLine>
+			<a:City>Baltimore</a:City>
+			<a:StateOrProvince>MD</a:StateOrProvince>
+			<a:PostalCode>21205</a:PostalCode>
+			<a:Country>
+				<a:CountryCode>US</a:CountryCode>
+			</a:Country>
+		</m:Address>
+	</Institution>
+	<Program>
+		<ProgramName>M.D.</ProgramName>
+		<ProgramID domain="idd:aamc.org:program">5678</ProgramID>
+	</Program>
+	<Title>NoSuch School of Medicine Curriculum 2010-2011</Title>
+	<ReportDate>2011-07-01</ReportDate>
+	<ReportingStartDate>2010-07-01</ReportingStartDate>
+	<ReportingEndDate>2011-06-30</ReportingEndDate>
+	<Language>en-us</Language>
+	<Description>The NoSuch curriculum reframes the context of health and illness to encourage students to explore a larger, integrated system.</Description>
+	<SupportingLink>http://www.nosuchmedicine.org/crc/</SupportingLink>
+	<Events>
+		<Event id="E1">
+			<Title>White Coat Ceremony</Title>
+			<EventDuration>PT2H</EventDuration>
+			<Description>First year students are given their white coats to mark the transition to clinical rotations. The ceremony includes a declaration of professional values. </Description>
+			<Keyword hx:source="MeSH" hx:id="D010817">
+				<hx:string>Physician-Patient Relations</hx:string>
+			</Keyword>
+			<Keyword hx:source="MeSH" hx:id="D012945">
+				<hx:string>Social Values</hx:string>
+			</Keyword>
+			<Interprofessional>false</Interprofessional>
+			<CompetencyObjectReference>/CurriculumInventory/Expectations/CompetencyObject[lom:lom/lom:general/lom:identifier/lom:entry='zxcvb']</CompetencyObjectReference>
+			<InstructionalMethod primary="true">Lecture</InstructionalMethod>
+		</Event>
+		<Event id="E2">
+			<Title>Orientation Lecture</Title>
+			<EventDuration>PT4H</EventDuration>
+			<Description>Faculty discuss what the students are to expect in the coming year.</Description>
+			<Keyword hx:source="MeSH" hx:id="D010817">
+				<hx:string>Physician-Patient Relations</hx:string>
+			</Keyword>
+			<Keyword hx:source="MeSH" hx:id="D012945">
+				<hx:string>Social Values</hx:string>
+			</Keyword>
+			<Interprofessional>false</Interprofessional>
+			<CompetencyObjectReference>/CurriculumInventory/Expectations/CompetencyObject[lom:lom/lom:general/lom:identifier/lom:entry='zxcvb']</CompetencyObjectReference>
+			<InstructionalMethod primary="true">Lecture</InstructionalMethod>
+		</Event>
+		<Event id="E3">
+			<Title>Peds Part 1</Title>
+			<EventDuration>PT20H</EventDuration>
+			<Description>Students shadow Pediatricians</Description>
+			<InstructionalMethod primary="true">Clinical Experience - Inpatient</InstructionalMethod>
+		</Event>
+		<Event id="E4">
+			<Title>Peds Part 2</Title>
+			<EventDuration>PT20H</EventDuration>
+			<Description>Students talk to families and take history with supervision</Description>
+			<InstructionalMethod primary="true">Clinical Experience - Inpatient</InstructionalMethod>
+		</Event>
+		<Event id="E5">
+			<Title>Geriatrics Part 1</Title>
+			<EventDuration>PT20H</EventDuration>
+			<Description>Students shadow Geriatricians</Description>
+			<InstructionalMethod primary="true">Clinical Experience - Ambulatory</InstructionalMethod>
+		</Event>
+		<Event id="E6">
+			<Title>Geriatrics Part 2</Title>
+			<EventDuration>PT20H</EventDuration>
+			<Description>Students talk to families and take history with supervision</Description>
+			<InstructionalMethod primary="true">Clinical Experience - Ambulatory</InstructionalMethod>
+		</Event>
+	</Events>
+	<Expectations>
+		<CompetencyObject>
+			<lom:lom>
+				<lom:general>
+					<lom:identifier>
+						<lom:catalog>URI</lom:catalog>
+						<lom:entry>http://nosuchdomain.edu/zxcvb</lom:entry>
+					</lom:identifier>
+					<lom:title>
+						<lom:string>Professionalism</lom:string>
+					</lom:title>
+				</lom:general>
+			</lom:lom>
+		</CompetencyObject>
+		<CompetencyFramework>
+			<lom:lom>
+				<lom:general>
+					<lom:identifier>
+						<lom:catalog>URI</lom:catalog>
+						<lom:entry>http://nosuchdomain.edu/framework</lom:entry>
+					</lom:identifier>
+				</lom:general>
+				<lom:lifeCycle>
+					<lom:version>
+						<lom:string>1.0</lom:string>
+					</lom:version>
+				</lom:lifeCycle>
+			</lom:lom>
+			<cf:Includes>
+				<cf:Catalog>URI</cf:Catalog>
+				<cf:Entry>http://nosuchdomain.edu/zxcvb</cf:Entry>
+			</cf:Includes>
+		</CompetencyFramework>
+	</Expectations>
+	<AcademicLevels>
+		<LevelsInProgram>4</LevelsInProgram>
+		<Level number="1">
+			<Label>Year 1</Label>
+			<Description>Preclinical</Description>
+		</Level>
+		<Level number="2">
+			<Label>Year 2</Label>
+			<Description>Preclinical</Description>
+		</Level>
+		<Level number="3">
+			<Label>Year 3</Label>
+			<Description>Clinical</Description>
+		</Level>
+		<Level number="4">
+			<Label>Year 4</Label>
+			<Description>Clinical</Description>
+		</Level>
+	</AcademicLevels>
+	<Sequence>
+		<SequenceBlock id="c" required="Required">
+			<Title>Year 1</Title>
+			<Timing>
+				<Duration>P12M</Duration>
+			</Timing>
+			<Level>/CurriculumInventory/AcademicLevels/Level[@number='1']</Level>
+			<CompetencyObjectReference>/CurriculumInventory/Expectations/CompetencyObject[lom:lom/lom:general/lom:identifier/lom:entry='zxcvb']</CompetencyObjectReference>
+			<SequenceBlockReference>/CurriculumInventory/Sequence/SequenceBlock[@id='e']</SequenceBlockReference>
+			<SequenceBlockReference>/CurriculumInventory/Sequence/SequenceBlock[@id='f']</SequenceBlockReference>
+		</SequenceBlock>
+		<SequenceBlock id="e" required="Required">
+			<Title>Introduction to Medicine</Title>
+			<Timing>
+				<Duration>P1M</Duration>
+			</Timing>
+			<Level>/CurriculumInventory/AcademicLevels/Level[@number='1']</Level>
+			<SequenceBlockEvent required="true">
+				<EventReference>/CurriculumInventory/Events/Event[@id='E1']</EventReference>
+			</SequenceBlockEvent>
+		</SequenceBlock>
+		<SequenceBlock id="f" required="Required">
+			<Title>Orientation</Title>
+			<Timing>
+				<Duration>P1M</Duration>
+			</Timing>
+			<Level>/CurriculumInventory/AcademicLevels/Level[@number='1']</Level>
+			<SequenceBlockEvent required="true">
+				<EventReference>/CurriculumInventory/Events/Event[@id='E2']</EventReference>
+			</SequenceBlockEvent>
+		</SequenceBlock>
+		<SequenceBlock id="d" required="Required">
+			<Title>Year 2</Title>
+			<Timing>
+				<Dates>
+					<StartDate>2010-07-01</StartDate>
+					<EndDate>2011-06-30</EndDate>
+				</Dates>
+			</Timing>
+			<Level>/CurriculumInventory/AcademicLevels/Level[@number='2']</Level>
+			<Precondition>Requires successful completion of Year 1.</Precondition>
+			<SequenceBlockEvent required="true">
+				<EventReference>/CurriculumInventory/Events/Event[@id='E3']</EventReference>
+			</SequenceBlockEvent>
+			<SequenceBlockEvent required="true">
+				<EventReference>/CurriculumInventory/Events/Event[@id='E4']</EventReference>
+			</SequenceBlockEvent>
+		</SequenceBlock>
+	</Sequence>
+</CurriculumInventory>

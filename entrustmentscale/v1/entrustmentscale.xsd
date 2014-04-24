@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins at Mt Washington) -->
+<xsd:schema xmlns="http://ns.medbiq.org/entrustmentscale/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" xmlns:hv="http://ns.medbiq.org/lom/vocab/v1/" xmlns:mbq="http://ns.medbiq.org/common/v2/" targetNamespace="http://ns.medbiq.org/entrustmentscale/v1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://ltsc.ieee.org/xsd/LOM" schemaLocation="../lom/healthcarelom.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="../common/v2/common.xsd"/>
+	<xsd:complexType name="EntrustmentLevelType">
+		<xsd:sequence>
+			<xsd:element name="DisplayOrder" type="xsd:integer"/>
+			<xsd:element name="Score" type="xsd:integer"/>
+			<xsd:element name="Title" type="mbq:NonNullStringType"/>
+			<xsd:element name="Description" type="mbq:NonNullStringType" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="EntrustmentScaleType">
+		<xsd:sequence>
+			<xsd:element ref="lom:lom"/>
+			<xsd:element name="EntrustmentLevel" type="EntrustmentLevelType" maxOccurs="unbounded"/>
+			<xsd:element name="FewestResponsibilities" type="xsd:integer"/>
+			<xsd:element name="MostResponsibilities" type="xsd:integer"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="EntrustmentScale" type="EntrustmentScaleType"/>
+</xsd:schema>

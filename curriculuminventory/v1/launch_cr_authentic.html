@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+   <title>Minimal XMLSpyDocEditPlugIn page</title>
+
+        
+
+        <!-- Script for handling the ControlInitialized event -->
+
+        <SCRIPT LANGUAGE="javascript" FOR="objPlugIn" EVENT="ControlInitialized">
+
+                  objPlugIn.SchemaLoadObject.URL = "http://ns.medbiq.org/curriculumreport/v1/curriculumreport.xsd"
+
+                  objPlugIn.XMLDataLoadObject.URL = "http://ns.medbiq.org/curriculumreport/v1/sample.xml"
+
+                  <!--objPlugIn.DesignDataLoadObject.URL = "http://yourserver/OrgChart.sps"-->
+
+                  objPlugIn.StartEditing()
+
+   </SCRIPT>
+
+ 
+
+        <!-- Script with subroutines -->
+
+   <SCRIPT ID=clientEventHandlers LANGUAGE=vbscript>
+
+     Sub OnClickFind
+
+                  objPlugIn.FindDialog
+
+     End Sub
+
+ 
+
+     Sub OnClickReplace
+
+                  objPlugIn.ReplaceDialog
+
+     End Sub
+
+ 
+
+     Sub BtnOnSave
+
+                  objPlugIn.XMLDataSaveUrl = "http://ns.medbiq.org/curriculumreport/v1/SaveFile.xml"
+
+                  objPlugIn.Save
+
+     End Sub
+
+ 
+
+     Sub BtnOnTestProp
+
+                  If objPlugIn.IsRowInsertEnabled Then
+
+                               msgbox "true"
+
+                  Else
+
+                               msgbox "false"
+
+                  End If
+
+     End Sub
+
+   </SCRIPT>
+
+</head>
+
+ 
+
+<body>
+
+        <!-- Object element has id with value that must be used -->
+
+        <!-- as name of Authentic Browser Plug-in objects -->
+
+        <!-- Classid selects the Trusted Unicode version -->
+
+   <OBJECT id="objPlugIn" 
+
+        <!-- CodeBase selects 32-bit CAB file (AuthenticBrowserEdition.CAB) -->
+
+        <!-- or 64-bit CAB file (AuthenticBrowserEdition_x64.CAB) -->
+
+          CodeBase="http://yourserver/AuthenticBrowserEdition.CAB#Version=12,3,0,0"
+
+        <!-- Class Id for 32-bit and 64-bit CAB files is the same -->
+
+          Classid="clsid:B4628728-E3F0-44a2-BEC8-F838555AE780" width="600" height="500">
+
+   </OBJECT>
+
+   <p>
+
+     <input type="button" value="Find" name="B4" onclick="OnClickFind()">
+
+     <input type="button" value="Replace" name="B5" onclick="OnClickReplace()">
+
+     <input type="button" value="Save" name="B6" onclick="BtnOnSave()">
+
+     <input type="button" value="Test property" name="B7" onclick="BtnOnTestProp">
+
+   </p>
+
+</body>
+
+</html>
+
+ 
+
+

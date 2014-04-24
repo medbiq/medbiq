@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xs:schema xmlns = "http://ns.medbiq.org/educationaltrajectory/v1/"
+	 targetNamespace = "http://ns.medbiq.org/educationaltrajectory/v1/"
+	 xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+	 elementFormDefault = "qualified"
+	 attributeFormDefault = "unqualified">
+	<!--Copyright © 2010 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	
+	
+	<!--Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use-->
+	
+	
+	<!--Modified 24 August 2010 -->
+	
+	<xs:element name = "programLength" type = "xs:duration">
+		<xs:annotation>
+			<xs:documentation>Length of the program as indicated by the institution.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

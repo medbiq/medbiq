@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
+<xsd:schema xmlns="http://ns.medbiq.org/curriculuminventory/v1/" xmlns:m="http://ns.medbiq.org/member/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:co="http://ns.medbiq.org/competencyobject/v1/" xmlns:cf="http://ns.medbiq.org/competencyframework/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" xmlns:hv="http://ns.medbiq.org/lom/vocab/v1/" xmlns:ns1="http://ns.medbiq.org/lom/vocab/v1/" targetNamespace="http://ns.medbiq.org/curriculuminventory/v1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://ns.medbiq.org/member/v1/" schemaLocation="http://ns.medbiq.org/member/v1/member.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/competencyobject/v1/" schemaLocation="http://ns.medbiq.org/competencyobject/v1/competencyobject.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/lom/extend/v1/" schemaLocation="http://ns.medbiq.org/lom/healthcare/healthcaremetadata.xsd"/>
+	<xsd:import namespace="http://ltsc.ieee.org/xsd/LOM" schemaLocation="http://ns.medbiq.org/lom/healthcarelom.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/competencyframework/v1/" schemaLocation="http://ns.medbiq.org/competencyframework/v1/competencyframework.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/lom/vocab/v1/" schemaLocation="http://ns.medbiq.org/lom/healthcare/healthcarevocabularies.xsd"/>
+	<!--Copyright © 2013 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	<!--Modified July 2, 2013-->
+	<xsd:simpleType name="NonNullString">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IDDomainType">
+		<xsd:restriction base="xsd:anyURI">
+			<xsd:pattern value="idd:\S*:\S*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OrderType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Ordered"/>
+			<xsd:enumeration value="Unordered"/>
+			<xsd:enumeration value="Parallel"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OneToTen">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:maxInclusive value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StatusType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="successful"/>
+			<xsd:enumeration value="unsucessful"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EventReferenceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\s*/CurriculumInventory/Events/Event\[@id\s?=\s?'[^']+'\]\s*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AcademicLevelReferenceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\s*/CurriculumInventory/AcademicLevels/Level\[@number\s?=\s?'(\d|10)'\]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SequenceBlockReferencePatternType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\s*/CurriculumInventory/Sequence/SequenceBlock\[@id\s?=\s?'[^']+'\]\s*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CompetencyObjectReferenceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\s*/CurriculumInventory/Expectations/CompetencyObject\[lom:lom/lom:general/lom:identifier/lom:entry\s?=\s?'[^']+'\]\s*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="IntegrationBlockReferenceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\s*/CurriculumInventory/Integration/IntegrationBlock\[@id\s?=\s?'[^']+'\]\s*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EventDurationType">
+		<xsd:restriction base="xsd:duration">
+			<xsd:pattern value="PT\d+H\d+M|PT\d+H|PT\d+M"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OneToOneHundred">
+		<xsd:restriction base="xsd:positiveInteger">
+			<xsd:maxInclusive value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ClerkshipModelType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="integrated"/>
+			<xsd:enumeration value="rotation"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RequiredType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Required"/>
+			<xsd:enumeration value="Optional"/>
+			<xsd:enumeration value="Required In Track"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="PurposeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Formative"/>
+			<xsd:enumeration value="Summative"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="VocabularyTermType">
+		<xsd:simpleContent>
+			<xsd:extension base="NonNullString">
+				<xsd:attribute name="source"/>
+				<xsd:attribute name="sourceID"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="LevelType">
+		<xsd:sequence>
+			<xsd:element name="Label" type="NonNullString"/>
+			<xsd:element name="Description" type="NonNullString" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="number" type="OneToTen" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="AcademicLevelsType">
+		<xsd:sequence>
+			<xsd:element name="LevelsInProgram" type="OneToTen"/>
+			<xsd:element name="Level" type="LevelType" maxOccurs="10"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EventsType">
+		<xsd:sequence>
+			<xsd:element name="Event" type="EventType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExpectationsType">
+		<xsd:sequence>
+			<xsd:element name="CompetencyObject" type="co:CompetencyObjectType" maxOccurs="unbounded"/>
+			<xsd:element name="CompetencyFramework" type="cf:CompetencyFrameworkType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SequenceType">
+		<xsd:sequence>
+			<xsd:element name="Description" type="NonNullString" minOccurs="0"/>
+			<xsd:element name="SequenceBlock" type="SequenceBlockType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatesType">
+		<xsd:sequence>
+			<xsd:element name="StartDate" type="xsd:date"/>
+			<xsd:element name="EndDate" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TimingType">
+		<xsd:choice maxOccurs="2">
+			<xsd:element name="Duration" type="xsd:duration"/>
+			<xsd:element name="Dates" type="DatesType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="SequenceBlockType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="NonNullString"/>
+			<xsd:element name="Description" type="NonNullString" minOccurs="0"/>
+			<xsd:element name="Timing" type="TimingType"/>
+			<xsd:element name="Level" type="AcademicLevelReferenceType"/>
+			<xsd:element name="ClerkshipModel" type="ClerkshipModelType" minOccurs="0"/>
+			<xsd:element name="CompetencyObjectReference" type="CompetencyObjectReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Precondition" type="NonNullString" minOccurs="0"/>
+			<xsd:element name="Postcondition" type="NonNullString" minOccurs="0"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="SequenceBlockEvent" type="SequenceBlockEventType"/>
+				<xsd:element name="SequenceBlockReference" type="SequenceBlockReferenceType"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="id" use="required"/>
+		<xsd:attribute name="required" type="RequiredType" use="required"/>
+		<xsd:attribute name="order" type="OrderType"/>
+		<xsd:attribute name="minimum" type="xsd:positiveInteger"/>
+		<xsd:attribute name="maximum" type="xsd:positiveInteger" use="optional"/>
+		<xsd:attribute name="track" type="xsd:boolean" default="false"/>
+	</xsd:complexType>
+	<xsd:complexType name="SequenceBlockReferenceType">
+		<xsd:simpleContent>
+			<xsd:extension base="SequenceBlockReferencePatternType">
+				<xsd:attribute name="order" type="xsd:positiveInteger"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="IntegrationBlockType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="NonNullString"/>
+			<xsd:element name="Description" type="NonNullString" minOccurs="0"/>
+			<xsd:element name="CompetencyObjectReference" type="CompetencyObjectReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="EventReference" type="EventReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SequenceBlockReference" type="SequenceBlockReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="IntegrationType">
+		<xsd:sequence>
+			<xsd:element name="Description" type="NonNullString" minOccurs="0"/>
+			<xsd:element name="IntegrationBlock" type="IntegrationBlockType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonNullStringWithId">
+		<xsd:simpleContent>
+			<xsd:extension base="NonNullString">
+				<xsd:attribute name="id"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="DomainID">
+		<xsd:simpleContent>
+			<xsd:extension base="NonNullString">
+				<xsd:attribute name="domain" type="IDDomainType"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="ProgramType">
+		<xsd:sequence>
+			<xsd:element name="ProgramName" type="NonNullString"/>
+			<xsd:element name="ProgramID" type="DomainID"/>
+			<xsd:element name="EducationalContext" type="hv:contextValues" minOccurs="0"/>
+			<xsd:element name="Profession" type="VocabularyTermType" minOccurs="0"/>
+			<xsd:element name="Specialty" type="VocabularyTermType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SequenceBlockEventType">
+		<xsd:sequence>
+			<xsd:element name="EventReference" type="EventReferenceType"/>
+			<xsd:element name="StartDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="EndDate" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="required" type="xsd:boolean" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="ObjectType">
+		<xsd:choice>
+			<xsd:element name="CompetencyObject" type="co:CompetencyObjectType"/>
+		</xsd:choice>
+		<xsd:attribute name="id" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="AssessmentMethodType">
+		<xsd:simpleContent>
+			<xsd:extension base="NonNullString">
+				<xsd:attribute name="purpose" type="PurposeType" use="required"/>
+				<xsd:attribute name="source"/>
+				<xsd:attribute name="sourceID"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="InstructionalMethodType">
+		<xsd:simpleContent>
+			<xsd:extension base="NonNullString">
+				<xsd:attribute name="primary" type="xsd:boolean" use="required"/>
+				<xsd:attribute name="source"/>
+				<xsd:attribute name="sourceID"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="EventType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="NonNullString"/>
+			<xsd:element name="EventDuration" type="EventDurationType"/>
+			<xsd:element name="Description" type="NonNullString" minOccurs="0"/>
+			<xsd:element name="Keyword" type="lom:keyword" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Interprofessional" type="xsd:boolean" default="false" minOccurs="0"/>
+			<xsd:element name="CompetencyObjectReference" type="CompetencyObjectReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ResourceType" type="VocabularyTermType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element name="InstructionalMethod" type="InstructionalMethodType"/>
+				<xsd:element name="AssessmentMethod" type="AssessmentMethodType"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="id" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="CurriculumInventoryType">
+		<xsd:sequence>
+			<xsd:element name="ReportID" type="DomainID"/>
+			<xsd:element name="Institution" type="m:InstitutionInfoType"/>
+			<xsd:element name="Program" type="ProgramType"/>
+			<xsd:element name="Title" type="NonNullString"/>
+			<xsd:element name="ReportDate" type="xsd:date"/>
+			<xsd:element name="ReportingStartDate" type="xsd:date"/>
+			<xsd:element name="ReportingEndDate" type="xsd:date"/>
+			<xsd:element name="Language" type="xsd:language"/>
+			<xsd:element name="Description" type="NonNullString"/>
+			<xsd:element name="SupportingLink" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="Events" type="EventsType"/>
+			<xsd:element name="Expectations" type="ExpectationsType"/>
+			<xsd:element name="AcademicLevels" type="AcademicLevelsType"/>
+			<xsd:element name="Sequence" type="SequenceType" minOccurs="0"/>
+			<xsd:element name="Integration" type="IntegrationType" minOccurs="0"/>
+			<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CurriculumInventory" type="CurriculumInventoryType"/>
+</xsd:schema>

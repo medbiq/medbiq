@@ -1,0 +1,179 @@
+<xs:schema targetNamespace="http://ltsc.ieee.org/xsd/LOM"
+           xmlns="http://ltsc.ieee.org/xsd/LOM"
+           xmlns:ag="http://ltsc.ieee.org/xsd/LOM/unique"
+           xmlns:ex="http://ltsc.ieee.org/xsd/LOM/extend"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           version="IEEE LTSC LOM XML 1.0">
+
+   <xs:annotation>
+      <xs:documentation>
+         This work is licensed under the Creative Commons Attribution-ShareAlike
+         License.  To view a copy of this license, see the file license.txt,
+         visit http://creativecommons.org/licenses/by-sa/2.0 or send a letter to
+         Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+      </xs:documentation>
+
+      <xs:documentation>
+         This component schema defintion defines global schema data type declarations
+         for data types defined in the LOMv1.0 base schema.
+      </xs:documentation>
+      <xs:documentation>
+        *****************************************************************************
+        **                                                                         ** 
+        ** NOTE THIS CHANGE HISTORY IS USED TO DOCUMENT CHANGES TO THE XML SCHEMA  **
+        ** DEFINITION DURING THE BALLOTING PROCESS.  THIS CHANGE HISTORY WILL BE   **
+        ** REMOVED ONCE THE FINAL VERSION OF THE STANDARD IS PUBLISHED.  A NEW     **
+        ** CHANGE HISTORY WILL BE INCLUDED TO INDICATE THE INITIAL RELEASE THAT    **
+        ** MAPS TO THE FINAL STANDARD.                                             **
+        **                                                                         **
+        *****************************************************************************
+        **                            CHANGE HISTORY                               **
+        *****************************************************************************
+        ** 11/14/2003:  1)Updated xs:pattern for the DurationString.  The pattern  **
+        **                did not permit zero values for each of the date and      **
+        **                time components.                                         **
+        **                                                                         **
+        ** 03/15/2004:  1)Changed the restriction type for LanguageIdNone from     **
+        **                xs:string to xs:token                                    **
+        **                                                                         ** 
+        ** 08/24/2004:  1) To correct a XML Binding to Marshalling issue, a change **
+        **              is needed to resolve a naming convention for two complex   **
+        **              types:                                                     **       
+        **                1.1) Changed the name of the LangString complexType      **
+        **                to LanguageString                                        **
+        **                1.2) Change the  name of the langString completType to   **
+        **                LangString                                               **
+        **              2)Updated the Creative Commons Licensing agreement to      **
+        **                reference the Attribution-ShareAlike 2.0                 **
+        **                                                                         ** 
+        ** 09/27/2004   1)Updated file documentation to correspond with working    **
+        **                draft 3.                                                 **
+        **              2)Removed the LanguageIdOrNone and LanguageIdNone type     **
+        **                declarations.  The types were not needed.  The           **
+        **                LanguageId type was updated to support attribute         **
+        **                extensions.  The LanguageId will now vaidate any         **
+        **                language defined by 1484.12.3 and the token "none".      **
+        **              3)Updated VCard to support attribute extensions.           **
+        **              4)Updated LanguageString to reference the xs:language      **
+        **                data type.                                               **       
+        **              5)Updated DateTimeValue to support attribute extensions.   **
+        **              6)Updated DurationValue to support attribute extensions.   **
+        *****************************************************************************
+
+	24 May 2007 	NOTE: The Size and Duration types have been renamed SizeBase 
+			and DurationBase to prevent errors with web services 
+			development tools. This change does not affect the resulting 
+			XML document. The change applies only to MedBiquitous 
+			Healthcare LOM schema files.
+
+      </xs:documentation>
+   </xs:annotation>
+
+   <xs:import namespace = "http://ltsc.ieee.org/xsd/LOM/unique" schemaLocation = "../unique/strict.xsd"/>
+   <xs:import namespace = "http://ltsc.ieee.org/xsd/LOM/extend" schemaLocation = "../extend/custom.xsd"/>
+
+   <!-- Data type declarations -->
+
+   <!-- CharacterString -->
+   <xs:simpleType name="CharacterString">
+      <xs:restriction base="xs:string"/>
+   </xs:simpleType>
+
+   <!-- LanguageId -->
+   <xs:complexType name="LanguageId">
+       <xs:simpleContent>
+         <xs:extension base="xs:language">
+            <xs:attributeGroup ref="ex:customAttributes"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+
+   <!-- VCard -->
+   <xs:complexType name="VCard">
+       <xs:simpleContent>
+         <xs:extension base="CharacterString">
+            <xs:attributeGroup ref="ex:customAttributes"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+
+   <!-- MimeType -->
+   <xs:simpleType name="MimeType">
+      <xs:restriction base="CharacterString"/>
+   </xs:simpleType>
+
+   <!-- Size -->
+   <xs:simpleType name="SizeBase">
+      <xs:restriction base="xs:nonNegativeInteger"/>
+   </xs:simpleType>
+
+   <!-- LanguageString -->
+   <xs:complexType name="LanguageString">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="string" type="LangString"/>
+         <xs:group ref="ex:customElements"/>
+      </xs:choice>
+      <xs:attributeGroup ref="ex:customAttributes"/>
+   </xs:complexType>
+
+   <xs:complexType name="LangString">
+      <xs:simpleContent>
+         <xs:extension base="CharacterString">
+            <xs:attribute name="language" type="xs:language"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+
+   <!-- DateTime -->
+   <xs:complexType name="DateTime">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="dateTime" type="DateTimeValue"/>
+         <xs:element name="description" type="description"/>
+         <xs:group ref="ex:customElements"/>
+      </xs:choice>
+   </xs:complexType>
+
+   <xs:complexType name="DateTimeValue">
+      <xs:simpleContent>
+         <xs:extension base="DateTimeString">
+           <xs:attributeGroup ref="ag:DateTimeValue"/>
+           <xs:attributeGroup ref="ex:customAttributes"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+
+   <!-- Regular expresion from Christian Klaue -->
+   <xs:simpleType name="DateTimeString">
+      <xs:restriction base="CharacterString">
+         <xs:pattern value="([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]|[0-9][1-9][0-9]{2}|[1-9][0-9]{3})(\-(0[1-9]|1[0-2])(\-(0[1-9]|[1-2][0-9]|3[0-1])(T([0-1][0-9]|2[0-3])(:[0-5][0-9](:[0-5][0-9](\.[0-9]{1,}(Z|((\+|\-)([0-1][0-9]|2[0-3]):[0-5][0-9]))?)?)?)?)?)?)?"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+   <!-- Duration -->
+   <xs:complexType name="DurationBase">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+         <xs:element name="duration" type="DurationValue"/>
+         <xs:element name="description" type="description"/>
+         <xs:group ref="ex:customElements"/>
+      </xs:choice>
+   </xs:complexType>
+
+   <xs:complexType name="DurationValue">
+      <xs:simpleContent>
+         <xs:extension base="DurationString">
+            <xs:attributeGroup ref="ag:DurationValue"/>
+            <xs:attributeGroup ref="ex:customAttributes"/>
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>
+
+   <!-- Regular expresion from Christian Klaue -->
+   <xs:simpleType name="DurationString">
+      <xs:restriction base="CharacterString">
+         <xs:pattern value="P([0-9]{1,}Y){0,1}([0-9]{1,}M){0,1}([0-9]{1,}D){0,1}(T([0-9]{1,}H){0,1}([0-9]{1,}M){0,1}([0-9]{1,}(\.[0-9]{1,}){0,1}S){0,1}){0,1}"/>
+      </xs:restriction>
+   </xs:simpleType>
+
+</xs:schema>
