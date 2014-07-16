@@ -67,7 +67,7 @@
 			<xsd:element ref="dcterms:format" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
-	<xsd:complexType name="NonNullLanguageString">
+	<xsd:complexType name="NonNullLanguageStringType">
 		<xsd:simpleContent>
 			<xsd:extension base="NonNullStringType">
 				<xsd:attribute ref="xml:lang"/>
