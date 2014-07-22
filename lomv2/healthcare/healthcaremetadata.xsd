@@ -5,13 +5,14 @@
 	<xsd:import namespace="http://ns.medbiq.org/address/v1/" schemaLocation="http://ns.medbiq.org/address/v1/address.xsd"/>
 	<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
 	<!--Copyright 2013, MedBiquitous. All rights reserved. http://www.medbiq.org-->
-	<!--Modified October 23, 2013-->
+	<!--Modified July 22, 2014-->
 	<!--23 Sep 2009, corrected nonAccreditedProvider multiplicity in schema-->
 	<!--13 June 2011, added unique element to healthcareEducation element. Added unique attributes to healthcareEducation, healthcareAsset, targetAudience, activityLocation element to ensure that they occur once only.-->
 	<!--20 June 2013, changed specialty to disciplineOrSpecialty, added source and id attributes to profession, added repurposing elements, added citation-->
 	<!--Added quality and teachingLearningInstruction-->
 	<!--Changed isRepurposedFrom type to lom:identifier-->
 	<!--Added originatingSystem and subelements systemName and version for inclusion in technical container-->
+	<!--22 July 2014, added id and source attributes to disciplineOrSpecialty, changed activityFormat in healthcare lom to activityOrResourceFormat and added source and id attributes, changed audienceCategory to lom:LanguageString type. -->
 	<xsd:attributeGroup name="customAttributes">
 		<xsd:anyAttribute namespace="##other" processContents="lax"/>
 	</xsd:attributeGroup>
@@ -109,9 +110,9 @@
 			<xsd:element ref="activityDelivery" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:group>
-	<xsd:group name="activityFormat">
+	<xsd:group name="activityOrResourceFormat">
 		<xsd:sequence>
-			<xsd:element ref="activityFormat" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="activityOrResourceFormat" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:group>
 	<xsd:group name="offLabelUse">
@@ -318,7 +319,7 @@
 	<xsd:element name="activitySponsorship" type="activitySponsorshipType"/>
 	<xsd:element name="participationModality" type="participationModalityType"/>
 	<xsd:element name="activityDelivery" type="activityDeliveryType"/>
-	<xsd:element name="activityFormat" type="lom:LanguageString"/>
+	<xsd:element name="activityOrResourceFormat" type="vocabularyTermType"/>
 	<xsd:element name="offLabelUse" type="yesNoType"/>
 	<xsd:element name="offLabelDescription" type="lom:LanguageString"/>
 	<xsd:element name="commercialSupport" type="yesNoType"/>
@@ -342,7 +343,7 @@
 	<xsd:element name="contact" type="lom:CharacterString"/>
 	<xsd:element name="quality" type="URILabelType"/>
 	<xsd:element name="targetAudience" type="targetAudienceType"/>
-	<xsd:element name="disciplineOrSpecialty" type="lom:LanguageString"/>
+	<xsd:element name="disciplineOrSpecialty" type="vocabularyTermType"/>
 	<xsd:element name="profession" type="vocabularyTermType"/>
 	<xsd:element name="readingLevel" type="lom:LanguageString"/>
 	<xsd:element name="annotated" type="yesNoType"/>
@@ -353,7 +354,7 @@
 	<xsd:element name="specimenType" type="specimenTypeType"/>
 	<xsd:element name="fileHeight" type="xsd:integer"/>
 	<xsd:element name="fileWidth" type="xsd:integer"/>
-	<xsd:element name="audienceCategory" type="audienceCategoryType"/>
+	<xsd:element name="audienceCategory" type="lom:LanguageString"/>
 	<xsd:element name="isRepurposedFrom" type="lom:identifier"/>
 	<xsd:element name="repurposingContext" type="repurposingContextType"/>
 	<xsd:element name="repurposingDescription" type="lom:LanguageString"/>
@@ -451,14 +452,6 @@
 			<xsd:enumeration value="tissue"/>
 		</xsd:restriction>
 	</xsd:simpleType>
-	<xsd:simpleType name="audienceCategoryType">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="general"/>
-			<xsd:enumeration value="patient"/>
-			<xsd:enumeration value="caregiver"/>
-			<xsd:enumeration value="professional"/>
-		</xsd:restriction>
-	</xsd:simpleType>
 	<xsd:simpleType name="repurposingContextType">
 		<xsd:restriction base="xsd:anyURI">
 			<xsd:enumeration value="http://purl.org/meducator/repurposing#Different-Languages"/>
@@ -540,7 +533,7 @@
 			<xsd:group ref="activitySponsorship"/>
 			<xsd:group ref="participationModality"/>
 			<xsd:group ref="activityDelivery"/>
-			<xsd:group ref="activityFormat"/>
+			<xsd:group ref="activityOrResourceFormat"/>
 			<xsd:group ref="offLabelUse"/>
 			<xsd:group ref="offLabelDescription"/>
 			<xsd:group ref="commercialSupport"/>
