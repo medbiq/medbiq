@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
 <xsd:schema xmlns="http://ns.medbiq.org/curriculuminventory/v1/" xmlns:m="http://ns.medbiq.org/member/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:co="http://ns.medbiq.org/competencyobject/v1/" xmlns:cf="http://ns.medbiq.org/competencyframework/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" xmlns:hv="http://ns.medbiq.org/lom/vocab/v1/" xmlns:ns1="http://ns.medbiq.org/lom/vocab/v1/" targetNamespace="http://ns.medbiq.org/curriculuminventory/v1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xsd:import namespace="http://ns.medbiq.org/member/v1/" schemaLocation="http://ns.medbiq.org/member/v1/member.xsd"/>
@@ -7,8 +7,8 @@
 	<xsd:import namespace="http://ltsc.ieee.org/xsd/LOM" schemaLocation="http://ns.medbiq.org/lom/healthcarelom.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/competencyframework/v1/" schemaLocation="http://ns.medbiq.org/competencyframework/v1/competencyframework.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/lom/vocab/v1/" schemaLocation="http://ns.medbiq.org/lom/healthcare/healthcarevocabularies.xsd"/>
-	<!--Copyright © 2013 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
-	<!--Modified July 2, 2013-->
+	<!--Copyright © 2014 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	<!--Modified June 27, 2014 with Corrigenda corrections-->
 	<xsd:simpleType name="NonNullString">
 		<xsd:restriction base="xsd:string">
 			<xsd:minLength value="1"/>
@@ -156,7 +156,7 @@
 				<xsd:element name="SequenceBlockReference" type="SequenceBlockReferenceType"/>
 			</xsd:choice>
 		</xsd:sequence>
-		<xsd:attribute name="id" use="required"/>
+		<xsd:attribute name="id" type="NonNullString" use="required"/>
 		<xsd:attribute name="required" type="RequiredType" use="required"/>
 		<xsd:attribute name="order" type="OrderType"/>
 		<xsd:attribute name="minimum" type="xsd:positiveInteger"/>
@@ -178,7 +178,7 @@
 			<xsd:element name="EventReference" type="EventReferenceType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="SequenceBlockReference" type="SequenceBlockReferenceType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
-		<xsd:attribute name="id" use="required"/>
+		<xsd:attribute name="id" type="NonNullString" use="required"/>
 	</xsd:complexType>
 	<xsd:complexType name="IntegrationType">
 		<xsd:sequence>
@@ -255,7 +255,7 @@
 				<xsd:element name="AssessmentMethod" type="AssessmentMethodType"/>
 			</xsd:choice>
 		</xsd:sequence>
-		<xsd:attribute name="id" use="required"/>
+		<xsd:attribute name="id" type="NonNullString" use="required"/>
 	</xsd:complexType>
 	<xsd:complexType name="CurriculumInventoryType">
 		<xsd:sequence>
