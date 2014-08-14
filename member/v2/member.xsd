@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2013 rel. 2 sp2 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins at Mt Washington) -->
+<!-- edited with XMLSpy v2014 rel. 2 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins at Mt Washington) -->
 <xsd:schema xmlns="http://ns.medbiq.org/member/v2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:n="http://ns.medbiq.org/name/v2/" xmlns:a="http://ns.medbiq.org/address/v2/" xmlns:mbq="http://ns.medbiq.org/common/v2/" targetNamespace="http://ns.medbiq.org/member/v2/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xsd:import namespace="http://ns.medbiq.org/name/v2/" schemaLocation="http://ns.medbiq.org/name/v2/name.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/address/v2/" schemaLocation="http://ns.medbiq.org/address/v2/address.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
-	<!--Copyright © 2013 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	<!--Copyright © 2014 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
 	<!--Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use-->
-	<!--Modified 10 April 2014-->
+	<!--Modified 14 August 2014-->
 	<!-- Note that use of Xtensibleinfo is deprecated in this version of the standard-->
 	<xsd:element name="Members" type="MembersType"/>
 	<xsd:attributeGroup name="CommonAttributes">
@@ -917,8 +917,8 @@
 			<xsd:element name="DeceasedDate" type="DateAndAccuracyType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Language" type="LanguageType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Citizenship" type="CitizenshipType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="CountryOfResidence" type="a:CountryType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="CountryOfBirth" type="a:CountryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CountryOfResidence" type="a:CountryTypeWithAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CountryOfBirth" type="a:CountryTypeWithAttributes" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Gender" type="GenderType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Race" type="NonNullStringWithAttributesType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Ethnicity" type="NonNullStringWithAttributesType" minOccurs="0" maxOccurs="unbounded"/>
