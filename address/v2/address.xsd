@@ -52,16 +52,4 @@
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>
-
-  <xsd:complexType name="CountryTypeWithAttributes">
-    <xsd:annotation>
-      <xsd:documentation>Complex type using CountryType as its base to allow custom attributes.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="CountryType">
-        <xsd:attributeGroup ref="CommonAttributes"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  
 </xsd:schema>
