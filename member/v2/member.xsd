@@ -917,8 +917,8 @@
 			<xsd:element name="DeceasedDate" type="DateAndAccuracyType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Language" type="LanguageType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Citizenship" type="CitizenshipType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="CountryOfResidence" type="a:CountryType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="CountryOfBirth" type="a:CountryType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CountryOfResidence" type="a:CountryTypeWithAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="CountryOfBirth" type="a:CountryTypeWithAttributes" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Gender" type="GenderType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Race" type="NonNullStringWithAttributesType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Ethnicity" type="NonNullStringWithAttributesType" minOccurs="0" maxOccurs="unbounded"/>
