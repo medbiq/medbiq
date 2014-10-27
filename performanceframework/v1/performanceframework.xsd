@@ -11,7 +11,7 @@
 	<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
 	<!-- Copyright © 2014 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org -->
 	<!-- Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use -->
-	<!--Modified 16 July 2014-->
+	<!--Modified 27 October 2014-->
 	<xsd:complexType name="DescriptionMaterialType">
 		<xsd:sequence>
 			<xsd:element ref="xhtml:div"/>
@@ -40,7 +40,10 @@
 	</xsd:complexType>
 	<xsd:complexType name="IndicatorType">
 		<xsd:sequence>
-			<xsd:element name="Description" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element name="Description" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+				<xsd:element name="Reference" type="mbq:ReferenceType" maxOccurs="unbounded"/>
+			</xsd:choice>
 			<xsd:element name="Competency" type="CompetencyType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="AdditionalInformation" type="AdditionalInformationType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
