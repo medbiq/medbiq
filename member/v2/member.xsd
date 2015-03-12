@@ -71,6 +71,7 @@
       <xsd:enumeration value="Revoked"/>
       <xsd:enumeration value="Certified"/>
       <xsd:enumeration value="Not Certified"/>
+      <xsd:enumeration value="Certified but Clinically Inactive"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="CertificateStatusVocabularyType">
@@ -83,6 +84,7 @@
       <xsd:enumeration value="Revoked"/>
       <xsd:enumeration value="Certified"/>
       <xsd:enumeration value="Not Certified"/>
+      <xsd:enumeration value="Certified but Clinically Inactive"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="CertificateIssuanceStatusVocabularyType">
@@ -447,7 +449,7 @@
   </xsd:complexType>
   <xsd:complexType name="CertificationInfoType">
     <xsd:sequence>
-      <xsd:element name="CertificationOrganization" type="NonNullStringWithAttributesType" minOccurs="0"/>
+      <xsd:element name="RecognitionOrganization" type="NonNullStringWithAttributesType" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:element name="CertificationBoard" type="NonNullStringWithAttributesType" minOccurs="0"/>
       <xsd:element name="CertificationStatus" type="CertificationStatusType" minOccurs="0"/>
       <xsd:element name="CertificationStatusValidUntilDate" type="DateAndAccuracyType" minOccurs="0"/>
