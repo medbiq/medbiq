@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2015 rel. 4 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
+<!-- edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
 <xsd:schema xmlns="http://ns.medbiq.org/Disclosure/v1/" xmlns:m="http://ns.medbiq.org/member/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:n="http://ns.medbiq.org/name/v1/" xmlns:c="http://ns.medbiq.org/common/v2/" xmlns:a="http://ns.medbiq.org/address/v1/" targetNamespace="http://ns.medbiq.org/Disclosure/v1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!-- Draft Version -->
-	<!-- Last Update: 2015-06-30 -->
+	<!-- Last Update: 2015-07-17 -->
 	<xsd:import namespace="http://ns.medbiq.org/member/v1/" schemaLocation="http://ns.medbiq.org/member/v1/member.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/name/v1/" schemaLocation="http://ns.medbiq.org/name/v1/name.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
@@ -61,11 +61,12 @@
 			<xsd:element name="Telephone" type="m:ContactNumberType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Email" type="m:EmailAddressType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
 	</xsd:complexType>
 	<xsd:complexType name="OrganizationEntityType">
 		<xsd:sequence>
 			<xsd:element name="OrganizationName" type="c:NonNullStringType" minOccurs="0"/>
-			<xsd:element name="FormOfBusiness" type="FormOfBusinessType" minOccurs="0"/>
+			<xsd:element name="FormOfBusiness" type="FormOfBusinessType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="OtherFormOfBusiness" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="CompanyCategory" type="CompanyCategoryType" minOccurs="0"/>
 			<xsd:element name="ParentCompany" type="c:NonNullStringType" minOccurs="0"/>
@@ -74,6 +75,7 @@
 			<xsd:element name="Telephone" type="m:ContactNumberType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="Email" type="m:EmailAddressType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
 	</xsd:complexType>
 	<xsd:complexType name="ProfessionalServicesType">
 		<xsd:sequence>
@@ -89,7 +91,7 @@
 			<xsd:element ref="DateSpan" minOccurs="0"/>
 			<xsd:element name="AnnualCompensationAmount" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="AverageHours" type="AverageHoursType" minOccurs="0"/>
-			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0"/>
+			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0" maxOccurs="6"/>
 			<xsd:element name="OtherFormOfCompensation" type="c:NonNullStringType" minOccurs="0"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -116,7 +118,7 @@
 			<xsd:element name="ActivityDateSpan" type="DateSpanType" minOccurs="0"/>
 			<xsd:element name="AnnualCompensationAmount" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="AverageHours" type="AverageHoursType" minOccurs="0"/>
-			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0"/>
+			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0" maxOccurs="6"/>
 			<xsd:element name="OtherFormOfCompensation" type="c:NonNullStringType" minOccurs="0"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -127,7 +129,7 @@
 			<xsd:element name="FiduciaryOfficerDescription" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element ref="DateSpan" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="AnnualCompensationAmount" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
-			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0"/>
+			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0" maxOccurs="6"/>
 			<xsd:element name="OtherFormOfCompensation" type="c:NonNullStringType" minOccurs="0"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -136,17 +138,8 @@
 		<xsd:restriction base="xsd:string">
 			<xsd:enumeration value="Consultant"/>
 			<xsd:enumeration value="Expert Witness"/>
-			<xsd:enumeration value="Speaker Training"/>
 			<xsd:enumeration value="Data And Safety Monitoring"/>
-			<xsd:enumeration value="Board Member"/>
-			<xsd:enumeration value="Clinical Oversight Board"/>
-			<xsd:enumeration value="Scientific Advisory Board"/>
-			<xsd:enumeration value="Product Development"/>
-			<xsd:enumeration value="Editorial Service"/>
-			<xsd:enumeration value="Contracted"/>
 			<xsd:enumeration value="Professional Investigator"/>
-			<xsd:enumeration value="Speakers Bureau"/>
-			<xsd:enumeration value="Marketing"/>
 			<xsd:enumeration value="End Point Review Committee"/>
 			<xsd:enumeration value="Other"/>
 		</xsd:restriction>
@@ -336,10 +329,10 @@
 			<xsd:element name="Description" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="PatentStatus" type="IPStatusType" minOccurs="0"/>
 			<xsd:element name="PatentFilingDate" type="xsd:date" minOccurs="0"/>
-			<xsd:element name="Licensed" type="LicenseType" minOccurs="0"/>
+			<xsd:element name="Licensed" type="LicenseType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="PatentHolder" type="IPHolderType" minOccurs="0"/>
 			<xsd:element name="OtherPatentHolder" type="c:NonNullStringType" minOccurs="0"/>
-			<xsd:element name="YearlyIncome" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
 	</xsd:complexType>
@@ -370,10 +363,10 @@
 			<xsd:element name="TrademarkNumber" type="IPNumberType" minOccurs="0"/>
 			<xsd:element name="TrademarkStatus" type="IPStatusType" minOccurs="0"/>
 			<xsd:element name="TrademarkFilingDate" type="xsd:date" minOccurs="0"/>
-			<xsd:element name="Licensed" type="LicenseType" minOccurs="0"/>
+			<xsd:element name="Licensed" type="LicenseType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="TrademarkHolder" type="IPHolderType" minOccurs="0"/>
 			<xsd:element name="OtherTrademarkHolder" type="c:NonNullStringType" minOccurs="0"/>
-			<xsd:element name="YearlyIncome" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
 	</xsd:complexType>
@@ -383,7 +376,7 @@
 			<xsd:element name="CopyrightNumber" type="IPNumberType" minOccurs="0"/>
 			<xsd:element name="CopyrightHolder" type="IPHolderType" minOccurs="0"/>
 			<xsd:element name="OtherCopyrightHolder" type="c:NonNullStringType" minOccurs="0"/>
-			<xsd:element name="YearlyIncome" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
 	</xsd:complexType>
@@ -392,7 +385,7 @@
 			<xsd:element name="TypeOfOtherIntellectualProperty" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="Description" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="SourceOfIncome" type="c:NonNullStringType" minOccurs="0"/>
-			<xsd:element name="YearlyIncome" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
 	</xsd:complexType>
@@ -413,12 +406,32 @@
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>
+	<xsd:complexType name="IPYearlyIncomeType">
+		<xsd:simpleContent>
+			<xsd:extension base="YearlyIncomeType">
+				<xsd:attribute name="paymentProcessing" type="PaymentProcessingType" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="PaymentProcessingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="direct payment"/>
+			<xsd:enumeration value="payment through home institution"/>
+			<xsd:enumeration value="payment through other organization"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 	<xsd:complexType name="LicenseType">
 		<xsd:sequence>
 			<xsd:element name="LicenseTitle" type="c:NonNullStringType"/>
 			<xsd:element name="LicenseDate" type="xsd:date"/>
-			<xsd:element name="Licensee" type="c:NonNullStringType" minOccurs="0"/>
+			<xsd:element name="Licensee" type="LicenseeType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LicenseeType">
+		<xsd:choice>
+			<xsd:element name="EntityReference" type="xsd:IDREF"/>
+			<xsd:element name="LicenseeDescription" type="n:NonNullString"/>
+		</xsd:choice>
 	</xsd:complexType>
 	<!--Metadata Information -->
 	<xsd:complexType name="MetadataType">
