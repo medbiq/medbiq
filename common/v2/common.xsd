@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
 <xsd:schema xmlns="http://ns.medbiq.org/common/v2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://ns.medbiq.org/common/v2/" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<!--Copyright © 2013 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	<!--Copyright © 2015 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
 	<!--Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use-->
-	<!--Modified 13 April 2015-->
+	<!--Modified 25 September 2015-->
 	<xsd:import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="http://www.w3.org/2004/08/xop/include"/>
 	<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
-	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd "/>
 	<xsd:simpleType name="NonNullStringType">
 		<xsd:restriction base="xsd:string">
 			<xsd:minLength value="1"/>
