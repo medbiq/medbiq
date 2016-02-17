@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2015 rel. 4 sp1 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
+<!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
 <xsd:schema xmlns="http://ns.medbiq.org/Disclosure/v1/" xmlns:m="http://ns.medbiq.org/member/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:n="http://ns.medbiq.org/name/v1/" xmlns:c="http://ns.medbiq.org/common/v2/" xmlns:a="http://ns.medbiq.org/address/v1/" targetNamespace="http://ns.medbiq.org/Disclosure/v1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!-- Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use -->
-	<!-- Modified 26 October 2015 -->
+	<!-- Modified 17 February 2016-->
 	<xsd:import namespace="http://ns.medbiq.org/member/v1/" schemaLocation="http://ns.medbiq.org/member/v1/member.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/name/v1/" schemaLocation="http://ns.medbiq.org/name/v1/name.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
