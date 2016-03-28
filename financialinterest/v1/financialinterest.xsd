@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2016 rel. 2 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
 <xsd:schema xmlns="http://ns.medbiq.org/Disclosure/v1/" xmlns:m="http://ns.medbiq.org/member/v1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:n="http://ns.medbiq.org/name/v1/" xmlns:c="http://ns.medbiq.org/common/v2/" xmlns:a="http://ns.medbiq.org/address/v1/" targetNamespace="http://ns.medbiq.org/Disclosure/v1/" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!-- Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use -->
-	<!-- Modified 17 February 2016-->
+	<!-- Modified 28 March 2016-->
 	<xsd:import namespace="http://ns.medbiq.org/member/v1/" schemaLocation="http://ns.medbiq.org/member/v1/member.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/name/v1/" schemaLocation="http://ns.medbiq.org/name/v1/name.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
@@ -139,9 +139,11 @@
 		<xsd:sequence>
 			<xsd:element name="CopyrightDescription" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="CopyrightNumber" type="IPNumberType" minOccurs="0"/>
+			<xsd:element name="Licensed" type="LicenseType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="CopyrightHolder" type="IPHolderType" minOccurs="0"/>
 			<xsd:element name="OtherCopyrightHolder" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -177,6 +179,7 @@
 			<xsd:element name="AverageHours" type="AverageHoursType" minOccurs="0"/>
 			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0" maxOccurs="6"/>
 			<xsd:element name="OtherFormOfCompensation" type="c:NonNullStringType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -189,6 +192,7 @@
 			<xsd:element name="AnnualCompensationAmount" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0" maxOccurs="6"/>
 			<xsd:element name="OtherFormOfCompensation" type="c:NonNullStringType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -246,6 +250,7 @@
 			<xsd:element name="EstimatedValue" type="ValueType" minOccurs="0"/>
 			<xsd:element name="ReceiveDate" type="xsd:date" minOccurs="0"/>
 			<xsd:element name="Description" type="c:NonNullStringType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -259,6 +264,7 @@
 			<xsd:element name="GrantOrContractDescription" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="Amount" type="ValueType" minOccurs="0"/>
 			<xsd:element name="DateSpan" type="DateSpanType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -273,6 +279,7 @@
 			<xsd:element name="AverageHours" type="AverageHoursType" minOccurs="0"/>
 			<xsd:element name="FormOfCompensation" type="TypeOfPaymentType" minOccurs="0" maxOccurs="6"/>
 			<xsd:element name="OtherFormOfCompensation" type="c:NonNullStringType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -293,6 +300,7 @@
 			<xsd:element name="SourceOfIncome" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="Licensed" type="LicenseType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -370,6 +378,7 @@
 			<xsd:element name="PercentageOfOwnership" type="xsd:integer" minOccurs="0"/>
 			<xsd:element name="AnnualCompensationAmount" type="YearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
 			<xsd:element name="InvestmentAmount" type="ValueType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -380,6 +389,7 @@
 			<xsd:element name="SecurityValue" type="ValueType" minOccurs="0"/>
 			<xsd:element name="AcquisitionDate" type="xsd:date" minOccurs="0"/>
 			<xsd:element name="DivestmentDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -394,6 +404,7 @@
 			<xsd:element name="PatentHolder" type="IPHolderType" minOccurs="0"/>
 			<xsd:element name="OtherPatentHolder" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -422,6 +433,7 @@
 			<xsd:element name="OriginalOfferDate" type="xsd:date" minOccurs="0"/>
 			<xsd:element name="OfferPrice" type="xsd:integer" minOccurs="0"/>
 			<xsd:element name="ExpirationDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -433,6 +445,7 @@
 			<xsd:element name="NumberOfShares" type="xsd:integer" minOccurs="0"/>
 			<xsd:element name="PercentageOfOwnership" type="xsd:integer" minOccurs="0"/>
 			<xsd:element name="SecurityValue" type="ValueType" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -447,6 +460,7 @@
 			<xsd:element name="TrademarkHolder" type="IPHolderType" minOccurs="0"/>
 			<xsd:element name="OtherTrademarkHolder" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:element name="IPYearlyIncome" type="IPYearlyIncomeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
@@ -458,6 +472,7 @@
 			<xsd:element name="EstimatedOrActualValue" type="ValueType" minOccurs="0"/>
 			<xsd:element name="Purpose" type="xsd:string" minOccurs="0"/>
 			<xsd:element name="TravelTypeOfPayment" type="TravelTypeOfPayment" minOccurs="0"/>
+			<xsd:element name="AdditionalInformation" type="c:NonNullStringType" minOccurs="0"/>
 			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 		<xsd:attribute name="financialInterestExists" type="xsd:boolean"/>
