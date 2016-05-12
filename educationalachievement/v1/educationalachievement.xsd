@@ -11,11 +11,11 @@
 	<xsd:import namespace="http://ns.medbiq.org/performanceframework/v1/" schemaLocation="http://ns.medbiq.org/performanceframework/v1/performanceframework.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
 	<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
-	<xsd:import namespace="urn:org:pesc:core:CoreMain:v1.12.0" schemaLocation="CoreMain_v1.12.0.xsd"/>
-	<xsd:import namespace="urn:org:pesc:sector:AcademicRecord:v1.7.0" schemaLocation="AcademicRecord_v1.7.0.xsd"/>
-	<!-- Copyright © 2014 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org -->
-	<!-- Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use-->
-	<!-- Modified August 25, 2014-->
+	<xsd:import namespace="urn:org:pesc:core:CoreMain:v1.12.0" schemaLocation="http://www.pesc.org/library/docs/standards/Core%20Main/CoreMain_v1.12.0.xsd"/>
+	<xsd:import namespace="urn:org:pesc:sector:AcademicRecord:v1.7.0" schemaLocation="http://www.pesc.org/library/docs/standards/High%20School%20Transcript/AcademicRecord_v1.7.0.xsd"/>
+	<!-- Copyright © 2016 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org -->
+	<!-- Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use, http://medbiq.org/license -->
+	<!-- Modified May 12, 2016-->
 	<xsd:simpleType name="EmbeddedCompetencyType">
 		<xsd:restriction base="xsd:string">
 			<xsd:pattern value="\s*/EducationalAchievement/AchievementInContext/Expectations/CompetencyObject\[lom:lom/lom:general/lom:identifier/lom:entry\s?=\s?'[^']+'\]\s*"/>
@@ -144,8 +144,11 @@
 	</xsd:complexType>
 	<xsd:complexType name="FrameworkScoreType">
 		<xsd:sequence>
-			<xsd:element name="PerformanceScore" type="xsd:decimal"/>
 			<xsd:element name="Reference" type="mbq:ReferenceType"/>
+			<xsd:choice>
+				<xsd:element name="PerformanceScore" type="xsd:decimal"/>
+				<xsd:element name="NotYetAssessable" type="xsd:boolean"/>
+			</xsd:choice>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="SubScoreType">
