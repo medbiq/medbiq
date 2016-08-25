@@ -4,9 +4,9 @@
 	<xsd:import namespace="http://ns.medbiq.org/name/v2/" schemaLocation="http://ns.medbiq.org/name/v2/name.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/address/v2/" schemaLocation="http://ns.medbiq.org/address/v2/address.xsd"/>
 	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
-	<!--Copyright © 2013 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	<!--Copyright © 2016 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
 	<!--Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use-->
-	<!--Modified 17 September 2013-->
+	<!--Modified 25 September 2016-->
 	<!-- Note that use of Xtensibleinfo is deprecated in this version of the standard-->
 	<xsd:element name="Members" type="MembersType"/>
 	<xsd:attributeGroup name="CommonAttributes">
@@ -17,6 +17,7 @@
 	</xsd:attributeGroup>
 	<xsd:simpleType name="AccuracyType">
 		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DayMonth"/>
 			<xsd:enumeration value="DayMonthYear"/>
 			<xsd:enumeration value="MonthYear"/>
 			<xsd:enumeration value="Year"/>
