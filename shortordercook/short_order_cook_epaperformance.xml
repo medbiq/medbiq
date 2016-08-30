@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PerformanceFramework xmlns="http://ns.medbiq.org/performanceframework/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:cf="http://ns.medbiq.org/competencyframework/v1/" xmlns:cobj="http://ns.medbiq.org/competencyobject/v1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ns.medbiq.org/performanceframework/v1/ performanceframework.xsd">
+	<lom:lom>
+		<lom:general>
+			<lom:identifier>
+				<lom:catalog>URI</lom:catalog>
+				<lom:entry>http://www.example.org/short_order_cook_epaperformance_v1</lom:entry>
+			</lom:identifier>
+			<lom:title>
+				<lom:string>Short Order Cook Levels of Entrustment</lom:string>
+			</lom:title>
+			<lom:description>
+				<lom:string>The framework is designed for use in short order cook trainee evaluation.</lom:string>
+			</lom:description>
+		</lom:general>
+		<lom:lifeCycle>
+			<lom:contribute>
+				<lom:role>
+					<lom:source>LOMv1.0</lom:source>
+					<lom:value>publisher</lom:value>
+				</lom:role>
+				<lom:entity>BEGIN:VCARD\nFN:Center for Really Good CooksEND:VCARD</lom:entity>
+			</lom:contribute>
+		</lom:lifeCycle>
+		<lom:rights>
+			<lom:copyrightAndOtherRestrictions>
+				<lom:source>LOMv1.0</lom:source>
+				<lom:value>yes</lom:value>
+			</lom:copyrightAndOtherRestrictions>
+			<lom:description>
+				<lom:string language="en">Creative Commons Attribution 3.0 Unported license, http://creativecommons.org/licenses/by/3.0/</lom:string>
+			</lom:description>
+		</lom:rights>
+    </lom:lom>
+	<PerformanceScale id="scale_1to5">
+		<LeastCompetent>1</LeastCompetent>
+		<MostCompetent>5</MostCompetent>
+	</PerformanceScale>
+	<Component id="comp_e1">
+		<Title>Prepare a meal as a solo cook.</Title>
+		<Competency>
+			<Reference>
+				<rdf:description about="http://www.example.org/shortordercookepas/e1"/>
+				<rdf:type rdf:resource="http://ns.medbiq.org/competencyobject/v1/"/>
+			</Reference>
+			<Reference>
+				<rdf:description about="http://www.example.org/short_order_cook_competencyframework_v1"/>
+				<rdf:type rdf:resource="http://www.example.org/short_order_cook_epas_v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>scale_1to5</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>1</SingleValue>
+				</Score>
+				<Label>Be present and observe</Label>
+				<Indicator id="inde101">
+					<Description>Observes menu planning and preparation while maintaining personal safety.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Label>Act with Direct Supervision</Label>
+				<Indicator id="inde102">
+					<Description>Demonstrates multiple meal preparation competencies (ie Plan a menu, obtain ingredients, prepare a meal) with some prompting from supervising short order cook.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>3</DisplayOrder>
+				<Score>
+					<SingleValue>3</SingleValue>
+				</Score>
+				<Label>Act with Indirect Supervision</Label>
+				<Indicator id="inde103">
+					<Description>Prepares a meal independently, calling on a nearby, available short order cook for minimal assistance.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>4</DisplayOrder>
+				<Score>
+					<SingleValue>4</SingleValue>
+				</Score>
+				<Label>Act without supervision</Label>
+				<Indicator id="inde104">
+					<Description>Prepares a tasteful and nutritious meal without assistance.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>5</DisplayOrder>
+				<Score>
+					<SingleValue>5</SingleValue>
+				</Score>
+				<Label>Provide supervision</Label>
+				<Indicator id="inde105">
+					<Description>Provides supervision for overall meal preparation or aspects of meal preparation for other short order cook trainees.</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>		
+	</Component>
+</PerformanceFramework>

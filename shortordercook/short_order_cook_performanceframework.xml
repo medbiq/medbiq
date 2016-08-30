@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PerformanceFramework xmlns="http://ns.medbiq.org/performanceframework/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:cf="http://ns.medbiq.org/competencyframework/v1/" xmlns:cobj="http://ns.medbiq.org/competencyobject/v1/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ns.medbiq.org/performanceframework/v1/ performanceframework.xsd">
+	<lom:lom>
+		<lom:general>
+			<lom:identifier>
+				<lom:catalog>URI</lom:catalog>
+				<lom:entry>http://www.example.org/short_order_cook_performanceframework_v1</lom:entry>
+			</lom:identifier>
+			<lom:title>
+				<lom:string>Short Order Cook Performance Framework</lom:string>
+			</lom:title>
+			<lom:description>
+				<lom:string>The framework is designed for use in short order cook trainee evaluation.</lom:string>
+			</lom:description>
+		</lom:general>
+		<lom:lifeCycle>
+			<lom:contribute>
+				<lom:role>
+					<lom:source>LOMv1.0</lom:source>
+					<lom:value>publisher</lom:value>
+				</lom:role>
+				<lom:entity>BEGIN:VCARD\nFN:Center for Really Good CooksEND:VCARD</lom:entity>
+			</lom:contribute>
+		</lom:lifeCycle>
+		<lom:rights>
+			<lom:copyrightAndOtherRestrictions>
+				<lom:source>LOMv1.0</lom:source>
+				<lom:value>yes</lom:value>
+			</lom:copyrightAndOtherRestrictions>
+			<lom:description>
+				<lom:string language="en">Creative Commons Attribution 3.0 Unported license, http://creativecommons.org/licenses/by/3.0/</lom:string>
+			</lom:description>
+		</lom:rights>
+    </lom:lom>
+	<PerformanceScale id="scale_1to5">
+		<LeastCompetent>1</LeastCompetent>
+		<MostCompetent>5</MostCompetent>
+	</PerformanceScale>
+	<Component id="comp_c1a">
+		<Title>Select dishes that are meal-appropriate, nutritionally balanced, seasonally appropriate, and feasible for the kitchen and eating environment.</Title>
+		<Competency>
+			<Reference>
+				<rdf:description about="http://www.example.org/shortordercookcompetencies/c1a"/>
+				<rdf:type rdf:resource="http://ns.medbiq.org/competencyobject/v1/"/>
+			</Reference>
+			<Reference>
+				<rdf:description about="http://www.example.org/short_order_cook_competencyframework_v1"/>
+				<rdf:type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>scale_1to5</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>1</SingleValue>
+				</Score>
+				<Label>Critical Deficiencies</Label>
+				<Indicator id="indc1a01">
+					<Description>Does not select dishes, providing a haphazard and mismatched offering of food or no food at all.</Description>
+				</Indicator>
+				<Indicator id="indc1a02">
+					<Description>Dishes selected cannot be prepared due to unsuitability of the cooking environment.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Label>Novice</Label>
+				<Indicator id="indc1a03">
+					<Description>Dishes are appropriate for the meal (ie breakfast or lunch). </Description>
+				</Indicator>
+				<Indicator id="indc1a04">
+					<Description>Dishes are focused on carbohydrates or high-fat proteins, failing to offer seasonally appropriate fruits or vegetables. 
+Learner experiences a minor “glitch” in the cooking process, realizing that he/she is missing two or more necessary tools.
+</Description>
+				</Indicator>
+				<Indicator id="indc1a05">
+					<Description>Diners have great difficulty eating the food because it is not suitable for the dining environment (ie a diner receives a dish requiring a fork and knife, but no knives are available to diners).</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>3</DisplayOrder>
+				<Score>
+					<SingleValue>3</SingleValue>
+				</Score>
+				<Indicator id="indc1a06">
+					<Description>Selects dishes that are both meal-appropriate and nutritionally balanced.</Description>
+				</Indicator>
+				<Indicator id="indc1a07">
+					<Description>The meal contains fruits or vegetables, but not those in season.</Description>
+				</Indicator>
+				<Indicator id="indc1a08">
+					<Description>The cook has the tools appropriate to prepare the planned menu.</Description>
+				</Indicator>
+				<Indicator id="indc1a09">
+					<Description>Diners may have minor difficulty eating the food in the dining environment (ie diners eating on the go receive finger food, but the size of the finger food is a little large and awkward to eat.)</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>4</DisplayOrder>
+				<Score>
+					<SingleValue>4</SingleValue>
+				</Score>
+				<Indicator id="indc1a10">
+					<Description>Selects dishes that are meal-appropriate, nutritionally balanced, and contain seasonal fruits or vegetables.</Description>
+				</Indicator>
+				<Indicator id="indc1a11">
+					<Description>The cook has the tools appropriate to prepare the planned meal, and diners have no difficulty whatsoever eating the food in the dining environment. </Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>5</DisplayOrder>
+				<Score>
+					<SingleValue>5</SingleValue>
+				</Score>
+				<Label>Aspirational</Label>
+				<Indicator id="indc1a12">
+					<Description>Seasonally appropriate and nutritious dishes are paired to complement one another in a manner idea for the dining environment, offering an exceptional dining experience. </Description>
+				</Indicator>
+				<Indicator id="indc1a13">
+					<Description>With the appropriate tools, the cook flawlessly executes food preparation.</Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>		
+	</Component>
+	<Component id="comp_c3e">
+		<Title>Combine ingredients effectively and efficiently</Title>
+		<Competency>
+			<Reference>
+				<rdf:description about="http://www.example.org/shortordercookcompetencies/c3e"/>
+				<rdf:type rdf:resource="http://ns.medbiq.org/competencyobject/v1/"/>
+			</Reference>
+			<Reference>
+				<rdf:description about="http://www.example.org/short_order_cook_competencyframework_v1"/>
+				<rdf:type rdf:resource="http://ns.medbiq.org/competencyframework/v1/"/>
+				<dcterms:format>application/xml</dcterms:format>
+			</Reference>
+		</Competency>
+		<PerformanceLevelSet>
+			<PerformanceScaleReference>scale_1to5</PerformanceScaleReference>
+			<PerformanceLevel>
+				<DisplayOrder>1</DisplayOrder>
+				<Score>
+					<SingleValue>1</SingleValue>
+				</Score>
+				<Label>Critical Deficiencies</Label>
+				<Indicator id="indc3e01">
+					<Description>Does not combine ingredients.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>2</DisplayOrder>
+				<Score>
+					<SingleValue>2</SingleValue>
+				</Score>
+				<Label>Novice</Label>
+				<Indicator id="indc3e02">
+					<Description>Combines ingredients without regard for order and technique.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>3</DisplayOrder>
+				<Score>
+					<SingleValue>3</SingleValue>
+				</Score>
+				<Indicator id="indc3e03">
+					<Description>Combines ingredients using either the appropriate order or the appropriate technique, but not both.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>4</DisplayOrder>
+				<Score>
+					<SingleValue>4</SingleValue>
+				</Score>
+				<Indicator id="indc3e04">
+					<Description>Combines ingredients using appropriate order and technique. </Description>
+				</Indicator>
+				<Indicator id="indc3e05">
+					<Description>Appropriately performs basic techniques such as mixing.</Description>
+				</Indicator>
+			</PerformanceLevel>
+			<PerformanceLevel>
+				<DisplayOrder>5</DisplayOrder>
+				<Score>
+					<SingleValue>5</SingleValue>
+				</Score>
+				<Label>Aspirational</Label>
+				<Indicator id="indc3e06">
+					<Description>Combines ingredients using appropriate order and technique.</Description>
+				</Indicator>
+				<Indicator id="indc3e07">
+					<Description>Appropriately performs advanced techniques such as folding. </Description>
+				</Indicator>
+			</PerformanceLevel>
+		</PerformanceLevelSet>
+	</Component>
+</PerformanceFramework>

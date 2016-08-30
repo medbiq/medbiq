@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 (x64) (http://www.altova.com) by Valerie Smothers (Johns Hopkins at Mt Washington) -->
+<!-- karl.burke@jhmi.edu -->
+<xsd:schema xmlns="http://ns.medbiq.org/performanceframework/v1/" xmlns:co="http://ns.medbiq.org/competencyobject/v1/" xmlns:cf="http://ns.medbiq.org/competencyframework/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mbq="http://ns.medbiq.org/common/v2/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:hx="http://ns.medbiq.org/lom/extend/v1/" targetNamespace="http://ns.medbiq.org/performanceframework/v1/" elementFormDefault="qualified">
+	<xsd:import namespace="http://ltsc.ieee.org/xsd/LOM" schemaLocation="http://ns.medbiq.org/lom/healthcarelom.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/lom/extend/v1/" schemaLocation="http://ns.medbiq.org/lom/healthcare/healthcaremetadata.xsd"/>
+	<xsd:import namespace="http://www.w3.org/1999/xhtml" schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/competencyobject/v1/" schemaLocation="http://ns.medbiq.org/competencyobject/v1/competencyobject.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/competencyframework/v1/" schemaLocation="http://ns.medbiq.org/competencyframework/v1/competencyframework.xsd"/>
+	<xsd:import namespace="http://ns.medbiq.org/common/v2/" schemaLocation="http://ns.medbiq.org/common/v2/common.xsd"/>
+	<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+	<!-- Copyright © 2014 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org -->
+	<!-- Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use -->
+	<!--Modified 27 October 2014-->
+	<xsd:complexType name="DescriptionMaterialType">
+		<xsd:sequence>
+			<xsd:element ref="xhtml:div"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdditionalInformationType">
+		<xsd:sequence>
+			<xsd:element name="Label" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+			<xsd:element name="Text" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+			<xsd:element name="Reference" type="mbq:ReferenceType" minOccurs="0"/>
+			<xsd:element ref="xhtml:div" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="position" type="xsd:integer"/>
+	</xsd:complexType>
+	<xsd:complexType name="ScoreType">
+		<xsd:choice>
+			<xsd:element name="SingleValue" type="xsd:decimal"/>
+			<xsd:element name="Range" type="RangeType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="RangeType">
+		<xsd:sequence>
+			<xsd:element name="MinScore" type="xsd:decimal"/>
+			<xsd:element name="MaxScore" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndicatorType">
+		<xsd:sequence>
+			<xsd:choice>
+				<xsd:element name="Description" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+				<xsd:element name="Reference" type="mbq:ReferenceType" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:element name="Competency" type="CompetencyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="AdditionalInformationType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="PerformanceLevelType">
+		<xsd:sequence>
+			<xsd:element name="DisplayOrder" type="xsd:positiveInteger"/>
+			<xsd:element name="Score" type="ScoreType"/>
+			<xsd:element name="Label" type="mbq:NonNullLanguageStringType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Indicator" type="IndicatorType" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="AdditionalInformationType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BackgroundType">
+		<xsd:sequence>
+			<xsd:element name="Description" type="mbq:NonNullStringType"/>
+			<xsd:element ref="xhtml:div" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CompetencyType">
+		<xsd:sequence>
+			<xsd:element name="Reference" type="mbq:ReferenceType" minOccurs="2" maxOccurs="2"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PerformanceLevelSetType">
+		<xsd:sequence>
+			<xsd:element name="PerformanceScaleReference" type="xsd:IDREF"/>
+			<xsd:element name="PerformanceLevel" type="PerformanceLevelType" minOccurs="2" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ThresholdType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+			<xsd:element name="Description" type="mbq:NonNullLanguageStringType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="MinimumAcceptableScore" type="xsd:decimal"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ComponentType">
+		<xsd:sequence>
+			<xsd:element name="Title" type="mbq:NonNullLanguageStringType" maxOccurs="unbounded"/>
+			<xsd:element name="Abbreviation" type="mbq:NonNullLanguageStringType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Competency" type="CompetencyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Author" type="mbq:NonNullStringType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Reviewer" type="mbq:NonNullStringType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Threshold" type="ThresholdType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="AdditionalInformation" type="AdditionalInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:choice>
+				<xsd:element name="ComponentReference" type="xsd:IDREF" maxOccurs="unbounded"/>
+				<xsd:element name="PerformanceLevelSet" type="PerformanceLevelSetType" minOccurs="1"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="PerformanceScaleType">
+		<xsd:sequence>
+			<xsd:element name="LeastCompetent" type="xsd:decimal"/>
+			<xsd:element name="MostCompetent" type="xsd:decimal"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="SupportingInformationType">
+		<xsd:choice>
+			<xsd:element name="Reference" type="mbq:ReferenceType"/>
+			<xsd:element ref="xhtml:div"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="PerformanceFrameworkType">
+		<xsd:sequence>
+			<xsd:element ref="lom:lom"/>
+			<xsd:element name="EffectiveDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="RetiredDate" type="xsd:date" minOccurs="0"/>
+			<xsd:element name="Replaces" type="xsd:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="IsReplacedBy" type="xsd:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="SupportingInformation" type="SupportingInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="PerformanceScale" type="PerformanceScaleType" maxOccurs="unbounded"/>
+			<xsd:element name="Component" type="ComponentType" minOccurs="1" maxOccurs="unbounded"/>
+			<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="PerformanceFramework" type="PerformanceFrameworkType"/>
+</xsd:schema>

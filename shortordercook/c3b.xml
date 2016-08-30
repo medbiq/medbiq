@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompetencyObject xmlns="http://ns.medbiq.org/competencyobject/v1/" xmlns:lom="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ns.medbiq.org/competencyobject/v1/ competencyobject.xsd">
+	<lom:lom>
+		<lom:general>
+			<lom:identifier>
+				<lom:catalog>URI</lom:catalog>
+				<lom:entry>http://www.example.org/shortordercookcompetencies/c3b</lom:entry>
+			</lom:identifier>
+			<lom:title>
+				<lom:string language="en">Grate cheese safely and effectively.</lom:string>
+			</lom:title>
+		</lom:general>
+		<lom:lifeCycle>
+			<lom:contribute>
+				<lom:role>
+					<lom:source>LOMv1.0</lom:source>
+					<lom:value>publisher</lom:value>
+				</lom:role>
+				<lom:entity>BEGIN:VCARD\nFN:Center for Really Good CooksEND:VCARD</lom:entity>
+			</lom:contribute>
+		</lom:lifeCycle>
+	</lom:lom>
+	<Category term="Competency"/>
+</CompetencyObject>

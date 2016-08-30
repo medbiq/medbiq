@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 rel. 2 sp2 (http://www.altova.com) by Valerie Smothers (Johns Hopkins University) -->
+<xsd:schema xmlns="http://ns.medbiq.org/common/v2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://ns.medbiq.org/common/v2/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--Copyright © 2015 MedBiquitous Consortium. All Rights Reserved. http://www.medbiq.org-->
+	<!--Users are bound by the terms of the MedBiquitous Consortium XML Public License and Terms of Use-->
+	<!--Modified 25 September 2015-->
+	<xsd:import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="http://www.w3.org/2004/08/xop/include"/>
+	<xsd:import namespace="http://purl.org/dc/terms/" schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd "/>
+	<xsd:simpleType name="NonNullStringType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictionsType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Unrestricted"/>
+			<xsd:enumeration value="Restricted"/>
+			<xsd:enumeration value="Confidential"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:attributeGroup name="CommonAttributes">
+		<xsd:attribute name="id" type="xsd:ID"/>
+		<xsd:attribute name="source" type="xsd:string"/>
+		<xsd:attribute name="validityDate" type="xsd:date"/>
+		<xsd:attribute name="restrictions" type="RestrictionsType"/>
+	</xsd:attributeGroup>
+	<xsd:element name="Attachment" type="AttachmentType"/>
+	<xsd:complexType name="EncodedAttachmentType">
+		<xsd:sequence>
+			<xsd:element name="Encoding" type="EncodingType"/>
+			<xsd:element name="MimeType" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="BinaryEncoding" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ReferencedAttachmentType">
+		<xsd:sequence>
+			<xsd:element name="URL" type="xsd:anyURI"/>
+			<xsd:element name="MimeType" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WebServicesAttachmentType">
+		<xsd:sequence>
+			<xsd:element ref="xop:Include"/>
+			<xsd:element name="Description" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="EncodingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Base64"/>
+			<xsd:enumeration value="Uuencoding"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="AttachmentType">
+		<xsd:choice>
+			<xsd:element name="EncodedAttachment" type="EncodedAttachmentType"/>
+			<xsd:element name="ReferencedAttachment" type="ReferencedAttachmentType"/>
+			<xsd:element name="WebServicesAttachment" type="WebServicesAttachmentType"/>
+		</xsd:choice>
+		<xsd:attributeGroup ref="CommonAttributes"/>
+	</xsd:complexType>
+	<xsd:complexType name="ReferenceType">
+		<xsd:sequence>
+			<xsd:any namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" processContents="lax" minOccurs="1" maxOccurs="2"/>
+			<xsd:element ref="dcterms:format" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="NonNullLanguageStringType">
+		<xsd:simpleContent>
+			<xsd:extension base="NonNullStringType">
+				<xsd:attribute ref="xml:lang"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>
