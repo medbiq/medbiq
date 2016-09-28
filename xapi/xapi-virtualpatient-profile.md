@@ -7,6 +7,8 @@
 > Licensed under Creative Commons, Attribution ( CC BY)
 >
 ## Table of Contents
+[Recipes](#recipes)
+[Vocabulary](#vocabulary)
 
 ## <a name="recipes"></a>Recipes
 Can be categorized by situation type or by activity type, or whatever makes sense in context. 
@@ -74,7 +76,7 @@ An example of usage in a statement:
     }
 }
 ``` 
-## Statements
+## <a name="statements"></a>Statements
 ### Verb usage:
 **Initialized**  
 User has opened a case. Sent when the VP case starts to play.  
@@ -86,9 +88,11 @@ Includes a timestamp and identifier of the node in the VP when playing was start
 **Completed** 
 User has completed the case. Reached a node designated by the case author as an endpoint. Does not indicate success or failure.  
 Verb IRI: http://adlnet.gov/expapi/verbs/completed  
+
 **Suspended**
 User has paused a case. Suspended a case with the possibility to resume later.
 Verb IRI: http://adlnet.gov/expapi/verbs/suspended  
+
 **Resumed**  
 User has restarted a case. Resumed a case that had been previously suspended.  
 Verb IRI: http://adlnet.gov/expapi/verbs/resumed  
@@ -136,7 +140,7 @@ Verb IRI: http://adlnet.gov/expapi/verbs/launched
 ## Activities 
 To be used mainly if there are very specific activities being described by this profile. Otherwise, Activity types usually used instead.
 
-## Verbs
+## <a name="vocabulary"></a>Vocabulary
 
 | Name  | Kind | IRI |
 |:------------- |:-----|:---------------|
@@ -153,7 +157,6 @@ To be used mainly if there are very specific activities being described by this 
 | Ignored |Verb| http://w3id.org/xapi/medbiq/verbs/ignored |
 | Updated |Verb| http://w3id.org/xapi/medbiq/verbs/updated |
 | Launched |Verb| http://adlnet.gov/expapi/verbs/launched |
+| Virtual Patient |Activity Type | http://adlnet.gov/expapi/activities/simulation |
 
-## Activity Types
-Virtual Patient	||
 
