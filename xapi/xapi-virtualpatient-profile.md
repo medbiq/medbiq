@@ -27,7 +27,7 @@ An example of usage in a statement:
 
 ```
 {
-   "timestamp": <timestamp>
+   "timestamp": 2016-09-22T14:48:06.807818Z,
     "actor": {
          "objectType": "Agent",
         "name": <...>,
@@ -36,7 +36,12 @@ An example of usage in a statement:
             "homePage": "http://demo.openlabyrinth.ca"
         }
     },
-    "verb": <experienced verb object>,
+    "verb": {
+         id :  http://w3id.org/xapi/medbiq/verbs/arrived,
+         display : {
+            en-US :  arrived
+         }
+    },
     "object": {
         "id": <node_id>,
         "definition": {
@@ -53,7 +58,7 @@ An example of usage in a statement:
         "objectType": "Activity"
       }
     "context": {
-        "registration": <session_id>,
+        "registration": 37933467-d275-4e0e-ab26-e2670b2fce6d,
         "contextActivities": {
             "parent": [
                 {id: <map_id>}
