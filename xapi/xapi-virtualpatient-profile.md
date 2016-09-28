@@ -4,7 +4,7 @@
 
 >"Copyright 2016 .....
 
->Licensed under......
+> Licensed under Creative Commons, Attribution ( CC BY)
 >
 ## Table of Contents
 
@@ -27,17 +27,46 @@ An example of usage in a statement:
 
 ```
 {
-  "actor": {
-    "objectType": "Agent",
-    "account": {
-        "homePage": "http://demo.openlabyrinth.ca",
-        "user_id": "1625"
-   }, 
-  "verb": {...},
-  "object": {...},
-  "result": {...},
-  "context": {...},
-  "attachments": {...}
+   "timestamp": <timestamp>
+    "actor": {
+         "objectType": "Agent",
+        "name": <...>,
+        "account": {
+            "name": <user_id>
+            "homePage": "http://demo.openlabyrinth.ca"
+        }
+    },
+    "verb": <experienced verb object>,
+    "object": {
+        "id": <node_id>,
+        "definition": {
+          "extensions": {
+            "https://registry.tincanapi.com/xapi/extensions/nodeclass": {
+              "@id": "http://demo.openlabyrinth.ca/nodeManager/editNode/17410",
+             }
+          },
+          "name": {
+            "en-US": <title of the node>
+          },
+          "type": "http://activitystrea.ms/schema/1.0/node"
+        },
+        "objectType": "Activity"
+      }
+    "context": {
+        "registration": <session_id>,
+        "contextActivities": {
+            "parent": [
+                {id: <map_id>}
+            ]
+        }
+    }
+    "result": {
+        "completion": true
+        "score": {<score object>}
+        "extensions": {
+            <key>: {<counter values object>}
+        }
+    }
 }
 ``` 
 ## Statements
