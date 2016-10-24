@@ -116,14 +116,14 @@ Includes a timestamp and identifier of the node in the scenario learning design 
 **Scored**  
 Facilitator has manually assigned a score or rating to an activity within a scenario activity stream. This is different from Updated, where a score or value has been machine-assigned by the player engine or other resource (see below).  
 
-Verb IRI:  
+Verb IRI: http://adlnet.gov/expapi/verbs/scored 
 
 Includes a timestamp and identifier of the node in the scenario learning design when triage step was started.   
 
 **Shared**  
 User has made a key resource or piece of information available to team members within a scenario activity stream.   
 
-Verb IRI:  
+Verb IRI: http://adlnet.gov/expapi/verbs/shared 
 
 Includes a timestamp and identifier of the node in the scenario learning design when triage step was started.   
 
