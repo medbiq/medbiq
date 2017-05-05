@@ -1,7 +1,6 @@
 | EVENT |
-|:--|
-|||
-| **path:**     | /api/v1/event |
+|:--|:---|
+| **path:**| /api/v1/event |
 ||
 | **parameters:**||
 ||
