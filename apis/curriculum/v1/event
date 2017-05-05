@@ -5,7 +5,7 @@
 ||
 | **parameters:**||
 ||
-| _**eventId**_
+| _**eventId**_  
 | *data type:*| integer
 | *description:*| unique identifier for the given event
 |
