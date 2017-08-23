@@ -5,25 +5,17 @@
 | **Description** | Provides data on curriculum expectations meeting certain parameters. |  |  |
 | **Path** | /api/v1/expectation |  |  |
 | **Methods** | GET, POST, PUT DELETE |  |  |
-| **Parameters** | TBD |  |  |
-|  | _We can break these into path parameters \(ie give me data on expectations for the sequence block with _`id 2345`_\) and query parameters \(ie give me data on expectations for all sequence blocks with a particular keyword\)_ |  |  |
-|  | _Potential Path Parameters:_ |  |  |
-|  | ProgramID | String | A unique ID for the educational program to query |
+| **Parameter** | ID | \(Usually this is na URI - but I'm not sure if that will work for a filter\) |  |
+| **Filters** | Program ID | String | A unique ID for the educational program to query |
 |  | AcademicLevel | String | A unique ID for the Academic level to query |
 |  | SequenceBlock | String | A unique id for the Sequence Block to query |
 |  | Event | String | A unique id for the Event to query |
-|  | Previous version \(Replaces\) | String | A unique id for an Expectation that supplanted, displaced, or superceded the expectation queried |
-|  | Later version \(IsReplacedBy\) | String | A unique ID for an Expectation that supplants, displaces, or supercedes the expectation queried |
-|  |  |  |  |
-|  | _Potential query parameters_: |  |  |
-|  | SequenceBlock | String |  |
-|  | Event | String |  |
-|  | Instruction \(presence of instructional methods\) | Boolean |  |
-|  | assessment \(presence of assessment methods\) | Boolean |  |
-|  | InstructionalMethod | String |  |
-|  | AssessmentMethod | String |  |
-|  | parent expectation | URI |  |
-|  | child expectation | URI |  |
+|  | Instruction  | Boolean | Presence of instructional methods |
+|  | assessment \(presence of assessment methods\) | Boolean | Presence of assessment methods |
+|  | InstructionalMethod | String | An instructional method to query |
+|  | AssessmentMethod | String | An assessment method to query |
+|  | parent expectation | URI | URI of an expectation broader than the expectation returned |
+|  | child expectation | URI | URI of an expectation narrower than the expectation returned |
 | **Data Returned** | ID | URI | Identifier for the Expectation |
 |  | Title | String | Title of the Expectation |
 |  | `Category (ask wg email)` | String | Category of the Expectation |
