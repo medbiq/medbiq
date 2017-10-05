@@ -17,6 +17,7 @@
   </xsd:attributeGroup>
   <xsd:simpleType name="AccuracyType">
     <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="DayMonth"/>
       <xsd:enumeration value="DayMonthYear"/>
       <xsd:enumeration value="MonthYear"/>
       <xsd:enumeration value="Year"/>
@@ -60,7 +61,7 @@
       <xsd:enumeration value="Initial"/>
       <xsd:enumeration value="Recertification"/>
     </xsd:restriction>
-  </xsd:simpleType>
+  </xsd:simpleType> 
   <xsd:simpleType name="CertificationStatusVocabularyType">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="Inactive"/>
@@ -234,6 +235,17 @@
       <xsd:enumeration value="Demonstrator"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="RecognitionIssuanceStatusVocabularyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Active"/>
+      <xsd:enumeration value="Inactive"/>
+      <xsd:enumeration value="Expired"/>
+      <xsd:enumeration value="Lapsed"/>
+      <xsd:enumeration value="Surrendered"/>
+      <xsd:enumeration value="Suspended"/>
+      <xsd:enumeration value="Revoked"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:simpleType name="TenureStatusVocabularyType">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="Tenured"/>
@@ -402,10 +414,11 @@
       <xsd:element name="CertificateMaintenance" type="CertificationMaintenanceType" minOccurs="0"/>
       <xsd:element name="CertificateMaintenanceRequired" type="CertificationMaintenanceRequiredType" minOccurs="0"/>
       <xsd:element name="CertificateIssuance" type="CertificateIssuanceType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="Recognition" type="RecognitionIssuanceType" minOccurs="0" maxOccurs="unbounded"/>
     </xsd:sequence>
     <xsd:attributeGroup ref="CommonAttributes"/>
   </xsd:complexType>
-  <xsd:complexType name="CertificateIssuanceType">
+   <xsd:complexType name="CertificateIssuanceType">
     <xsd:sequence>
       <xsd:element name="CertificateIssuanceID" type="NonNullStringWithAttributesType" minOccurs="0"/>
       <xsd:element name="CertificateIssuanceFocus" type="NonNullStringWithAttributesType" minOccurs="0"/>
@@ -831,6 +844,14 @@
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
+  <xsd:complexType name="LicenseEntityNameType">
+    <xsd:simpleContent>
+      <xsd:extension base="mbq:NonNullStringType">
+        <xsd:attribute name="abbreviation" type="xsd:string"/>
+        <xsd:attributeGroup ref="CommonAttributes"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
   <xsd:complexType name="LicenseInfoType">
     <xsd:sequence>
       <xsd:element name="License" type="LicenseType" maxOccurs="unbounded"/>
@@ -886,13 +907,13 @@
   </xsd:simpleType>
 
   <xsd:complexType name="LicensureEntityType">
-    <xsd:simpleContent>
-      <xsd:extension base="mbq:NonNullStringType">
-        <xsd:attribute name="code" type="xsd:string"/>
-        <xsd:attribute name="domain" type="xsd:string"/>
-        <xsd:attributeGroup ref="CommonAttributes"/>
-      </xsd:extension>
-    </xsd:simpleContent>
+    <xsd:sequence>
+      <xsd:element name="LicensureEntityName" type="DisciplinaryEntityNameType"/>
+      <xsd:element name="ContactInformation" type="ContactInformationType" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="code" type="xsd:string"/>
+    <xsd:attribute name="domain" type="xsd:string"/>
+    <xsd:attributeGroup ref="CommonAttributes"/>
   </xsd:complexType>
   <xsd:complexType name="LocationTypeType">
     <xsd:annotation>
@@ -1094,6 +1115,32 @@
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
+  <xsd:complexType name="RecognitionIssuanceType">
+    <xsd:sequence>
+      <xsd:element name="RecognitionIssuanceID" type="NonNullStringWithAttributesType" minOccurs="0"/>
+      <xsd:element name="RecognitionName" type="NonNullStringWithAttributesType" minOccurs="0"/>
+      <xsd:element name="RecognitionType" type="NonNullStringWithAttributesType" minOccurs="0"/>
+      <xsd:element name="RecognitionIssuanceDuration" type="CertificationDurationType" minOccurs="0"/>
+      <xsd:element name="RecognitionIssueDate" type="DateAndAccuracyType" minOccurs="0"/>
+      <xsd:element name="RecognitionExpireDate" type="DateAndAccuracyType" minOccurs="0"/>
+      <xsd:element name="RecognitionIssuanceScheduledUpdate" type="DateAndAccuracyType" minOccurs="0"/>
+      <xsd:element name="RecognitionIssuanceStatus" type="RecognitionIssuanceStatusType" minOccurs="0"/>
+      <xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref="CommonAttributes"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="RecognitionIssuanceStatusType">
+    <xsd:annotation>
+      <xsd:documentation>Complex type using (allowing attributes) RecognitionIssuanceStatusVocabularyType as its base.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="RecognitionIssuanceStatusVocabularyType">
+        <xsd:attributeGroup ref="CommonAttributes"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
   <xsd:complexType name="TenureStatusType">
     <xsd:simpleContent>
       <xsd:extension base="TenureStatusVocabularyType">
