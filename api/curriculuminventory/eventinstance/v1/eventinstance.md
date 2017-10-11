@@ -1,11 +1,32 @@
-# EventInstance #
+# EventInstance
+
+| \_ | \_ | Data Type | Notes/Description |
+| :--- | :--- | :--- | :--- |
+| Description | Provides data on a specific instance\(s\) of an event meeting certain parameters |  |  |
+| Path | /api/v1/eventinstance |  |  |
+| Methods | GET, POST, PUT, DELETE |  |  |
+| Parameter | ID | ID | An identifier for the event instance. |
+| Filters | Room | String | Room name |
+|  | Site | String | Site name |
+|  | StartDate | dateString, such as 2012-04-23 | The date this instance of the event began. |
+|  | EndDate | dateString, such as 2012-04-12 | The date this instance of the event ended. |
+|  | UpdatedAt | dateString, such as 2012-04-12 | The date this instance of the event was updated. |
+|  | EventTitle | String | A title for this instance of the event. |
+|  | LearnerGroups | String \(or array?\) | Learner Groups associated with this event instance. |
+|  | InstructorGroups | String \(Or array?\) | Instrutor groups associated with this instance of the event. |
+|  | Learners | String \(should this be array?\) | Learners associated with this instance of the event.. |
+|  | Instructors | String \(or array?\) | Instructors associated with this instance of the event. |
+| Data Returned | ID | ID | An identifier for the event instance. |
+|  | Room | String | Room name |
+|  | Site | String | Site name |
+|  | StartDate | dateString, such as 2012-04-12 | The date this instance of the event began. |
+|  | EndDate | dateString, such as 2012-04-12 | The date this instance of the event ended. |
+|  | UpdatedAt | dateString, such as 2012-04-12 | The date this instance of the event was updated. |
+|  | EventTitle | String | A title for this instance of the event. |
+|  | LearnerGroups | String \(or array?\) | Learner Groups associated with this event instance. |
+|  | InstructorGroups | String \(or array?\) | Instructor Groups associated with this event instance |
+|  | Learners | String \(or array?\) | Learners associated with this event instance. |
+|  | Instructors | String \(or array?\) | Instructors associated with this even instance. |
 
 
-|Operation Name || EventInstance |
-|---|-------------- |----------- |
-|Description || Provides data on a specific instances(s) of an event meeting certain parameters. |
-|Path       || /api/v1/eventinstance |
-| Parameters || **path parameters** (ie give me data on `expectations` for the sequence block with id `2345`) and **query parameters** (ie give me data on `expectations` for all sequence blocks with a particular `keyword`)|
-||Potential Path Parameters| ID|
-||Potential query parameters| room, site, start date, end date, updatedAt, Event title, learnerGroups, instructorGroups, Learners, instructors|
-| Data Returned || ID, room, site, startDate, endDate, updatedAt, eventtitle, learnerGroups, instructorGroups, learners, instructors|
+
