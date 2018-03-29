@@ -54,7 +54,8 @@
 |*data type:*| string
 |*description:*| identifies the sequence block (ie “course”) to which the event belongs
 
-From previous
+From previous:
+
 || Path Parameters | ID |
 || Query parameters| (all subelements of Event plus id, learningResources, eventInstance, sequenceBlock)
 ||| (For duration can use fraction of hour (ex, 1.5 for 90 min). Allows to be a json integer.|
