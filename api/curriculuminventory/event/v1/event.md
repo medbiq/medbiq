@@ -52,7 +52,7 @@
 ||
 |**_eventSequenceBlock_**
 |*data type:*| string
-|*description:*| identifies the sequence block (ie “course”) to which the event belongs
+|*description:*| identifies the sequence block (ie “course”) to which the event belongs|
 
 From previous:
 
