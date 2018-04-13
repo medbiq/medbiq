@@ -1,8 +1,8 @@
 # Program
-|     Method                     |       Path                           |         Response              |
-|    :------:                    |       :--:                           |       :----------:            |
-|  [GET Program](#get-program)   |    /api/programinfo/v1/program/:id   |      [Program](#program)      |  
-|  [GET Programs](#get-programs)  |      /api/programinfo/v1/programs    |    \[[Program](#program)\]    |  
+|     Method                      |       Path                           |         Response                    |
+|    :------:                     |       :--:                           |       :----------:                  |
+|  [GET Program](#get-program)    |    /api/programinfo/v1/program/:id   |      [Program](#program)            |  
+|  [GET Programs](#get-programs)  |      /api/programinfo/v1/programs    |    [Program List](#program-list)    |  
 
 
 ## Data Model
