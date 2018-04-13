@@ -2,7 +2,7 @@
 |     Method                     |       Path                           |         Response              |
 |    :------:                    |       :--:                           |       :----------:            |
 |  [GET Program](#get-program)   |    /api/programinfo/v1/program/:id   |      [Program](#program)      |  
-|  [GET Program](#get-programs)  |      /api/programinfo/v1/programs    |    \[[Program](#program)\]    |  
+|  [GET Programs](#get-programs)  |      /api/programinfo/v1/programs    |    \[[Program](#program)\]    |  
 
 
 ## Data Model
