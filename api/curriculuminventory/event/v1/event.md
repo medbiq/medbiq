@@ -1,60 +1,32 @@
 # Event #
 
-|Operation Name || Event |
-|-------------- |----------|----------- |
-|Description || TBD |
-|Path       || /api/v1/event |
-| Parameters ||
-||
-| _**eventId**_
-| *data type:*| integer
-| *description:*| unique identifier for the given event
-||
-|**_eventTitle_**
-|*data type:*| string
-|*description:*| the display title of the event (eg. “Histology and you: a Talk about Hayfever”)
-||
-|**_eventType_**
-|*data type:* |array[string]
-|*description:* |the instructional and/or assessment method(s) for the event
-||
-|**_eventKeywords_**
-|*data type:*| array[string]
-|*description:*| list of associated keywords for the event
-||
-|**_eventCompetencyObjects_**
-|*data type:*| array[string]
-|*description:*| the specific objectives associated with the event
-||
-|**_eventDescription_**
-|*data type:*| string
-|*description:*| the text description of the event
-||
-|**_eventInstance_**
-|*data type:*| array[string]
-|*description:*| the actual occurrences for when the event is “offered” (see `eventInstance`)
-||
-|**_eventDuration_**
-|*data type:*| integer
-|*description:*| number of hours or fractions thereof describing the length of the event (ex.: `1.5`)
-||
-|**_eventResource_**
-|*data type:*| array[string]
-|*description:*| the list of instructional resources associated with this event
-||
-|**_interprofesssional_**
-|*data type:*| boolean
-|*description:*| whether the event is a valid interprofesional activity
-||
-|**_eventCurriculumType_**
-|*data type:*| string
-|*description:*| identifies the event as core or supplemental/elective activity
-||
-|**_eventSequenceBlock_**
-|*data type:*| string
-|*description:*| identifies the sequence block (ie “course”) to which the event belongs|
+| \_ | \_ | Data Types | Notes/Description |
+| :--- | :--- | :--- | :--- |
+| **Description** | Provides data on a specific curricular activity, defined by a set of expectations and goals. May have one or more instances of delivery in the curriculum ( _see_ `eventInstance`) |  |  |
+| **Path** | /api/v1/event |  |  |
+| **Methods** | GET, POST, PUT DELETE |  |  |
+| **Parameter** | ID | URI |  |
+| **Filters** | _programID_ | String | A unique ID for the educational program to query |
+|  | _academicLevel_ | String | A unique ID for the Academic level to query |
+|  | _sequenceBlock_ | String | A unique id for the Sequence Block to query |
+|  | _eventTitle_ | String | the display title of the event (eg. “Histology and you: a Talk about Hayfever”) |
+|  | _eventType_  | string | the instructional and/or assessment method(s) for the event |
+|  | _eventKeywords_ | String | list of associated keywords for the event |
+|  | _eventCurriculumType_ | string | identifies the event as core or supplemental/elective activity  |
+| **Data Returned** | ID | ID | An identifier for the event instance. |
+|  | eventTitle | string| the title of the curricular event||
+|  | eventType | String | the ID of the eventType||
+|  | eventCurriculumType ||||
+|  | eventKeywords | array | an array of the keywordID values associated with the event ||
+|  | eventInstance | array | an array of the eventInstance values where the event is delivered in the curriculum ||
+|  | eventSequenceBlock | string | the ID of the sequence block associated with the event ||
+|  | eventDescription | String | The text describing the activity/event ||
+|  | eventCompetencyObjects | array | a list of the competency objects associated with the event ||
+|  | interprofessional ||||
+|  | academicLevel ||||
 
-# #
+
+
 From previous:
 
 || Path Parameters | ID |
@@ -64,7 +36,3 @@ From previous:
 ||Keyword | have keyword (term itself), keywordSource. keywordID)|
 ||ResourceType | resourceType, resourceTypeSource, resourceTypeID)|
 | **Data Returned** || TBD |
-
-
-
-
