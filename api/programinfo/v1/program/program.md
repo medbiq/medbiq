@@ -1,8 +1,8 @@
 # Program
-|     Method                      |       Path                           |         Response                    |
-|    :------:                     |       :--:                           |       :----------:                  |
-|  [GET Program](#get-program)    |    /api/programinfo/v1/program/:id   |      [Program](#program)            |  
-|  [GET Programs](#get-programs)  |      /api/programinfo/v1/programs    |    [Program List](#program-list)    |  
+|     Method                      |       Path                                  |         Response                    |
+|    :------:                     |       :--:                                  |       :----------:                  |
+|  [GET Program](#get-program)    |    /medbiq/api/programinfo/v1/program/:id   |      [Program](#program)            |  
+|  [GET Programs](#get-programs)  |      /medbiq/api/programinfo/v1/programs    |    [Program List](#program-list)    |  
 
 
 ## Data Model
@@ -24,7 +24,7 @@
 Get information about a specific program by program ID.  
   
 __Method:__  GET  
-__Path:__ /api/programinfo/v1/program/:id
+__Path:__ /medbiq/api/programinfo/v1/program/:id
 
 #### Path Parameters
 |   Param    |           Type           |       Description        |
@@ -39,7 +39,7 @@ None
 Get a list of programs.  
   
 __Method:__  GET  
-__Path:__ /api/programinfo/v1/programs
+__Path:__ /medbiq/api/programinfo/v1/programs
 
 #### Path Parameters
 None
