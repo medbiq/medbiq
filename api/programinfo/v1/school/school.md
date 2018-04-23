@@ -13,7 +13,7 @@
 |       id       |    ID     |  the school ID     |     yes      |
 
 
-### Program List
+### School List
 |   Property  |        Type                 |        Description         | Required |
 |   :------:  |        :--:                 |        :----------:        |  :--:    |
 |   schools   | \[[School](#school)\]       |  An Array of School types  |   yes    |
