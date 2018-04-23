@@ -15,7 +15,7 @@
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
-|    :------      |        :--:         |                            :----------:                           |   :--:   |
+|    :------      |        :--:         |                            :----------                            |   :--:   |
 |       id        |       String        |                          The school ID                            |   yes    |
 |  alternateIDs   |      [String]       |          List of known alternate IDs for the school               |    no    |
 |      name       |       String        |                     Full name of the school                       |   yes    |
