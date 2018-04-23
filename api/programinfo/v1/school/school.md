@@ -22,7 +22,7 @@
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
 | historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
 |       type      | 'Private'<br>'Public' |               The type of school. ex Public                     |   yes    |
-| operationalStatus |     boolean       |                Is the school current operational                  |   yes    |
+| operationalStatus |     Boolean       |                Is the school current operational                  |   yes    |
 |  schoolWebsites |       [URL]         |                      URLs to school websites                      |    no    |
 |     address     |\[[Address](#address)\]|                 The main address of the school                  |   yes    |
 |   phoneNumbers  |       [String]      |                    Phone numbers for the school                   |   yes    |
