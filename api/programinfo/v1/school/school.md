@@ -21,7 +21,7 @@
 |      name       |       String        |                     Full name of the school                       |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
 | historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
-|       type      | enum('Private', 'Public') |           The type of school. ex Public                     |   yes    |
+|       type      | 'Private'<br>'Public' |           The type of school. ex Public                     |   yes    |
 | operationalStatus |     boolean       |                Is the school current operational                  |   yes    |
 |  schoolWebsites |       [URL]         |                      URLs to school websites                      |    no    |
 |     address     |  \[[Address]()\]    |                   The main address of the school                  |   yes    |
@@ -34,8 +34,8 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
   
 |   Property      |        Type         |                           Description                             | Required |
 |   :------:      |        :--:         |                           :----------:                            |  :--:    |
-| addressCategory | enum('Residential','Business','Undeliverable') |  Indicates the type of address         |   yes    |
-| restrictions    | enum('Unrestricted','Restricted','Confidential') | Indicates restrictions when sharing information | yes  |
+| addressCategory | 'Residential'<br>'Business'<br>'Undeliverable' |  Indicates the type of address         |   yes    |
+| restrictions    | 'Unrestricted'<br>'Restricted'<br>'Confidential' | Indicates restrictions when sharing information | yes  |
 |      id         |         ID          |                An ID associated with the address                  |   no     |
 |  organization   |      [String]       |The organization, institution or department as part of the address.|   no     |
 |streetAddressLine|      [String]       |         Street address lines. ex ['100 Main St', 'Apt 2']         |   no     |
