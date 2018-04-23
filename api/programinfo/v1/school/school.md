@@ -8,13 +8,19 @@
 ## Data Model
 
 ### School
-|    Property     |   Type    |                            Description                            |   Required   |
-|    :------:     |   :--:    |                            :----------:                           |     :--:     |
-|       id        |    ID     |                          The school ID                            |     yes      |
-|  alternateIDs   |   [ID]    |          List of known alternate IDs for the school               |      no      |
-|      name       |  String   |                     Full name of the school                       |     yes      |
-| alternateNames  | [String]  |  List of known alternates, abbreviations, acronyms for the school |      no      |
-| historicalNames | [String]  |  List of known alternates, abbreviations, acronyms for the school |      no      |
+|    Property     |        Type         |                            Description                            |   Required   |
+|    :------:     |        :--:         |                            :----------:                           |     :--:     |
+|       id        |         ID          |                          The school ID                            |     yes      |
+|  alternateIDs   |        [ID]         |          List of known alternate IDs for the school               |      no      |
+|      name       |       String        |                     Full name of the school                       |     yes      |
+| alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school |      no      |
+| historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school |      no      |
+|       type      | enum('Private', 'Public') |           The type of school. ex Public                     |     yes      |
+| operationalStatus |     boolean       |                Is the school current operational                  |     yes      |
+|  schoolWebsites |       [URL]         |                      URLs to school websites                      |      no      |
+|     address     |       Address       |                   The main address of the school                  |     yes      |
+|   phoneNumbers  |       [String]      |                    Phone numbers for the school                   |     yes      |
+|     programs    | [Program]()|
 
 
 ### School List
