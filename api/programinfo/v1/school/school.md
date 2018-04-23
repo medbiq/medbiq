@@ -20,7 +20,7 @@
 |  schoolWebsites |       [URL]         |                      URLs to school websites                      |      no      |
 |     address     |       Address       |                   The main address of the school                  |     yes      |
 |   phoneNumbers  |       [String]      |                    Phone numbers for the school                   |     yes      |
-|     programs    | [Program]()|
+|     programs    | \[[Program](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-1)\]| Programs offered at the school | yes | 
 
 
 ### School List
