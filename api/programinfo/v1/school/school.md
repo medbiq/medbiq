@@ -8,10 +8,13 @@
 ## Data Model
 
 ### School
-|    Property    |   Type    |                    Description                |   Required   |
-|    :------:    |   :--:    |                    :----------:               |     :--:     |
-|       id       |    ID     |                  The school ID                |     yes      |
-|  alternateIDs  |   [ID]    |  List of known alternate IDs for this school  |      no      |
+|    Property     |   Type    |                            Description                            |   Required   |
+|    :------:     |   :--:    |                            :----------:                           |     :--:     |
+|       id        |    ID     |                          The school ID                            |     yes      |
+|  alternateIDs   |   [ID]    |          List of known alternate IDs for the school               |      no      |
+|      name       |  String   |                     Full name of the school                       |     yes      |
+| alternateNames  | [String]  |  List of known alternates, abbreviations, acronyms for the school |      no      |
+| historicalNames | [String]  |  List of known alternates, abbreviations, acronyms for the school |      no      |
 
 
 ### School List
