@@ -10,23 +10,23 @@
 ### School List
 |   Property  |        Type                 |        Description         | Required |
 |   :------   |        :--:                 |        :----------         |  :--:    |
-|   schools   | \[[School](#school-1)\]     |  An Array of School types  |   yes    |
+|   schools   | \[[School](#school-1)\]     |  An Array of School types. |   yes    |
   
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
-|       id        |       String        |                          The school ID                            |   yes    |
-|  alternateIDs   |      [String]       |          List of known alternate IDs for the school               |    no    |
-|      name       |       String        |                     Full name of the school                       |   yes    |
-| alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
-| historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
+|       id        |       String        |                          The school ID.                           |   yes    |
+|  alternateIDs   |      [String]       |          List of known alternate IDs for the school.              |    no    |
+|      name       |       String        |                     Full name of the school.                      |   yes    |
+| alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school.|    no    |
+| historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school.|    no    |
 |       type      | 'Private'<br>'Public' |               The type of school. ex Public                     |   yes    |
-| operationalStatus |     Boolean       |                Is the school current operational                  |   yes    |
-|  schoolWebsites |       [URL]         |                      URLs to school websites                      |    no    |
-|     address     |\[[Address](#address)\]|                 The main address of the school                  |   yes    |
-|   phoneNumbers  |       [String]      |                    Phone numbers for the school                   |   yes    |
-|     programs    | \[[Program](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-1)\]| Programs offered at the school | yes | 
+| operationalStatus |     Boolean       |                Is the school current operational.                 |   yes    |
+|  schoolWebsites |       [URL]         |                      URLs to school websites.                     |    no    |
+|     address     |\[[Address](#address)\]|                 The main address of the school.                 |   yes    |
+|   phoneNumbers  |       [String]      |                    Phone numbers for the school.                  |   yes    |
+|     programs    | \[[Program](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-1)\]| Programs offered at the school. | yes | 
 
 
 ### Address
@@ -34,9 +34,9 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
   
 |   Property      |        Type         |                           Description                             | Required |
 |   :------       |        :--:         |                           :----------                             |  :--:    |
-| addressCategory | 'Residential'<br>'Business'<br>'Undeliverable' |  Indicates the type of address         |   yes    |
-| restrictions    | 'Unrestricted'<br>'Restricted'<br>'Confidential' | Indicates restrictions when sharing information | yes  |
-|      id         |         ID          |                An ID associated with the address                  |   no     |
+| addressCategory | 'Residential'<br>'Business'<br>'Undeliverable' |  Indicates the type of address.        |   yes    |
+| restrictions    | 'Unrestricted'<br>'Restricted'<br>'Confidential' | Indicates restrictions when sharing information.| yes  |
+|      id         |         ID          |                An ID associated with the address.                 |   no     |
 |  organization   |      [String]       |The organization, institution or department as part of the address.|   no     |
 |streetAddressLine|      [String]       |         Street address lines. ex ['100 Main St', 'Apt 2']         |   no     |
 |     city        |        String       |   The name of the city, town or village included in the address.  |   no     |
@@ -44,7 +44,7 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
 |   postalCode    |        String       | The zipcode or other postal code used to facilitate the sorting of mail.| no  |
 |     region      |        String       | A non-administrative divisio of a country, or commonly used name for a grouping of countries. ex. Central America | no |
 |     district    |        String       | A non-administrative division of a city, state, province, or country. | no |
-|     country     | [Country](#country) |          An object representing a country                         |   yes    |
+|     country     | [Country](#country) |          An object representing a country.                        |   yes    |
 
 ### Country
 |   Property      |        Type         |                           Description                             | Required |
@@ -62,7 +62,7 @@ __Path:__ /medbiq/api/programinfo/v1/school/:id
 #### Path Parameters
 |   Param    |           Type           |       Description        |
 |   :---     |        :--------:        |      :------------       |
-|    id      |            ID            |  Unique identifier of the school being requested  |
+|    id      |            ID            |  Unique identifier of the school being requested. |
 
 #### Query Parameters
 None
