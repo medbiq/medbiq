@@ -21,10 +21,10 @@
 |      name       |       String        |                     Full name of the school                       |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
 | historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
-|       type      | 'Private'<br>'Public' |           The type of school. ex Public                     |   yes    |
+|       type      | 'Private'<br>'Public' |               The type of school. ex Public                     |   yes    |
 | operationalStatus |     boolean       |                Is the school current operational                  |   yes    |
 |  schoolWebsites |       [URL]         |                      URLs to school websites                      |    no    |
-|     address     |  \[[Address]()\]    |                   The main address of the school                  |   yes    |
+|     address     |\[[Address](#address)\]|                 The main address of the school                  |   yes    |
 |   phoneNumbers  |       [String]      |                    Phone numbers for the school                   |   yes    |
 |     programs    | \[[Program](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-1)\]| Programs offered at the school | yes | 
 
