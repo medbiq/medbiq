@@ -8,9 +8,10 @@
 ## Data Model
 
 ### School
-|    Property    |   Type    |    Description     |   Required   |
-|    :------:    |   :--:    |    :----------:    |     :--:     |
-|       id       |    ID     |  the school ID     |     yes      |
+|    Property    |   Type    |                    Description                |   Required   |
+|    :------:    |   :--:    |                    :----------:               |     :--:     |
+|       id       |    ID     |                  The school ID                |     yes      |
+|  alternateIDs  |   [ID]    |  List of known alternate IDs for this school  |      no      |
 
 
 ### School List
