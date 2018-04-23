@@ -1,7 +1,7 @@
 # School
 |     Method                      |       Path                                  |         Response                    |
 |    :------:                     |       :--:                                  |       :----------:                  |
-|  [GET School](#get-school)      |    /medbiq/api/programinfo/v1/school/:id    |      [School](#school)              |  
+|  [GET School](#get-school)      |    /medbiq/api/programinfo/v1/school/:id    |      [School](#school-1)            |  
 |  [GET Schools](#get-schools)    |      /medbiq/api/programinfo/v1/schools     |    [School List](#school-list)      |  
 
 
@@ -10,14 +10,14 @@
 ### School List
 |   Property  |        Type                 |        Description         | Required |
 |   :------:  |        :--:                 |        :----------:        |  :--:    |
-|   schools   | \[[School](#school)\]       |  An Array of School types  |   yes    |
+|   schools   | \[[School](#school-1)\]     |  An Array of School types  |   yes    |
   
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
 |    :------:     |        :--:         |                            :----------:                           |   :--:   |
-|       id        |         ID          |                          The school ID                            |   yes    |
-|  alternateIDs   |        [ID]         |          List of known alternate IDs for the school               |    no    |
+|       id        |       String        |                          The school ID                            |   yes    |
+|  alternateIDs   |      [String]       |          List of known alternate IDs for the school               |    no    |
 |      name       |       String        |                     Full name of the school                       |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
 | historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school |    no    |
@@ -34,15 +34,17 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
   
 |   Property      |        Type         |                           Description                             | Required |
 |   :------:      |        :--:         |                           :----------:                            |  :--:    |
+| addressCategory | enum('Residential','Business','Undeliverable') |  Indicates the type of address         |   yes    |
+| restrictions    | enum('Unrestricted','Restricted','Confidential') | Indicates restrictions when sharing information | yes  |
 |      id         |         ID          |                An ID associated with the address                  |   no     |
-|  organization   |        String       |
-|streetAddressLine|      [String]       |         Street address lines. ex ['100 Main St', 'Apt 2']         |   
-|     city        |        String       |
-| stateOrProvince |        String       |
-|   postalCode    |        String       |
-|     region      |        String       |
-|     district    |        String       |
-|     country     | [Country](#country) |
+|  organization   |      [String]       |The organization, institution or department as part of the address.|   no     |
+|streetAddressLine|      [String]       |         Street address lines. ex ['100 Main St', 'Apt 2']         |   no     |
+|     city        |        String       |   The name of the city, town or village included in the address.  |   no     |
+| stateOrProvince |        String       | The name of the state, province, or territorial division within a country.|  no  |
+|   postalCode    |        String       | The zipcode or other postal code used to facilitate the sorting of mail.| no  |
+|     region      |        String       | A non-administrative divisio of a country, or commonly used name for a grouping of countries. ex. Central America | no |
+|     district    |        String       | A non-administrative division of a city, state, province, or country. | no |
+|     country     | [Country](#country) |          An object representing a country                         |   yes    |
 
 ### Country
 |   Property      |        Type         |                           Description                             | Required |
