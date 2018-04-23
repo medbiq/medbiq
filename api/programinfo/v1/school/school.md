@@ -9,13 +9,13 @@
 
 ### School List
 |   Property  |        Type                 |        Description         | Required |
-|   :------:  |        :--:                 |        :----------:        |  :--:    |
+|   :------   |        :--:                 |        :----------         |  :--:    |
 |   schools   | \[[School](#school-1)\]     |  An Array of School types  |   yes    |
   
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
-|    :------:     |        :--:         |                            :----------:                           |   :--:   |
+|    :------      |        :--:         |                            :----------:                           |   :--:   |
 |       id        |       String        |                          The school ID                            |   yes    |
 |  alternateIDs   |      [String]       |          List of known alternate IDs for the school               |    no    |
 |      name       |       String        |                     Full name of the school                       |   yes    |
@@ -33,7 +33,7 @@
 Defined in MedBiquitous Professional Profile [Address Specifications and Description Document](https://www.medbiq.org/working_groups/professional_profile/AddressSpecification.pdf)  
   
 |   Property      |        Type         |                           Description                             | Required |
-|   :------:      |        :--:         |                           :----------:                            |  :--:    |
+|   :------       |        :--:         |                           :----------                             |  :--:    |
 | addressCategory | 'Residential'<br>'Business'<br>'Undeliverable' |  Indicates the type of address         |   yes    |
 | restrictions    | 'Unrestricted'<br>'Restricted'<br>'Confidential' | Indicates restrictions when sharing information | yes  |
 |      id         |         ID          |                An ID associated with the address                  |   no     |
@@ -48,7 +48,7 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
 
 ### Country
 |   Property      |        Type         |                           Description                             | Required |
-|   :------:      |        :--:         |                           :----------:                            |  :--:    |
+|   :------       |        :--:         |                           :----------                             |  :--:    |
 |  countryName    |       String        | The name of the country included in the address. ex. Switzerland  |    no    |
 |  countryCode    |       String        | The [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) alpha code for a particular country. ex. CH      |    no    |
 
@@ -61,7 +61,7 @@ __Path:__ /medbiq/api/programinfo/v1/school/:id
 
 #### Path Parameters
 |   Param    |           Type           |       Description        |
-|   :---:    |        :--------:        |      :------------:      |
+|   :---     |        :--------:        |      :------------       |
 |    id      |            ID            |  Unique identifier of the school being requested  |
 
 #### Query Parameters
