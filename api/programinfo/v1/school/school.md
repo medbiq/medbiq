@@ -24,7 +24,7 @@
 |       type      | 'Private'<br>'Public' |               The type of school. ex Public                     |   yes    |
 | operationalStatus |     Boolean       |                Is the school current operational.                 |   yes    |
 |  schoolWebsites |       [URL]         |                      URLs to school websites.                     |    no    |
-|     address     |\[[Address](#address)\]|                 The main address of the school.                 |   yes    |
+|     address     | [Address](#address) |                 The main address of the school.                   |   yes    |
 |   phoneNumbers  |       [String]      |                    Phone numbers for the school.                  |   yes    |
 |     programs    | \[[Program](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-1)\]| Programs offered at the school. | yes | 
 
