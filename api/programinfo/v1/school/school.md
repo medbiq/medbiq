@@ -1,6 +1,6 @@
 # School
 |     Method                      |       Path                                  |         Response                    |
-|    :------:                     |       :--:                                  |       :----------:                  |
+|    :------:                     |       :--                                   |       :----------:                  |
 |  [GET School](#get-school)      |    /medbiq/api/programinfo/v1/school/:id    |      [School](#school-1)            |  
 |  [GET Schools](#get-schools)    |      /medbiq/api/programinfo/v1/schools     |    [School List](#school-list)      |  
 
@@ -8,20 +8,20 @@
 ## Data Model
 
 ### School List
-|   Property  |        Type                 |        Description         | Required |
-|   :------   |        :--:                 |        :----------         |  :--:    |
-|   schools   | \[[School](#school-1)\]     |  An Array of School types. |   yes    |
+|   Property  |        Type                 |        Description           | Required |
+|   :------   |        :--:                 |        :----------           |  :--:    |
+|   schools   | \[[School](#school-1)\]     |  An Array of School objects. |   yes    |
   
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
-|       id        |       String        |                          The school ID.                           |   yes    |
-|  alternateIDs   |      [String]       |          List of known alternate IDs for the school.              |    no    |
+|       id        |         URL         |                          The school ID.                           |   yes    |
+|  alternateIDs   |        [URL]        |          List of known alternate IDs for the school.              |    no    |
 |      name       |       String        |                     Full name of the school.                      |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school.|    no    |
-| historicalNames |      [String]       |  List of known alternates, abbreviations, acronyms for the school.|    no    |
-|       type      | 'Private'<br>'Public' |               The type of school. ex Public                     |   yes    |
+| historicalNames |      [String]       |         List of known historical names for the school.            |    no    |
+|       type      |'Private'<br>'Public'|                 The type of school. ex Public                     |   yes    |
 | operationalStatus |     Boolean       |                Is the school current operational.                 |   yes    |
 |  schoolWebsites |       [URL]         |                      URLs to school websites.                     |    no    |
 |     address     | [Address](#address) |                 The main address of the school.                   |   yes    |
@@ -60,8 +60,8 @@ __Method:__  GET
 __Path:__ /medbiq/api/programinfo/v1/school/:id
 
 #### Path Parameters
-|   Param    |           Type           |       Description        |
-|   :---     |        :--------:        |      :------------       |
+|   Param    |           Type           |                  Description                      |
+|   :---     |        :--------:        |                 :------------                     |
 |    id      |            ID            |  Unique identifier of the school being requested. |
 
 #### Query Parameters
