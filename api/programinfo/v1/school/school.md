@@ -2,7 +2,7 @@
 |     Method                      |       Path                                  |         Response                    |
 |    :------:                     |       :--                                   |       :----------:                  |
 |  [GET School](#get-school)      |    /medbiq/api/programinfo/v1/school/:id    |      [School](#school-1)            |  
-|  [GET Schools](#get-schools)    |      /medbiq/api/programinfo/v1/schools     | [School List](#school-results-list) |  
+|  [GET Schools](#get-schools)    |      /medbiq/api/programinfo/v1/schools     | [School Results List](#school-results-list) |  
 
 
 ## Data Model
@@ -10,7 +10,7 @@
 ### School Results List
 |   Property  |        Type                         |        Description                  | Required |
 |   :------   |        :--:                         |        :----------                  |  :--:    |
-|   schools   | \[[SchoolResult](#school-result)\]  |  An Array of School Result objects. |   yes    |
+|   schools   | \[[School Result](#school-result)\]  |  An Array of School Result objects. |   yes    |
 
 
 ### School Result
