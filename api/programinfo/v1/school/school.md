@@ -7,6 +7,19 @@
 
 ## Data Model
 
+### School Results List
+|   Property  |        Type                         |        Description                  | Required |
+|   :------   |        :--:                         |        :----------                  |  :--:    |
+|   schools   | \[[SchoolResult](#schoolresult)\]   |  An Array of School Result objects. |   yes    |
+
+
+### School Result
+|   Property  |  Type     |        Description              | Required |
+|   :------   |  :--:     |        :----------              |  :--:    |
+|      id     |   URL     |         The school ID.          |   yes    |
+|     name    |  String   |     Full name of the school.    |   yes    |
+ 
+ 
 ### School List
 |   Property  |        Type                 |        Description           | Required |
 |   :------   |        :--:                 |        :----------           |  :--:    |
@@ -67,6 +80,8 @@ __Path:__ /medbiq/api/programinfo/v1/school/:id
 #### Query Parameters
 None
 
+#### Response
+`200` [School](#school-1)
 
 ### GET Schools
 Get a list of programs.  
@@ -81,3 +96,8 @@ None
 | Param      |  Description                                                              |
 | :---       | :------------                                                             |
 | since      |  Return only new or updated schools since the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted Date.  |             
+
+#### Response
+`200` [School Results List](#schoolresultslist)
+If requested with full=true query parameter
+`200` [School List](#schoollist)
