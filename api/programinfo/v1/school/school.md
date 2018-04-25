@@ -60,9 +60,9 @@ __Method:__  GET
 __Path:__ /medbiq/api/programinfo/v1/school/:id
 
 #### Path Parameters
-|   Param    |           Type           |                  Description                      |
-|   :---     |        :--------:        |                 :------------                     |
-|    id      |            ID            |  Unique identifier of the school being requested. |
+|   Param    |                  Description                      |
+|   :---     |                 :------------                     |
+|    id      |  Unique identifier of the school being requested. |
 
 #### Query Parameters
 None
@@ -78,4 +78,6 @@ __Path:__ /medbiq/api/programinfo/v1/schools
 None
 
 #### Query Parameters
-None
+| Param      |  Description                                                              |
+| :---       | :------------                                                             |
+| since      |  Return only new or updated schools since the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted Date.  |             
