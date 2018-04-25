@@ -29,7 +29,7 @@
 ### School
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
-|       id        |       String        |                          The school ID.                           |   yes    |
+|       id        |       String        |                       The school ID/code.                         |   yes    |
 |       url       |         URL         |                          The school URL.                          |   yes    |
 |  alternateURLs  |        [URL]        |          List of known alternate URLs for the school.             |    no    |
 |      name       |       String        |                     Full name of the school.                      |   yes    |
@@ -76,9 +76,9 @@ __Method:__  `GET`
 __Path:__ `/medbiq/api/programinfo/v1/school/:id`
 
 #### Path Parameters
-|   Param    |                  Description                      |
-|   :---     |                 :------------                     |
-|    id      |  Unique identifier of the school being requested. |
+|   Param    |                        Description                              |
+|   :---     |                       :------------                             |
+|    id      |  Unique identifier / School Code of the school being requested. |
 
 #### Query Parameters
 None
