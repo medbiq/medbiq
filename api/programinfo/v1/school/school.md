@@ -94,13 +94,13 @@ __Path:__ `/medbiq/api/programinfo/v1/schools`
 None
 
 #### Query Parameters
-| Param      |  Description                                                              |
-| :---       | :------------                                                             |
-| since      |  Return only new or updated schools since the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted Date.  | 
-| full   
+| Param    |   Type   |  Description    |
+| :---     |   :--:   | :------------   |
+| since    | [ISO 8601 Date](https://en.wikipedia.org/wiki/ISO_8601) |  Return only new or updated schools since the provided date.  | 
+| full     |  Boolean |  Indicates if the response should be a list of [Schools](#school-1) (true) or [School Results](#school-result) (false). |
 
 #### Response
 `200` [School Results List](#school-results-list)  
   
-If requested with full=true query parameter  
+If requested with `full=true` query parameter  
 `200` [School List](#school-list)
