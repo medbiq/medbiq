@@ -66,7 +66,7 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
 |   Property      |        Type         |                           Description                             | Required |
 |   :------       |        :--:         |                           :----------                             |  :--:    |
 |  countryName    |       String        | The name of the country included in the address. ex. Switzerland  |    no    |
-|  countryCode    |       String        | The [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) alpha code for a particular country. ex. CH      |    no    |
+|  countryCode    | [ISO 3166 alpha-2](https://www.iso.org/iso-3166-country-codes.html) | The ISO 3166 alpha code for a particular country. ex. CH      |    no    |
 
 ## Requests
 ### GET School
