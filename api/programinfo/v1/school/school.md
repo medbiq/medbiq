@@ -2,7 +2,7 @@
 |     Method                      |       Path                                  |         Response                    |
 |    :------:                     |       :--                                   |       :----------:                  |
 |  [GET School](#get-school)      |    /medbiq/api/programinfo/v1/school/:id    |      [School](#school-1)            |  
-|  [GET Schools](#get-schools)    |      /medbiq/api/programinfo/v1/schools     |    [School List](#school-list)      |  
+|  [GET Schools](#get-schools)    |      /medbiq/api/programinfo/v1/schools     | [School List](#school-results-list) |  
 
 
 ## Data Model
@@ -10,13 +10,13 @@
 ### School Results List
 |   Property  |        Type                         |        Description                  | Required |
 |   :------   |        :--:                         |        :----------                  |  :--:    |
-|   schools   | \[[SchoolResult](#schoolresult)\]   |  An Array of School Result objects. |   yes    |
+|   schools   | \[[SchoolResult](#school-result)\]  |  An Array of School Result objects. |   yes    |
 
 
 ### School Result
 |   Property  |  Type     |        Description              | Required |
 |   :------   |  :--:     |        :----------              |  :--:    |
-|      id     |   URL     |         The school ID.          |   yes    |
+|      url    |   URL     |         The school URL.         |   yes    |
 |     name    |  String   |     Full name of the school.    |   yes    |
  
  
@@ -29,8 +29,9 @@
 ### School
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
-|       id        |         URL         |                          The school ID.                           |   yes    |
-|  alternateIDs   |        [URL]        |          List of known alternate IDs for the school.              |    no    |
+|       id        |       String        |                          The school ID.                           |   yes    |
+|       url       |         URL         |                          The school URL.                          |   yes    |
+|  alternateURLs  |        [URL]        |          List of known alternate URLs for the school.             |    no    |
 |      name       |       String        |                     Full name of the school.                      |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school.|    no    |
 | historicalNames |      [String]       |         List of known historical names for the school.            |    no    |
@@ -69,8 +70,8 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
 ### GET School
 Get information about a specific school by school ID.  
   
-__Method:__  GET  
-__Path:__ /medbiq/api/programinfo/v1/school/:id
+__Method:__  `GET`  
+__Path:__ `/medbiq/api/programinfo/v1/school/:id`
 
 #### Path Parameters
 |   Param    |                  Description                      |
@@ -84,10 +85,10 @@ None
 `200` [School](#school-1)
 
 ### GET Schools
-Get a list of programs.  
+Get a list of schools.  
   
-__Method:__  GET  
-__Path:__ /medbiq/api/programinfo/v1/schools
+__Method:__  `GET`  
+__Path:__ `/medbiq/api/programinfo/v1/schools`
 
 #### Path Parameters
 None
@@ -95,9 +96,10 @@ None
 #### Query Parameters
 | Param      |  Description                                                              |
 | :---       | :------------                                                             |
-| since      |  Return only new or updated schools since the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted Date.  |             
+| since      |  Return only new or updated schools since the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted Date.  | 
+| full   
 
 #### Response
-`200` [School Results List](#schoolresultslist)
+`200` [School Results List](#school-results-list)
 If requested with full=true query parameter
-`200` [School List](#schoollist)
+`200` [School List](#school-list)
