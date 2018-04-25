@@ -108,5 +108,5 @@ None
 #### Response
 `200` [School Results List](#school-results-list)  
   
-If requested with `full=true` query parameter  
+If requested with `full=true` query parameter,  
 `200` [School List](#school-list)
