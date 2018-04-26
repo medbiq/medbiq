@@ -8,9 +8,10 @@
 ## Data Model
 
 ### School Results List
-|   Property  |        Type                         |        Description                  | Required |
-|   :------   |        :--:                         |        :----------                  |  :--:    |
+|   Property  |        Type                          |        Description                  | Required |
+|   :------   |        :--:                          |        :----------                  |  :--:    |
 |   schools   | \[[School Result](#school-result)\]  |  An Array of School Result objects. |   yes    |
+|     next    |      Base64 String                   | Base 64 encoded string containing the data the server needs to paginate. Ex: `aWQ9MDAyMw==`  |
 
 
 ### School Result
@@ -24,7 +25,7 @@
 |   Property  |        Type                 |        Description           | Required |
 |   :------   |        :--:                 |        :----------           |  :--:    |
 |   schools   | \[[School](#school-1)\]     |  An Array of School objects. |   yes    |
-  
+|     next    |      Base64 String          | Base 64 encoded string containing the data the server needs to paginate. Ex: `aWQ9MDAyMw==`  | 
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
@@ -103,7 +104,10 @@ None
 | country  | [ISO 3166 alpha-2](https://www.iso.org/iso-3166-country-codes.html) |  Return schools that match the two character country code defined in ISO 3166. |
 | state    |  String  |  Return schools that are located in the state or province provided.  |
 | language | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) |  Return schools whose primary language matches the language code provided. |
-| full     |  Boolean |  Indicates if the response should be a list of [Schools](#school-1) (true) or [School Results](#school-result) (false). |
+| limit    |  Integer |  Integer represeting the total number of schools to return. |
+| next     |  Base64 String  |   Base64 encoded value needed for the server to paginate. This value is provided in the [School Results List](#school-results-list) and [School List](#school-list).  |
+| orderBy  |  School Property  |  The property by which the schools will be ordered, prepended with '+' or '-' to indicate ascending or descending order. ex. `?orderBy=+country`  |
+| full     |  Boolean |  Indicates if the response should be a list of [Schools](#school-1) (true) or [School Result](#school-result) (false). |
 
 #### Response
 `200` [School Results List](#school-results-list)  
