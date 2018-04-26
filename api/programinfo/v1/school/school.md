@@ -11,7 +11,7 @@
 |   Property  |        Type                          |        Description                  | Required |
 |   :------   |        :--:                          |        :----------                  |  :--:    |
 |   schools   | \[[School Result](#school-result)\]  |  An Array of School Result objects. |   yes    |
-|     next    |      Base64 String                   | Base 64 encoded string containing the data the server needs to paginate. Ex: `aWQ9MDAyMw==`  |   no   |
+|     next    |      Base64 String                   | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
 
 
 ### School Result
@@ -25,7 +25,7 @@
 |   Property  |        Type                 |        Description           | Required |
 |   :------   |        :--:                 |        :----------           |  :--:    |
 |   schools   | \[[School](#school-1)\]     |  An Array of School objects. |   yes    |
-|     next    |      Base64 String          | Base 64 encoded string containing the data the server needs to paginate. Ex: `aWQ9MDAyMw==`  |   no   |  
+|     next    |      Base64 String          | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |  
   
 ### School
 |    Property     |        Type         |                            Description                            | Required |
