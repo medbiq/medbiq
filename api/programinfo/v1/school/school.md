@@ -17,7 +17,7 @@
 ### School Result
 |   Property  |  Type     |        Description              | Required |
 |   :------   |  :--:     |        :----------              |  :--:    |
-|      url    |   URL     | The school's API URL. ex: `https://<school provider>/medbiq/api/programinfo/v1/school/<school id>` |   yes    |
+|      url    |   URL     | The school's API URL. <br> ex: `https://<school provider>/medbiq/api/programinfo/v1/school/<school id>` |   yes    |
 |     name    |  String   |     Full name of the school.    |   yes    |
  
  
@@ -31,7 +31,7 @@
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
 |       id        |       String        |                       The school ID/code.                         |   yes    |
-|       url       |         URL         | The school's API URL. ex: `https://<school provider>/medbiq/api/programinfo/v1/school/<school id>` |   yes    |
+|       url       |         URL         | The school's API URL. <br> ex: `https://<school provider>/medbiq/api/programinfo/v1/school/<school id>` |   yes    |
 |  alternateURLs  |        [URL]        |          List of known alternate URLs for the school.             |    no    |
 |      name       |       String        |                     Full name of the school.                      |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the school.|    no    |
