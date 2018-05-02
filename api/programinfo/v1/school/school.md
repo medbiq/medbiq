@@ -43,7 +43,7 @@
 |     address     | [Address](#address) |                 The main address of the school.                   |   yes    |
 |   phoneNumbers  |       [String]      |                    Phone numbers for the school.                  |   yes    |
 |     language    | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php)  |     Language used in the school. | no |
-|     programs    | \[[Program](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-1)\]| Programs offered at the school. | yes | 
+|     programs    | \[[Program Result List](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-result-list)\]| A list programs offered at the school. | yes | 
 
 
 ### Address
