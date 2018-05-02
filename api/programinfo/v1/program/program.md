@@ -1,23 +1,30 @@
 # Program
 |     Method                      |       Path                                  |         Response                    |
-|    :------:                     |       :--:                                  |       :----------:                  |
-|  [GET Program](#get-program)    |    /medbiq/api/programinfo/v1/program/:id   |      [Program](#program)            |  
+|    :------:                     |       :--                                   |       :----------:                  |
+|  [GET Program](#get-program)    |    /medbiq/api/programinfo/v1/program/:id   |      [Program](#program-1)          |  
 |  [GET Programs](#get-programs)  |      /medbiq/api/programinfo/v1/programs    |    [Program List](#program-list)    |  
 
 
 ## Data Model
 
-### Program
-|    Property    |   Type    |    Description     |   Required   |
-|    :------:    |   :--:    |    :----------:    |     :--:     |
-|       id       |    ID     |  the program ID    |     yes      |
-
-
 ### Program List
-|   Property  |        Type                 |        Description         | Required |
-|   :------:  |        :--:                 |        :----------:        |  :--:    |
-|   programs  | \[[Program](#program)\]     |  An Array of Program types |   yes    |
+|   Property      |         Type                 |                        Description                         | Required |
+|   :------       |         :--:                 |                        :----------                         |  :--:    |
+|   programs      |  \[[Program](#program-1)\]   |                  An Array of Program types.                |   yes    |
 
+
+### Program Result
+|      Property      |           Type             |                     Description                      |   Required   |
+|      :------       |           :--:             |                     :----------                      |     :--:     |
+|         id         |          String            |                   The program ID.                    |     yes      |
+|        url         |           URL              |    The path to the [Program](#program-1) details.    |     yes      |
+
+
+### Program
+|      Property      |           Type             |                     Description                      |   Required   |
+|      :------       |           :--:             |                     :----------                      |     :--:     |
+|         id         |          String            |                   The program ID.                    |     yes      |
+|
 
 ## Requests
 ### GET Program
