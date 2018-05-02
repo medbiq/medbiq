@@ -48,9 +48,9 @@ __Response:__
 `200` [Program](#program-1)  
 
 #### Path Parameters
-|   Param    |           Type           |       Description        |
-|   :---:    |        :--------:        |      :------------:      |
-|    id      |            ID            |  Unique identifier of the program being requested  |
+|   Param    |           Description                                                      |
+|   :---:    |          :------------                                                     |
+|    id      |      Unique identifier of the program being requested                      |
 
 #### Query Parameters
 None
@@ -70,4 +70,12 @@ If requested with `full=true` query parameter,
 None
 
 #### Query Parameters
-None
+| Param    |   Type   |  Description    |
+| :---     |   :--:   | :------------   |
+| since    | [ISO 8601 Date](https://en.wikipedia.org/wiki/ISO_8601) |  Return only new or updated programs since the provided date.  | 
+| name     |  String  |  Return programs that match the name/title provided. This will be checked against the name field. |
+| language | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) |  Return programs whose language of instruction matches the language code provided. |
+| limit    |  Integer |  Integer represeting the total number of programs to return. |
+| next     |  Base64 String  |   Base64 encoded value needed for the server to paginate. This value is provided in the [Program Results List](#program-results-list) and [Program List](#program-list).  |
+| orderBy  |  Program Property  |  The property by which the programs will be ordered, prepended with '+' or '-' to indicate ascending or descending order. ex. `?orderBy=+name`  |
+| full     |  Boolean |  Indicates if the response should be a list of [Programs](#program-1) (true) or [Program Results](#program-result) (false). |
