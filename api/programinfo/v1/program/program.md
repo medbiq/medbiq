@@ -7,10 +7,11 @@
 
 ## Data Model
 
-### Program List
-|   Property      |         Type                 |                        Description                         | Required |
-|   :------       |         :--:                 |                        :----------                         |  :--:    |
-|   programs      |  \[[Program](#program-1)\]   |                  An Array of Program types.                |   yes    |
+### Program Result List
+|   Property  |                    Type                 |              Description                         | Required |
+|   :------   |                    :--:                 |              :----------                         |  :--:    |
+|   programs  |  \[[Program Result](#program-result)\]  |        An Array of Program Results.              |   yes    |
+|     next    |      Base64 String                      | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
 
 
 ### Program Result
@@ -20,11 +21,19 @@
 |        url         |           URL              |    The path to the [Program](#program-1) details.    |     yes      |
 
 
+### Program List
+|   Property  |         Type                 |                        Description                         | Required |
+|   :------   |         :--:                 |                        :----------                         |  :--:    |
+|   programs  |  \[[Program](#program-1)\]   |                  An Array of Program types.                |   yes    |
+|     next    |      Base64 String           | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
+
 ### Program
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |         id         |          String            |                   The program ID.                    |     yes      |
-|
+|        url         |
+|       name         |
+|       
 
 ## Requests
 ### GET Program
