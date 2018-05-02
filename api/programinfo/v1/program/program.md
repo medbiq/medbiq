@@ -7,7 +7,7 @@
 
 ## Data Model
 
-### Program Result List
+### Program Results List
 |   Property  |                    Type                 |              Description                         | Required |
 |   :------   |                    :--:                 |              :----------                         |  :--:    |
 |   programs  |  \[[Program Result](#program-result)\]  |        An Array of Program Results.              |   yes    |
@@ -42,8 +42,10 @@
 ### GET Program
 Get information about a specific program by program ID.  
   
-__Method:__  GET  
-__Path:__ /medbiq/api/programinfo/v1/program/:id
+__Method:__  `GET`  
+__Path:__ `/medbiq/api/programinfo/v1/program/:id`  
+__Response:__   
+`200` [Program](#program-1)  
 
 #### Path Parameters
 |   Param    |           Type           |       Description        |
@@ -57,8 +59,12 @@ None
 ### GET Programs
 Get a list of programs.  
   
-__Method:__  GET  
-__Path:__ /medbiq/api/programinfo/v1/programs
+__Method:__  `GET`  
+__Path:__ `/medbiq/api/programinfo/v1/programs`  
+__Response:__   
+`200` [Program Results List](#program-results-list)  
+If requested with `full=true` query parameter,  
+`200` [Program List](#program-list)  
 
 #### Path Parameters
 None
