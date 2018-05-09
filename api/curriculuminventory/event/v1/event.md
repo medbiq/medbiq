@@ -4,7 +4,7 @@
 | :--- | :--- | :--- | :--- |
 | **Description** | Provides data on a specific curricular activity, defined by a set of expectations and goals. May have one or more instances of delivery in the curriculum ( _see_ `eventInstance`) |  |  |
 | **Path** | /api/v1/event |  |  |
-| **Methods** | GET, POST, PUT DELETE |  |  |
+| **Methods** | GET, POST, PUT, DELETE |  |  |
 | **Parameter** | ID | URI |  |
 | **Filters** | _programID_ | String | A unique ID for the educational program to query |
 |  | _academicLevel_ | String | A unique ID for the Academic level to query |
@@ -24,15 +24,3 @@
 |  | eventCompetencyObjects | array | a list of the competency objects associated with the event ||
 |  | interprofessional ||||
 |  | academicLevel ||||
-
-
-
-From previous:
-
-|| Path Parameters | ID |
-|----- |---- |---- |
-|| Query parameters| (all subelements of Event plus id, learningResources, eventInstance, sequenceBlock)|
-||| (For duration can use fraction of hour (ex, 1.5 for 90 min). Allows to be a json integer.|
-||Keyword | have keyword (term itself), keywordSource. keywordID)|
-||ResourceType | resourceType, resourceTypeSource, resourceTypeID)|
-| **Data Returned** || TBD |
