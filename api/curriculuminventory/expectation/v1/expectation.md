@@ -5,7 +5,7 @@
 | **Description** | Provides data on curriculum expectations meeting certain parameters. |  |  |
 | **Path** | /api/v1/expectation |  |  |
 | **Methods** | GET, POST, PUT DELETE |  |  |
-| **Parameter** | ID | \(Usually this is na URI - but I'm not sure if that will work for a filter\) |  |
+| **Parameter** | ID | ID |  |
 | **Filters** | Program ID | String | A unique ID for the educational program to query |
 |  | AcademicLevel | String | A unique ID for the Academic level to query |
 |  | SequenceBlock | String | A unique id for the Sequence Block to query |
