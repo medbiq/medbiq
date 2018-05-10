@@ -27,7 +27,7 @@
 |   programs  |  \[[Program](#program-1)\]   |                  An Array of Program types.                |   yes    |
 |     next    |      Base64 String           | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
 
-### Program
+### Program (need accreditation, degree, discipline, degree label, certificate, program type, discipline or specialty)
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |         id         |          String            |                   The program ID.                    |     yes      |
