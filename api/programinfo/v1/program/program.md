@@ -18,7 +18,7 @@
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |         id         |          String            |                   The program ID.                    |     yes      |
-|        url         |           URL              |    The path to the [Program](#program-1) details.  ex: `https://<program provider>/medbiq/api/programinfo/v1/program/<program id>`    |     yes      |
+|        url         |           URL              |    The path to the [Program](#program-1) details.  ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id>`    |     yes      |
 
 
 ### Program List
@@ -31,7 +31,7 @@
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |         id         |          String            |                   The program ID.                    |     yes      |
-|        url         |          URL               |   The program's API URL. ex: `https://<program provider>/medbiq/api/programinfo/v1/program/<program id>`  |  yes |
+|        url         |          URL               |   The program's API URL. ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id>`  |  yes |
 |       name         |           String           |            The name/title of the program             |     yes      |
 |    language        | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php)  |     Language of instruction used in the program. | no |
 | curriculumDuration | [ISO 8601 Duration](https://en.wikipedia.org/wiki/ISO_8601) |  The duration of the program curriculum. ex: `P4Y` (4 years)  |  no  |
