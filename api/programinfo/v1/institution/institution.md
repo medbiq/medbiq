@@ -15,16 +15,17 @@
 
 
 ### Institution Result
-|   Property  |  Type     |        Description              | Required |
-|   :------   |  :--:     |        :----------              |  :--:    |
-|      url    |   URL     | The institution's API URL. <br> ex: `https://<api provider>/medbiq/api/programinfo/v1/institution/<institution id>` |   yes    |
-|     name    |  String   |     Full name of the institution.    |   yes    |
+|   Property  |  Type     |        Description                                 | Required |
+|   :------   |  :--:     |        :----------                                 |  :--:    |
+|      url    |   URL     | The institution's API URL. <br> ex: `https://<api provider>/medbiq/api/programinfo/v1/institution/<institution id>`              |   yes    |
+|     name    |  String   |     Full name of the institution.                  |   yes    |
+|   relation  |   String  | Relationship of this institution to the subject.   |   no     | 
  
  
 ### Institution List
 |   Property  |        Type                 |        Description           | Required |
 |   :------   |        :--:                 |        :----------           |  :--:    |
-|   institutions   | \[[Institution](#institution-1)\]     |  An Array of Institution objects. |   yes    |
+|institutions | \[[Institution](#institution-1)\]     |  An Array of Institution objects. |   yes    |
 |     next    |      Base64 String          | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |  
   
 ### Institution
