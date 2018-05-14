@@ -27,17 +27,48 @@
 |   programs  |  \[[Program](#program-1)\]   |                  An Array of Program types.                |   yes    |
 |     next    |      Base64 String           | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
 
-### Program (need accreditation, degree, discipline, degree label, certificate, program type, discipline or specialty)
+### Program  
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |        ids         |           \[[ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id)\]             |       The list of known IDs for the program.        |     yes      |
 |        url         |            URL             |   The program's API URL. ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id>`  |  yes |
 |  alternateURLs     |           [URL]            |    List of known alternate URLs for the program.     |      no      |
 |       name         |           String           |            The name/title of the program             |     yes      |
+|       type         |           String           |            The type of program.                      |      no      |
 |    language        | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php)  |     Language of instruction used in the program. | no |
 | curriculumDuration | [ISO 8601 Duration](https://en.wikipedia.org/wiki/ISO_8601) |  The duration of the program curriculum. ex: `P4Y` (4 years)  |  no  |
 |     yearBegan      | [ISO 8601 Date](https://en.wikipedia.org/wiki/ISO_8601) |  The year the program instruction began. ex: `2002`  |  no  |
 |  relatedInstitutions | \[[Institution Result](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#institution-result)\] |  The list of institutions that offer this program.  |  yes   |
+|    degree     |    [Degree](#degree)      | The degree received.   |  no  |
+| accreditation |  [Accreditation](#accreditation) | The accrediting information about this program.  | no  |
+|  certificate  |  [Certificate](#certificate)  | The certificate received.  | no |
+| disciplineOrSpecialty |  The academic discipline or medical specialty of the program. ex. Cardiology.  |   no   | 
+
+
+### Degree
+|   Property  |   Type    |   Descripton                                                                       | Required |
+|    :---     |   :--:    |    :-----                                                                          |   :--:   |
+|  value      |   String  |  The degree received. ex. BA, MD                                                   |    yes   |
+|  discipline |   String  |  The academic discipline for the degree received. ex. Engineering, Chemistry, etc. |    no    |
+|  label      |   String  |  A label describing the degree. The label may contain the full title of the degree.|    no    |
+
+
+### Accreditation
+|   Property   |   Type    |   Descripton                                                                       | Required |
+|    :---      |   :--:    |    :-----                                                                          |   :--:   |
+| organization |   String  |  The organization accrediting this program. ex. ACGME                              |    yes   |
+| status       |   String  |  The status of the accreditation.                                                  |    no    |
+| start        | [ISO 8601 Date](https://en.wikipedia.org/wiki/ISO_8601) | The start date of the accreditation. |    no    |
+| end          | [ISO 8601 Date](https://en.wikipedia.org/wiki/ISO_8601) | The end date of the accreditation.   |    no    |
+
+
+### Certificate
+|   Property   |   Type    |   Descripton                                                                       | Required |
+|    :---      |   :--:    |    :-----                                                                          |   :--:   |
+| value        |   String  |  The certificate received.                                                         |    yes   |
+| type         |   String  |  The type of certificate. ex. Professional, HighSchool, etc.                       |    no    |
+
+
 
 ## Requests
 ### GET Program
