@@ -1,7 +1,7 @@
 # Institution
 |     Method                      |       Path                                  |         Response                    |
 |    :------:                     |       :--                                   |       :----------:                  |
-|  [GET Institution](#get-institution)      |    /medbiq/api/programinfo/v1/institution/:id    |      [Institution](#institution-1)            |  
+|  [GET Institution](#get-institution)      |    /medbiq/api/programinfo/v1/institution/:type/:id    |      [Institution](#institution-1)            |  
 |  [GET Institutions](#get-institutions)    |      /medbiq/api/programinfo/v1/institutions     | [Institution Results List](#institution-results-list) |  
 
 
@@ -17,7 +17,7 @@
 ### Institution Result
 |   Property  |  Type     |        Description                                 | Required |
 |   :------   |  :--:     |        :----------                                 |  :--:    |
-|      url    |   URL     | The institution's API URL. <br> ex: `https://<api provider>/medbiq/api/programinfo/v1/institution/<institution id>`              |   yes    |
+|      url    |   URL     | The institution's API URL. <br> ex: `https://<api provider>/medbiq/api/programinfo/v1/institution/<institution id type>/<institution id value>` |   yes    |
 |     name    |  String   |     Full name of the institution.                  |   yes    |
 |   relation  |   String  | Relationship of this institution to the subject.   |   no     | 
  
@@ -32,7 +32,7 @@
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
 |       ids       |   \[[ID](#id)\]     |                     The institution ID/codes.                     |   yes    |
-|       url       |         URL         | The institution's API URL. <br> ex: `https://<institution provider>/medbiq/api/programinfo/v1/institution/<institution id>` |   yes    |
+|       url       |         URL         | The institution's API URL. <br> ex: `https://<institution provider>/medbiq/api/programinfo/v1/institution/<institution id type>/<institution id value>` |   yes    |
 |  alternateURLs  |        [URL]        |          List of known alternate URLs for the institution.             |    no    |
 |      name       |       String        |                     Full name of the institution.                      |   yes    |
 | alternateNames  |      [String]       |  List of known alternates, abbreviations, acronyms for the institution.|    no    |
@@ -83,12 +83,13 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
 Get information about a specific institution by institution ID.  
   
 __Method:__  `GET`  
-__Path:__ `/medbiq/api/programinfo/v1/institution/:id`
+__Path:__ `/medbiq/api/programinfo/v1/institution/:type/:id`
 
 #### Path Parameters
 |   Param    |                        Description                              |
 |   :---     |                       :------------                             |
-|    id      |  Unique identifier / Institution Code of the institution being requested. |
+|    type    |  The type of the identifier. The [ID](#id) type  |
+|    id      |  Unique identifier / Institution Code of the institution being requested. The [ID](#id) value |
 
 #### Query Parameters
 None
