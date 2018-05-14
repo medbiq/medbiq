@@ -42,7 +42,7 @@
 |    degree     |    [Degree](#degree)      | The degree received.   |  no  |
 | accreditation |  [Accreditation](#accreditation) | The accrediting information about this program.  | no  |
 |  certificate  |  [Certificate](#certificate)  | The certificate received.  | no |
-| disciplineOrSpecialty |  The academic discipline or medical specialty of the program. ex. Cardiology.  |   no   | 
+| disciplineOrSpecialty |  String  |  The academic discipline or medical specialty of the program. ex. Cardiology.  |   no   | 
 
 
 ### Degree
