@@ -1,8 +1,8 @@
 # Program
-|     Method                      |       Path                                  |         Response                    |
-|    :------:                     |       :--                                   |       :----------:                  |
-|  [GET Program](#get-program)    |    /medbiq/api/programinfo/v1/program/:id   |      [Program](#program-1)          |  
-|  [GET Programs](#get-programs)  |      /medbiq/api/programinfo/v1/programs    |    [Program List](#program-list)    |  
+|     Method                      |         Path                                   |         Response                    |
+|    :------:                     |         :--                                    |       :----------:                  |
+|  [GET Program](#get-program)    |  /medbiq/api/programinfo/v1/program/:type/:id  |      [Program](#program-1)          |  
+|  [GET Programs](#get-programs)  |        /medbiq/api/programinfo/v1/programs     |    [Program List](#program-list)    |  
 
 
 ## Data Model
@@ -18,7 +18,7 @@
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |         id         |          String            |                   The program ID.                    |     yes      |
-|        url         |           URL              |    The path to the [Program](#program-1) details.  ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id>`    |     yes      |
+|        url         |           URL              |    The path to the [Program](#program-1) details.  ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id type>/<program id value>`    |     yes      |
 
 
 ### Program List
@@ -31,7 +31,7 @@
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |        ids         |           \[[ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id)\]             |       The list of known IDs for the program.        |     yes      |
-|        url         |            URL             |   The program's API URL. ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id>`  |  yes |
+|        url         |            URL             |   The program's API URL. ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id type>/<program id value>`  |  yes |
 |  alternateURLs     |           [URL]            |    List of known alternate URLs for the program.     |      no      |
 |       name         |           String           |            The name/title of the program             |     yes      |
 |       type         |           String           |            The type of program.                      |      no      |
@@ -75,14 +75,15 @@
 Get information about a specific program by program ID.  
   
 __Method:__  `GET`  
-__Path:__ `/medbiq/api/programinfo/v1/program/:id`  
+__Path:__ `/medbiq/api/programinfo/v1/program/:type/:id`  
 __Response:__   
 `200` [Program](#program-1)  
 
 #### Path Parameters
 |   Param    |           Description                                                      |
 |   :---:    |          :------------                                                     |
-|    id      |      Unique identifier of the program being requested                      |
+|   type     |   The type of the identifier. An [ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id) type.  |
+|    id      |   Unique identifier of the program being requested. An [ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id) value.                      |
 
 #### Query Parameters
 None
