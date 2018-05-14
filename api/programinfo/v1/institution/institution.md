@@ -30,7 +30,7 @@
 ### Institution
 |    Property     |        Type         |                            Description                            | Required |
 |    :------      |        :--:         |                            :----------                            |   :--:   |
-|       id        |       String        |                       The institution ID/code.                         |   yes    |
+|       ids       |   \[[ID](#id)\]     |                     The institution ID/codes.                     |   yes    |
 |       url       |         URL         | The institution's API URL. <br> ex: `https://<institution provider>/medbiq/api/programinfo/v1/institution/<institution id>` |   yes    |
 |  alternateURLs  |        [URL]        |          List of known alternate URLs for the institution.             |    no    |
 |      name       |       String        |                     Full name of the institution.                      |   yes    |
@@ -69,6 +69,14 @@ Defined in MedBiquitous Professional Profile [Address Specifications and Descrip
 |  countryName    |       String        | The name of the country included in the address. ex. Switzerland  |    no    |
 |  countryCode    | [ISO 3166 alpha-2](https://www.iso.org/iso-3166-country-codes.html) | The ISO 3166 alpha code for a particular country. ex. CH      |    no    |
 
+### ID
+|   Property      |        Type         |                           Description                             | Required |
+|   :------       |        :--:         |                           :----------                             |  :--:    |
+|     type        |       String        |              The type of identifier. ex. ACGME                    |    yes   |
+|     value       |       String        |        The value of the identifer / institution code.             |    yes   |
+|    domain       |        URI          |            URI representing the domain of the ID.                 |    no    |  
+  
+  
 ## Requests
 ### GET Institution
 Get information about a specific institution by institution ID.  
