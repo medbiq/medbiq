@@ -1,9 +1,9 @@
-# Event #
+# Events #
 
 | \_ | \_ | Data Types | Notes/Description |
 | :--- | :--- | :--- | :--- |
 | **Description** | Provides data on a specific curricular activity, defined by a set of expectations and goals. May have one or more instances of delivery in the curriculum ( _see_ `eventInstance`) |  |  |
-| **Path** | /api/v1/event |  |  |
+| **Path** | /api/v1/events |  |  |
 | **Methods** | GET, POST, PUT, DELETE |  |  |
 | **Parameter** | ID | URI |  |
 | **Filters** | _programID_ | String | A unique ID for the educational program to query |
