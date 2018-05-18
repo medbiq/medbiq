@@ -1,9 +1,9 @@
-# EventInstance
+# EventInstances
 
 | \_ | \_ | Data Type | Notes/Description |
 | :--- | :--- | :--- | :--- |
 | Description | Provides data on a specific instance\(s\) of an event meeting certain parameters |  |  |
-| Path | /api/v1/eventinstance |  |  |
+| Path | /api/v1/eventinstances |  |  |
 | Methods | GET, POST, PUT, DELETE |  |  |
 | Parameter | ID | ID | An identifier for the event instance. |
 | Filters | Room | String | Room name |

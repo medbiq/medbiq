@@ -1,9 +1,9 @@
-# Expectation
+# Expectations
 
 | \_ | \_ | Data Types | Notes/Description |
 | :--- | :--- | :--- | :--- |
 | **Description** | Provides data on curriculum expectations meeting certain parameters. |  |  |
-| **Path** | /api/v1/expectation |  |  |
+| **Path** | /api/v1/expectations |  |  |
 | **Methods** | GET, POST, PUT DELETE |  |  |
 | **Parameter** | ID | ID |  |
 | **Filters** | Program ID | String | A unique ID for the educational program to query |
