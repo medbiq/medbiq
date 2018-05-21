@@ -11,7 +11,6 @@
 |   Property  |        Type                          |        Description                  | Required |
 |   :------   |        :--:                          |        :----------                  |  :--:    |
 |   institutions   | \[[Institution Result](#institution-result)\]  |  An Array of Institution Result objects. |   yes    |
-|     next    |      Base64 String                   | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
 
 
 ### Institution Result
@@ -26,7 +25,7 @@
 |   Property  |        Type                 |        Description           | Required |
 |   :------   |        :--:                 |        :----------           |  :--:    |
 |institutions | \[[Institution](#institution-1)\]     |  An Array of Institution objects. |   yes    |
-|     next    |      Base64 String          | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |  
+ 
   
 ### Institution
 |    Property     |        Type         |                            Description                            | Required |
@@ -114,8 +113,8 @@ None
 | country  | [ISO 3166 alpha-2](https://www.iso.org/iso-3166-country-codes.html) |  Return institutions that match the two character country code defined in ISO 3166. |
 | state    |  String  |  Return institutions that are located in the state or province provided.  |
 | language | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) |  Return institutions whose primary language matches the language code provided. |
-| limit    |  Integer |  Integer represeting the total number of institutions to return. |
-| next     |  Base64 String  |   Base64 encoded value needed for the server to paginate. This value is provided in the [Institution Results List](#institution-results-list) and [Institution List](#institution-list).  |
+| limit    |  Integer |  Integer represeting the maximum number of institutions to return. |
+| offset   |  Integer |  Integer represeting the number of values to skip before beginning to return values.  |
 | orderBy  |  Institution Property  |  The property by which the institutions will be ordered, prepended with '+' or '-' to indicate ascending or descending order. ex. `?orderBy=+country`  |
 | full     |  Boolean |  Indicates if the response should be a list of [Institutions](#institution-1) (true) or [Institution Result](#institution-result) (false). |
 
