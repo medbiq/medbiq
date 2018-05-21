@@ -11,7 +11,6 @@
 |   Property  |                    Type                 |              Description                         | Required |
 |   :------   |                    :--:                 |              :----------                         |  :--:    |
 |   programs  |  \[[Program Result](#program-result)\]  |        An Array of Program Results.              |   yes    |
-|     next    |      Base64 String                      | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
 
 
 ### Program Result
@@ -25,7 +24,7 @@
 |   Property  |         Type                 |                        Description                         | Required |
 |   :------   |         :--:                 |                        :----------                         |  :--:    |
 |   programs  |  \[[Program](#program-1)\]   |                  An Array of Program types.                |   yes    |
-|     next    |      Base64 String           | Base 64 encoded string containing the data the server needs to paginate. This value can be an empty string to indicate no more pages. Ex: `aWQ9MDAyMw==`  |   yes   |
+
 
 ### Program  
 |      Property      |           Type             |                     Description                      |   Required   |
@@ -108,7 +107,7 @@ None
 | since    | [ISO 8601 Date](https://en.wikipedia.org/wiki/ISO_8601) |  Return only new or updated programs since the provided date.  | 
 | name     |  String  |  Return programs that match the name/title provided. This will be checked against the name field. |
 | language | [ISO 639-1 Code](https://www.loc.gov/standards/iso639-2/php/code_list.php) |  Return programs whose language of instruction matches the language code provided. |
-| limit    |  Integer |  Integer represeting the total number of programs to return. |
-| next     |  Base64 String  |   Base64 encoded value needed for the server to paginate. This value is provided in the [Program Results List](#program-results-list) and [Program List](#program-list).  |
+| limit    |  Integer |  Integer represeting the maximum number of programs to return. |
+| offset    |  Integer |  Integer represeting the number of values to skip before beginning to return values.  |
 | orderBy  |  Program Property  |  The property by which the programs will be ordered, prepended with '+' or '-' to indicate ascending or descending order. ex. `?orderBy=+name`  |
 | full     |  Boolean |  Indicates if the response should be a list of [Programs](#program-1) (true) or [Program Results](#program-result) (false). |
