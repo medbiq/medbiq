@@ -83,7 +83,7 @@ __Response:__
 #### Path Parameters
 |   Param    |           Description                                                      |
 |   :---:    |          :------------                                                     |
-|   type     |   The type of the identifier. An [ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id) type.  |
+|   type     |   The type of the identifier. An [ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id) type.   Service providers may accept multiple types to accomodate consumers with different types of [ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id). ex. ACGME  |
 |    id      |   Unique identifier of the program being requested. An [ID](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#id) value.                      |
 
 #### Query Parameters
