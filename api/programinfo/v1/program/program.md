@@ -113,4 +113,4 @@ None
 | limit    |  Integer |  Integer represeting the maximum number of programs to return. |
 | offset    |  Integer |  Integer represeting the number of values to skip before beginning to return values.  |
 | orderBy  |  Program Property  |  The property by which the programs will be ordered, prepended with '+' or '-' to indicate ascending or descending order. ex. `?orderBy=+name`  |
-| full     |  Boolean |  Indicates if the response should be a list of [Programs](#program-1) (true) or [Program Results](#program-result) (false). |
+| full     |  Boolean |  Indicates if the response should be a list of [Programs](#program-1) (true) or [Program Results](#program-result) (false). NOTE: Full details are only for top-level Programs. All other levels, such as the Institutions associated with the Program, are results with abbreviated information, ie. [Program Results](#program-result) or [Institution Result](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/institution/institution.md#institution-result).|
