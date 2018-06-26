@@ -89,7 +89,7 @@ __Path:__ `/medbiq/api/programinfo/v1/institution/:type/:id`
 #### Path Parameters
 |   Param    |                        Description                              |
 |   :---     |                       :------------                             |
-|    type    |  The type of the identifier. The [ID](#id) type  |
+|    type    |  The type of the identifier. The [ID](#id) type.  Service providers may accept multiple types to accomodate consumers with different types of [ID](#id). ex. ACGME  |
 |    id      |  Unique identifier / Institution Code of the institution being requested. The [ID](#id) value |
 
 #### Query Parameters
