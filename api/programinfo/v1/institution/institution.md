@@ -1,4 +1,6 @@
 # Institution
+> Addtional details about the [Request](#requests) methods can be found by following the link in the the Method column.  
+  
 |     Method                      |       Path                                  |         Response                    |
 |    :------:                     |       :--                                   |       :----------:                  |
 |  [GET Institution](#get-institution)      |    /medbiq/api/programinfo/v1/institution/:type/:id    |      [Institution](#institution-1)            |  
