@@ -19,6 +19,7 @@
 |      Property      |           Type             |                     Description                      |   Required   |
 |      :------       |           :--:             |                     :----------                      |     :--:     |
 |         id         |          String            |                   The program ID.                    |     yes      |
+|        name        |          String            |                Full name of the program.             |     yes      |
 |        url         |           URL              |    The path to the [Program](#program-1) details.  ex: `https://<api provider>/medbiq/api/programinfo/v1/program/<program id type>/<program id value>`    |     yes      |
 
 
