@@ -1,4 +1,6 @@
 # Program
+> Addtional details about the [Request](#requests) methods can be found by following the link in the the Method column.  
+  
 |     Method                      |         Path                                   |         Response                    |
 |    :------:                     |         :--                                    |       :----------:                  |
 |  [GET Program](#get-program)    |  /medbiq/api/programinfo/v1/program/:type/:id  |      [Program](#program-1)          |  
