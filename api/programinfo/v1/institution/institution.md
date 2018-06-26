@@ -118,7 +118,7 @@ None
 | limit    |  Integer |  Integer represeting the maximum number of institutions to return. |
 | offset   |  Integer |  Integer represeting the number of values to skip before beginning to return values.  |
 | orderBy  |  Institution Property  |  The property by which the institutions will be ordered, prepended with '+' or '-' to indicate ascending or descending order. ex. `?orderBy=+country`  |
-| full     |  Boolean |  Indicates if the response should be a list of [Institutions](#institution-1) (true) or [Institution Result](#institution-result) (false). NOTE: Full details are only for top-level Programs. All other levels, such as the Institutions associated with the Program, are results with abbreviated information, ie. [Program Result Lists](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-result-list) or [Institution Result List](#institution-result-list). |
+| full     |  Boolean |  Indicates if the response should be a list of [Institutions](#institution-1) (true) or [Institution Result](#institution-result) (false). NOTE: Full details are only for top-level Programs. All other levels, such as the Institutions associated with the Program, are results with abbreviated information, ie. [Program Result Lists](https://github.com/medbiq/medbiq/blob/master/api/programinfo/v1/program/program.md#program-results-list) or [Institution Result List](#institution-results-list). |
 
 #### Response
 `200` [Institution Results List](#institution-results-list)  
