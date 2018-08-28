@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActivityReports xmlns="http://ns.medbiq.org/activityreport/v2/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ns.medbiq.org/activityreport/v2/ activityreport.xsd" arid="arid:nonesuch.edu:D14352">
+	<DateTimeCreated>2018-08-28T09:00:00</DateTimeCreated>
+	<ReportingStartDate>2018-01-01</ReportingStartDate>
+	<ReportingEndDate>2018-06-30</ReportingEndDate>
+	<ActivityReport>
+		<ReportingOrganization>Nonesuch University</ReportingOrganization>
+		<Participants>
+			<Participant>
+				<LocalIdentifier domain="idd:nonesuch.edu:ce">H046431</LocalIdentifier>
+				<StateOfPrimaryPractice>Michigan</StateOfPrimaryPractice>
+				<DEARegistration>Individual</DEARegistration>
+				<Profession>Physician</Profession>
+				<PracticeArea>General Surgery</PracticeArea>
+				<SurgicalProcedures>true</SurgicalProcedures>
+				<TimeInPractice>0-5 years post training</TimeInPractice>
+			</Participant>
+			<Participant>
+				<LocalIdentifier domain="idd:nonesuch.edu:ce">H025461</LocalIdentifier>
+				<StateOfPrimaryPractice>Wisconsin</StateOfPrimaryPractice>
+				<DEARegistration>None</DEARegistration>
+				<Profession>Nurse</Profession>
+				<PracticeArea>Hospice and/or Palliative Care</PracticeArea>
+				<SurgicalProcedures>false</SurgicalProcedures>
+				<TimeInPractice>11-15 years</TimeInPractice>
+			</Participant>
+		</Participants>
+		<Activity>
+			<ProviderOrganization>Nonesuch University</ProviderOrganization>
+			<ActivityName>Pain Management Update</ActivityName>
+			<ActivityInstanceID domain="idd:accme.org:instance">12345</ActivityInstanceID>
+			<Status>Completed</Status>
+			<LaunchDetails>
+				<LaunchAction>noaction</LaunchAction>
+				<ActivityLocation>http://nonesuch.edu/node123</ActivityLocation>
+			</LaunchDetails>
+			<CommercialSupporter>REMS Program Companies</CommercialSupporter>
+			<RegulatoryInformation>
+				<CompliantToRegulation label="Opioid REMS">http://www.accessdata.fda.gov/drugsatfda_docs/label/2018/OpioidREM2018.pdf</CompliantToRegulation>
+			</RegulatoryInformation>
+			<Module>
+				<ModuleName>Pain Management Update</ModuleName>
+				<Results>Pass</Results>
+			</Module>
+		</Activity>
+	</ActivityReport>
+</ActivityReports>
