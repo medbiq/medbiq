@@ -7,8 +7,8 @@
 > Licensed under Creative Commons, Attribution ( CC BY)
 >
 ## Table of Contents
-[Recipes](#recipes)
-[Vocabulary](#vocabulary)
+* [Recipes](#recipes)  
+* [Vocabulary](#vocabulary)  
 
 ## <a name="recipes"></a>Recipes
 Can be categorized by situation type or by activity type, or whatever makes sense in context. 
