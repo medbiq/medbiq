@@ -1,0 +1,2041 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema#",
+    "$id": "http://ns.medbiq.org/schemas/v1/member",
+    "title": "Member",
+    "description": "MedBiquitous Professional Profile Schema",
+    "type": "object",
+    "properties": {
+       "Members": {"$ref": "#/definitions/MembersType"}
+     },
+    "definitions": {
+     "AppointmentTypeVocabularyType": {
+          "allOf": [
+              {"type": "string"},
+              {
+                  "enum": [
+                      "Full-time",
+                      "Part-time",
+                      "Volunteer",
+                      "Emeritus"
+                  ]
+              }
+          ]
+      },
+      "CertificateTypeVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "General Certificate",
+                        "Subcertificate"
+                    ]
+                }
+            ]
+        },
+      "CertificationDurationVocabularyType": {
+                      "allOf": [
+                          {"type": "string"},
+                          {
+                              "enum": [
+                                  "Lifetime",
+                                  "Time-limited",
+                                  "Continuous"
+                              ]
+                          }
+                      ]
+                  },     
+        "CertificationMaintenanceRequiredVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Required",
+                        "Not Required"
+                    ]
+                }
+            ]
+          },   
+        "CertificationMaintenanceVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Maintained",
+                        "Not Maintained"
+                    ]
+                }
+            ]
+        },
+        "CertificationOccurrenceVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Initial",
+                        "Recertification"
+                    ]
+                }
+            ]
+        },
+        "CertificationStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Inactive",
+                        "Lapsed",
+                        "Expired",
+                        "Surrendered",
+                        "Suspended",
+                        "Revoked",
+                        "Certified",
+                        "Not Certified",
+                        "Certified but Clinically Inactive"
+                    ]
+                }
+            ]
+        },
+        "CertificateStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Inactive",
+                        "Lapsed",
+                        "Expired",
+                        "Surrendered",
+                        "Suspended",
+                        "Revoked",
+                        "Certified",
+                        "Not Certified",
+                        "Certified but Clinically Inactive"
+                    ]
+                }
+            ]
+        },
+        "CertificateIssuanceStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Active",
+                        "Inactive",
+                        "Lapsed",
+                        "Expired",
+                        "Surrendered",
+                        "Suspended",
+                        "Revoked"
+                    ]
+                }
+            ]
+        },
+        "ChairOrCochairVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Chair",
+                        "Co-chair"
+                    ]
+                }
+            ]
+        },
+        "ChiefOrCochiefVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Chief",
+                        "Co-chief"
+                    ]
+                }
+            ]
+        }, 
+        "ClinicalStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Active",
+                        "Inactive",
+                        "Unknown"
+                    ]
+                }
+            ]
+        },
+        "CountryCodeRestrictionType": { 
+            "type": "string",
+        	"pattern": "^([0-9]{3})$"
+         },
+        "EducationStatusListType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Active",
+                        "Graduated",
+                        "Completed Preliminary Training",
+                        "Completed Specialty Training",
+                        "Withdrawn",
+                        "Dismissed",
+                        "No Longer Active",
+                        "Deceased",
+                        "Leave of Absence"
+                    ]
+                }
+            ]
+        },
+        "EducationStatusVocabularyType": {  
+        	"anyOf": [
+        		{
+        			"pattern": "^(year [\\d])$",
+        			"type": "string"
+        		},
+        		{
+        			"enum": [
+        				"Active",
+        				"Graduated",
+        				"Completed Preliminary Training",
+        				"Completed Specialty Training",
+        				"Withdrawn",
+        				"Dismissed",
+        				"No Longer Active",
+        				"Deceased",
+        				"Leave of Absence"
+        			],
+        			"type": "string"
+        		}
+        	]
+        },
+        "EndowedVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Yes",
+                        "No"
+                    ]
+                }
+            ]
+        },
+        "ExpectedOrActualType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Expected",
+                        "Actual"
+                    ]
+                }
+            ]
+        },
+        "GenderVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Male",
+                        "Female"
+                    ]
+                }
+            ]
+        },      
+        "IDDomainType": {
+        	"type": "string",
+        	"pattern": "^(idd\\:[\\w\\D]*\\.[\\w\\D]*\\:[\\w\\D]*)$"
+        },
+        "IDTypeType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Tax number",
+                        "Passport number",
+                        "Alien number"
+                    ]
+                }
+            ]
+        },
+        "LocationTypeVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "School-based",
+                        "Hospital-based",
+                        "VA-based"
+                    ]
+                }
+            ]
+        },     
+        "NationalPhoneNumberRestrictedType": {
+        	"type": "string",
+        	"pattern": "^([0-9]{1-14})$"
+        },
+        "OccupationStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Active",
+                        "Retired"
+                    ]
+                }
+            ]
+        },
+        "PercentEffortRestrictedType": {
+        	"type": "integer",
+        	"maximum": 100,
+        	"minimum": 1
+        },
+        "PhysicalStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Living",
+                        "Deceased"
+                    ]
+                }
+            ]
+        },
+         "PointInTimeType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Entry to professional school",
+                        "Birth",
+                        "Current"
+                    ]
+                }
+            ]
+        },
+         "PrimaryOrJointVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Primary",
+                        "Joint"
+                    ]
+                }
+            ]
+        },
+        "ProgramType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Residency",
+                        "Fellowship",
+                        "Other"
+                    ]
+                }
+            ]
+        },
+        "ProgramYearType": {
+        	"type": "string",
+        	"pattern": "^(year [\\d])$"
+        },    
+        "RankVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Professor",
+                        "Associate Professor",
+                        "Assistant Professor",
+                        "Instructor",
+                        "Lecturer",
+                        "Adjunct Professor",
+                        "Demonstrator"
+                    ]
+                }
+            ]
+        },
+        "RecognitionIssuanceStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Active",
+                        "Inactive",
+                        "Expired",
+                        "Lapsed",
+                        "Surrendered",
+                        "Suspended",
+                        "Revoked"
+                    ]
+                }
+            ]
+        },
+        "TenureStatusVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Tenured",
+                        "Tenure Eligible Track",
+                        "Not Tenure Eligible Track",
+                        "Tenure Not Available"
+                    ]
+                }
+            ]
+        },
+         "TermVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Acting",
+                        "Interim",
+                        "Permanent"
+                    ]
+                }
+            ]
+        },
+         "YesNoVocabularyType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Yes",
+                        "No"
+                    ]
+                }
+            ]
+        },       
+        "AcademicAppointmentType": {
+            "type": "object",
+            "properties": {
+                "FacultyAppointment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/FacultyAppointmentType"},
+                    "minItems": 0
+                },
+                "ChairAppointment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/ChairAppointmentType"},
+                    "minItems": 0
+                },
+                "DivisionOrSectionAppointment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/DivisionOrSectionAppointmentType"},
+                    "minItems": 0
+                },
+                "AdministrativeAppointment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AdministrativeAppointmentType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "ActionSpanType": {
+            "type": "object",
+            "properties": {
+                "ActionEffectiveDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "ActionExpirationDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "TermDuration": {"$ref": "#/definitions/DurationType"},
+                "TermFromDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "TermToDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "AdministrativeAppointmentType": {
+            "required": ["Title"],
+            "allOf": [
+                {"$ref": "#/definitions/AppointmentCoreCharacteristicsType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "Title": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                        "LocationType": {"$ref": "#/definitions/LocationTypeType"}
+                    }
+                }
+            ]
+        },
+        "AnyURIType": {
+            "type": "object",
+            "properties": {
+                "Value": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "AppealSourceType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@code": {"type": "string"},
+                "@domain": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "AppointmentCoreCharacteristicsType": {
+            "type": "object",
+            "properties": {
+                "AdministrativeUnit": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "EffectiveDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "EndDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "AppointmentTypeType": {
+            "type": "object",
+             "properties": {
+                 "Value": {"$ref": "#/definitions/AppointmentTypeVocabularyType"},
+                 "@id": { "type": "string" },
+                 "@source": {"type": "string"},
+                 "@validityDate": {
+                     "type": "string",
+                     "format": "date"
+                 },
+                 "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+             }
+         },
+        "CodeDescriptionType": {
+            "type": "object",
+            "properties": {
+                "Code": {"type": "string"},
+                "Description": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "BoardActionsType": {
+            "type": "object",
+            "required": ["BoardAction"],
+            "properties": {
+                "BoardAction": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/BoardActionType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "BoardActionType": {
+            "type": "object",
+            "required": [
+                "ActionDescription",
+                "ActionCategory",
+                "Prejudicial"
+            ],
+            "properties": {
+                "ActionDescription": {"$ref": "#/definitions/CodeDescriptionType"},
+                "ActionCategory": {"$ref": "#/definitions/CodeDescriptionType"},
+                "Prejudicial": {"$ref": "#/definitions/YesNoType"},
+                "ActionSpan": {"$ref": "#/definitions/ActionSpanType"},
+                "ActionStayed": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "IndefiniteAction": {"$ref": "#/definitions/YesNoType"},
+                "Comment": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "BoardAppeals": {"$ref": "#/definitions/BoardAppealsType"},
+                "boardActionID": {"type": "string"},
+                "domain": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },    
+        "BoardAppealsType": {
+            "type": "object",
+            "required": ["BoardAppeal"],
+            "properties": {
+                "BoardAppeal": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/BoardAppealType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "BoardAppealType": {
+            "type": "object",
+            "properties": {
+                "NoticeOfAppealDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "Judgement": {"$ref": "#/definitions/JudgementType"},
+                "CourtName": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "AppealSource": {"$ref": "#/definitions/AppealSourceType"},
+                "PracticePermitted": {"$ref": "#/definitions/PracticePermittedType"},
+                "Comment": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "@appealID": {"type": "string"},
+                "@domain": {"type": "string"}
+            }
+        },
+        "BoardOrderType": {
+            "type": "object",
+            "required": ["DisciplinaryEntity"],
+            "properties": {
+                "DisciplinaryEntity": {"$ref": "#/definitions/DisciplinaryEntityType"},
+                "BoardOrderBasis": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CodeDescriptionType"},
+                    "minItems": 0
+                },
+                "OrderDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "OrderEffectiveDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "ActionForm": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "BoardActions": {"$ref": "#/definitions/BoardActionsType"},
+                "BoardAppeals": {"$ref": "#/definitions/BoardAppealsType"},
+                "Attachment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AttachmentType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificateInfoType": {
+            "type": "object",
+            "properties": {
+                "CertificateName": {"$ref": "#/definitions/CertificateNameType"},
+                "CertificateType": {"$ref": "#/definitions/CertificateTypeType"},
+                "CertificateFocus": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "CertificateStatus": {"$ref": "#/definitions/CertificateStatusType"},
+                "CertificateMaintenance": {"$ref": "#/definitions/CertificationMaintenanceType"},
+                "CertificateMaintenanceRequired": {"$ref": "#/definitions/CertificationMaintenanceRequiredType"},
+                "CertificateIssuance": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CertificateIssuanceType"},
+                    "minItems": 0
+                },
+                "Recognition": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/RecognitionIssuanceType"},
+                    "minItems": 0
+                },
+                "CertificateNotices": {"$ref": "#/definitions/CertificateNoticesType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CertificateIssuanceType": {
+            "type": "object",
+            "properties": {
+                "CertificateIssuanceID": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "CertificateIssuanceFocus": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "CertificateIssuanceDuration": {"$ref": "#/definitions/CertificationDurationType"},
+                "CertificateIssuanceOccurrence": {"$ref": "#/definitions/CertificationOccurrenceType"},
+                "CertificateIssueDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "CertificateExpireDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "CertificateIssuanceScheduledUpdate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "CertificateIssuanceStatus": {"$ref": "#/definitions/CertificateIssuanceStatusType"},
+                "CertificateIssuanceNotices": {"$ref": "#/definitions/CertificateNoticesType"},
+                "Any": {
+                    "type": "array",
+                    "items": {"type": "object"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificateNoticesType": {
+            "type": "object",
+            "required": ["CertificateNotice"],
+            "properties": {
+                "CertificateNotice": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CertificateNoticeType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+          "CertificateNoticeType": {
+            "type": "object",
+            "required": [
+                "NoticeCategory",
+                "NoticeDetail"
+            ],
+            "properties": {
+                "NoticeCategory": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "NoticeDetail": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "NoticeDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificateNameType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@certificateID": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CertificateTypeType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificateTypeVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificationDurationType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificationDurationVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificationInfoType": {
+            "type": "object",
+            "properties": {
+                "RecognitionOrganization": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "CertificationBoard": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "CertificationStatus": {"$ref": "#/definitions/CertificationStatusType"},
+                "CertificationStatusValidUntilDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "CertificationMaintenance": {"$ref": "#/definitions/CertificationMaintenanceType"},
+                "CertificationMaintenanceRequired": {"$ref": "#/definitions/CertificationMaintenanceRequiredType"},
+                "CertificateInfo": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CertificateInfoType"},
+                    "minItems": 0
+                },
+                "Attachment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AttachmentType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificationMaintenanceType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificationMaintenanceVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CertificationMaintenanceRequiredType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificationMaintenanceRequiredVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CertificationOccurrenceType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificationOccurrenceVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CertificationStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificationStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "CertificateIssuanceStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificateIssuanceStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CertificateStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/CertificateStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },   
+        "ChairAppointmentType": {
+            "required": [
+                "Title",
+                "ChairOrCochair"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/AppointmentCoreCharacteristicsType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "Title": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                        "ChairOrCochair": {"$ref": "#/definitions/ChairOrCochairType"},
+                        "Term": {"$ref": "#/definitions/TermType"}
+                    }
+                }
+            ]
+        },	
+        "ChairOrCochairType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/ChairOrCochairVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "ChiefOrCochiefType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/ChiefOrCochiefVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CitizenshipType": {
+            "allOf": [
+                {"$ref": "#/definitions/CountryType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "@pointInTime": {"$ref": "#/definitions/PointInTimeType"},
+                        "@id": { "type": "string" },
+                        "@source": {"type": "string"},
+                        "@validityDate": {
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+                    }
+                }
+            ]
+        },
+        "ClinicalStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/ClinicalStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CompletionDateType": {
+            "type": "object",
+            "properties": {
+                "Value": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "accuracy": {"$ref": "/schemas/v1/common#/definitions/AccuracyType"},
+                "expectedOrActual": {"$ref": "#/definitions/ExpectedOrActualType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "ComponentGroupType": {
+            "type": "object",
+            "properties": {
+                "ComponentGroupGenre": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "ComponentGroupName": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "ComponentGroupRole": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "MemberSinceDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "MemberUntilDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "ContactInformationType": {
+            "type": "object",
+            "properties": {
+                "Address": {"$ref": "/schemas/v1/address#/definitions/AddressType"},
+                "ContactNumber": {"$ref": "#/definitions/ContactNumberType"},
+                "EmailAddress": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "ContactNumberType": {
+            "type": "object",
+            "required": ["TelephoneNumber"],
+            "properties": {
+                "CountryCode": {"$ref": "#/definitions/IntegerType"},
+                "TelephoneNumber": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "Extension": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "Description": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "CountryCodeType": {
+            "type": "object",
+            "description": "Complex type using (allowing attributes) CountryCodeRestrictionType as its base.",
+            "properties": {
+                "Value": {"type": "#/definitions/CountryCodeRestrictionType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "DateAndAccuracyType": { 
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "accuracy": {"$ref": "/schemas/v1/common#/definitions/AccuracyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "DateType": {
+            "type": "object",
+            "properties": {
+                "Value": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "DegreeType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@discipline": {"type": "string"},
+                "@label": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "DisciplinaryEntityNameType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@abbreviation": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "DisciplinaryEntityCodeType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@source": {"type": "string"}
+            }
+        },
+          "DisciplinaryEntityType": {
+            "type": "object",
+            "required": ["DisciplinaryEntityName"],
+            "properties": {
+                "DisciplinaryEntityCode": {"$ref": "#/definitions/DisciplinaryEntityCodeType"},
+                "DisciplinaryEntityName": {"$ref": "#/definitions/DisciplinaryEntityNameType"},
+                "ContactInformation": {"$ref": "#/definitions/ContactInformationType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },  
+        "DisciplinaryInfoType": {
+            "type": "object",
+            "required": ["BoardOrder"],
+            "properties": {
+                "BoardOrder": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/BoardOrderType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "DivisionOrSectionAppointmentType": {
+            "required": [
+                "ChiefOrCochief",
+                "Title"
+            ],
+            "allOf": [
+                {"$ref": "#/definitions/AppointmentCoreCharacteristicsType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "ChiefOrCochief": {"$ref": "#/definitions/ChiefOrCochiefType"},
+                        "Term": {"$ref": "#/definitions/TermType"},
+                        "Title": {"$ref": "#/definitions/NonNullStringWithAttributesType"}
+                    }
+                }
+            ]
+        },
+        "DurationType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "EducationalCertificateType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@type": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "EducationInfoType": {
+            "type": "object",
+            "properties": {
+                "Degree": {"$ref": "#/definitions/DegreeType"},
+                "EducationalCertificate": {"$ref": "#/definitions/EducationalCertificateType"},
+                "InstitutionInfo": {"$ref": "#/definitions/InstitutionInfoType"},
+                "Accreditation": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "ProgramName": {"$ref": "#/definitions/ProgramNameType"},
+                "ProgramID": {"$ref": "#/definitions/UniqueIDType"},
+                "DisciplineOrSpecialty": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "Distinction": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "EducationStatus": {"$ref": "#/definitions/EducationStatusType"},
+                "ClassLevel": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "StartDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "EndDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "CompletionDate": {"$ref": "#/definitions/CompletionDateType"},
+                "CompletionDocumentIssuedDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "Attachment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AttachmentType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "EducationStatusType": {
+          "type": "object",
+          "description": "Complex type using (allowing attributes) EducationStatusVocabularyType as its base.",
+          "properties": {
+                "Value": {"$ref": "#/definitions/EducationStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "EndowedType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/EndowedVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "FacultyAppointmentType": {
+            "required": ["Title"],
+            "allOf": [
+                {"$ref": "#/definitions/AppointmentCoreCharacteristicsType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "Title": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                        "DivisionOrSection": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                        "Rank": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/RankType"},
+                            "minItems": 0
+                        },
+                        "PrimaryOrJoint": {"$ref": "#/definitions/PrimaryOrJointType"},
+                        "FacultyTrack": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                        "TenureStatus": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/TenureStatusType"},
+                            "minItems": 0
+                        },
+                        "AppointmentType": {"$ref": "#/definitions/AppointmentTypeType"},
+                        "PercentEffort": {"$ref": "#/definitions/PercentEffortType"},
+                        "LocationType": {"$ref": "#/definitions/LocationTypeType"},
+                        "Endowed": {"$ref": "#/definitions/EndowedType"},
+                        "EndowedTitle": {"$ref": "#/definitions/NonNullStringWithAttributesType"}
+                    }
+                }
+            ]
+        },
+        "FamilyMemberType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@relationship": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "GenderType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/GenderVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "InstitutionInfoType": {
+            "type": "object",
+            "properties": {
+                "InstitutionName": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "InstitutionID": {"$ref": "#/definitions/UniqueIDType"},
+                "Address": {"$ref": "/schemas/v1/address#/definitions/AddressType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "IntegerType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "integer"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "JudgementType": {
+            "type": "object",
+            "required": ["JudgementDescription"],
+            "properties": {
+                "JudgementDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "JudgementDescription": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "@code": {"type": "string"},
+                "@domain": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "JurisdictionType": {
+            "type": "object",
+            "required": ["Country"],
+            "properties": {
+                "Country": {"$ref": "#/definitions/CountryType"},
+                "StateOrProvince": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "LanguageType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@nativeLanguage": {"type": "boolean"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+         "LicenseEntityNameType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@abbreviation": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "LicenseInfoType": {
+            "type": "object",
+            "required": ["License"],
+            "properties": {
+                "License": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/LicenseType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "LicenseType": {
+            "type": "object",
+            "required": [
+                "LicensureEntity",
+                "LicenseNumberAvailability"
+            ],
+            "properties": {
+                "LicensureEntity": {"$ref": "#/definitions/LicensureEntityType"},
+                "LicenseNumberAvailability": {"$ref": "#/definitions/LicenseNumberAvailabilityType"},
+                "LicenseNumber": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "LicenseCategory": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "Profession": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "Jurisdiction": {"$ref": "#/definitions/JurisdictionType"},
+                "InitialLicensureDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "LicenseStatus": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "LicenseExpirationDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "Attachment": {
+                    "type": "array",
+                    "items": {"$ref": "/schemas/v1/common#/definitions/AttachmentType"},
+                    "minItems": 0
+                },
+                "LicenseNotices": {"$ref": "#/definitions/LicenseNoticesType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "LicenseNoticesType": {
+            "type": "object",
+            "required": ["LicenseNotice"],
+            "properties": {
+                "LicenseNotice": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/LicenseNoticeType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "LicenseNoticeType": {
+            "type": "object",
+            "required": ["NoticeDescription"],
+            "properties": {
+                "NoticeDescription": {"$ref": "#/definitions/CodeDescriptionType"},
+                "DeathDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "Comment": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "@noticeID": {"type": "string"},
+                "@domain": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "LicenseNumberAvailabilityType": {
+            "allOf": [
+                {"type": "string"},
+                {
+                    "enum": [
+                        "Available",
+                        "Confidential",
+                        "Unknown"
+                    ]
+                }
+            ]
+        },
+        "LicensureEntityType": {
+            "type": "object",
+            "required": ["LicensureEntityName"],
+            "properties": {
+                "LicensureEntityName": {"$ref": "#/definitions/DisciplinaryEntityNameType"},
+                "ContactInformation": {"$ref": "#/definitions/ContactInformationType"},
+                "@code": {"type": "string"},
+                "@domain": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "LocationTypeType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/LocationTypeVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "MembershipInfoType": {
+            "type": "object",
+            "properties": {
+                "Membership": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "MembershipOrganization": {"$ref": "#/definitions/MembershipOrganizationType"},
+                "Country": {"$ref": "#/definitions/CountryType"},
+                "MemberNumber": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "MembershipLevel": {"$ref": "#/definitions/MembershipLevelType"},
+                "MembershipRole": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "MembershipStatus": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "MemberSinceDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "FellowshipDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "ComponentGroup": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/ComponentGroupType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "MembershipLevelType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@code": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "MembershipOrganizationType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@organizationID": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "MembersType": {
+            "type": "object",
+            "required": ["Member"],
+            "properties": {
+                "Member": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/MemberType"},
+                    "minItems": 1
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "MemberType": {
+            "type": "object",
+            "properties": {
+                "UniqueID": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/UniqueIDType"},
+                    "minItems": 0
+                },
+                "Name": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NameType"},
+                    "minItems": 0
+                },
+                "Address": {
+                    "type": "array",
+                    "items": {"$ref": "/schemas/v1/address#/definitions/AddressType"},
+                    "minItems": 0
+                },
+                "EducationInfo": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/EducationInfoType"},
+                    "minItems": 0
+                },
+                "CertificationInfo": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CertificationInfoType"},
+                    "minItems": 0
+                },
+                "LicenseInfo": {"$ref": "#/definitions/LicenseInfoType"},
+                "DisciplinaryInfo": {"$ref": "#/definitions/DisciplinaryInfoType"},
+                "ClinicalStatus": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/ClinicalStatusType"},
+                    "minItems": 0
+                },
+                "OccupationInfo": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/OccupationInfoType"},
+                    "minItems": 0
+                },
+                "PersonalInfo": {"$ref": "#/definitions/PersonalInfoType"},
+                "MembershipInfo": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/MembershipInfoType"},
+                    "minItems": 0
+                },
+                "Attachment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AttachmentType"},
+                    "minItems": 0
+                },
+                "ModifiedDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "XtensibleInfo": {"$ref": "#/definitions/XtensibleInfoType"},
+                "Any": {
+                    "type": "array",
+                    "items": {"type": "object"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "NationalIDType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "/schemas/v1/common#/definitions/NonNullStringType"},
+                "@countryName":{"type": "string"},
+                "@countryCode": {"type": "string"},
+                "@idType": {"$ref": "#/definitions/IDTypeType"},
+                "@truncated": {
+                    "type": "boolean",
+                    "default": "false"
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "NationalPhoneNumberType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/NationalPhoneNumberRestrictedType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "NonNullStringWithAttributesType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "/schemas/v1/common#/definitions/NonNullStringType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "OccupationInfoType": {
+            "type": "object",
+            "properties": {
+                "Occupation": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "InstitutionInfo": {"$ref": "#/definitions/InstitutionInfoType"},
+                "OccupationTitle": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "Privileges": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "Practice": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "StartDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "EndDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "Specialty": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "OccupationStatus": {"$ref": "#/definitions/OccupationStatusType"},
+                "AcademicAppointment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AcademicAppointmentType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "OccupationStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/OccupationStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "PercentEffortType": {
+            "type": "object",
+            "description": "Complex type using (allowing attributes) PercentEffortRestrictedType as its base.",
+            "properties": {
+                "Value": {"$ref": "#/defintions/PercentEffortRestrictedType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "PersonalInfoType": {
+            "type": "object",
+            "properties": {
+                "PhysicalStatus": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/PhysicalStatusType"},
+                    "minItems": 0
+                },
+                "BirthDate": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/DateAndAccuracyType"},
+                    "minItems": 0
+                },
+                "DeceasedDate": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/DateAndAccuracyType"},
+                    "minItems": 0
+                },
+                "Language": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/LanguageType"},
+                    "minItems": 0
+                },
+                "Citizenship": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CitizenshipType"},
+                    "minItems": 0
+                },
+                "CountryOfResidence": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CountryTypeWithAttributes"},
+                    "minItems": 0
+                },
+                "CountryOfBirth": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/CountryTypeWithAttributes"},
+                    "minItems": 0
+                },
+                "Gender": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/GenderType"},
+                    "minItems": 0
+                },
+                "Race": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "Ethnicity": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "ContactNumber": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/ContactNumberType"},
+                    "minItems": 0
+                },
+                "EmailAddress": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "URL": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/AnyURIType"},
+                    "minItems": 0
+                },
+                "NationalID": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NationalIDType"},
+                    "minItems": 0
+                },
+                "FamilyMember": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/FamilyMemberType"},
+                    "minItems": 0
+                },
+                "PreferredMethodOfContact": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "PhysicalStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/PhysicalStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "PracticePermittedType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@code": {"type": "string"},
+                "@domain": {"type": "string"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "PrimaryOrJointType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/PrimaryOrJointVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "ProgramNameType": {
+            "type": "object",
+            "properties": {
+                "Value": {"type": "string"},
+                "@type": {"$ref": "#/definitions/ProgramType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "RankType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/RankVocabularyType"},
+                "@effectiveDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "RecognitionIssuanceStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/RecognitionIssuanceStatusVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "RecognitionIssuanceType": {
+            "type": "object",
+            "properties": {
+                "RecognitionIssuanceID": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "RecognitionName": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "RecognitionType": {"$ref": "#/definitions/NonNullStringWithAttributesType"},
+                "RecognitionIssuanceDuration": {"$ref": "#/definitions/CertificationDurationType"},
+                "RecognitionIssueDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "RecognitionExpireDate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "RecognitionIssuanceScheduledUpdate": {"$ref": "#/definitions/DateAndAccuracyType"},
+                "RecognitionIssuanceStatus": {"$ref": "#/definitions/RecognitionIssuanceStatusType"},
+                "Any": {
+                    "type": "array",
+                    "items": {"type": "object"},
+                    "minItems": 0
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "TenureStatusType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/TenureStatusVocabularyType"},
+                "@effectiveDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "TermType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/TermVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "UniqueIDType": {
+            "type": "object",
+            "required": ["@domain"],
+            "properties": {
+                "Value": {"$ref": "/schemas/v1/common#/definitions/NonNullStringType"},
+                "@domain": {"type":"#/definitions/IDDomainType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        },
+        "XtensibleInfoType": {
+            "type": "object",
+            "properties": {
+                "Any": {
+                    "type": "array",
+                    "items": {"type": "object"},
+                    "minItems": 0
+                }
+            }
+        },
+        "YesNoType": {
+            "type": "object",
+            "properties": {
+                "Value": {"$ref": "#/definitions/YesNoVocabularyType"},
+                "@id": { "type": "string" },
+                "@source": {"type": "string"},
+                "@validityDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+            }
+        }
+     }
+ }

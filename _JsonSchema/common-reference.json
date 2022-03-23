@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "id": "http://ns.medbiq.org/schemas/v1/common-reference",
+  "title": "Common Base References",
+  "type": "object",
+  "description": "MedBiquitous Base Reference Schemas converted to Json. Refer to links for Xsd http://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd, http://www.w3.org/2004/08/xop/include",
+  "definitions": {
+    "Include": {
+      "type": "object",
+      "required": [ "href" ],
+      "description": "Refer to http://www.w3.org/2004/08/xop/include for original definition",
+      "properties": {
+        "otherAttributes": { "type": "object" },
+        "Any": {
+          "type": "array",
+          "items": { "type": "object" },
+          "minItems": 0
+        },
+        "href": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "SimpleLiteral": {
+      "type": "object",
+      "properties": {
+        "Content": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "lang": { "type": "string" }
+      }
+    },
+    "DDC": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "ISO6392": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "ISO6393": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "elementOrRefinementContainer": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "any": { "$ref": "#/definitions/SimpleLiteral" }
+            }
+          },
+          "minItems": 0
+        }
+      }
+    },
+    "MESH": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "Period": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "RFC4646": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "Box": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "Point": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "W3CDTF": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "RFC1766": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "LCC": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "URI": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "LCSH": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "IMT": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "UDC": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "DCMIType": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "RFC3066": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "ISO3166": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "TGN": {
+      "allOf": [
+        { "$ref": "#/definitions/SimpleLiteral" },
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "elementContainer": {
+      "type": "object",
+      "properties": {
+        "any": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "any": { "$ref": "#/definitions/SimpleLiteral" }
+            }
+          },
+          "minItems": 0
+        }
+      }
+    }
+  }
+}

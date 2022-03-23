@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "id": "http://ns.medbiq.org/schemas/v1/common",
+  "title": "Common",
+  "description": "MedBiquitous Common Schema",
+  "type": "object",
+    "properties": {
+       "Attachment": {"$ref": "#/definitions/AttachmentType"}
+     },
+  "definitions": {
+    "AccuracyType": {
+      "allOf": [
+        { "type": "string" },
+        {
+          "enum": [
+            "DayMonth",
+            "DayMonthYear",
+            "MonthYear",
+            "Year"
+          ]
+        }
+      ]
+    },
+    "RestrictionsType": {
+      "allOf": [
+        { "type": "string" },
+        {
+          "enum": [
+            "Unrestricted",
+            "Restricted",
+            "Confidential"
+          ]
+        }
+      ]
+    },
+    "EncodedAttachmentType": {
+      "type": "object",
+      "required": [
+        "Encoding",
+        "MimeType",
+        "Description",
+        "BinaryEncoding"
+      ],
+      "properties": {
+        "Encoding": { "$ref": "#/definitions/EncodingType" },
+        "MimeType": { "type": "string" },
+        "Description": { "type": "string" },
+        "BinaryEncoding": { "type": "string" }
+      }
+    },
+    "DateAndAccuracyType": {
+      "type": "object",
+      "properties": {
+        "Value": { "type": "string" },
+        "@accuracy": { "$ref": "#/definitions/AccuracyType" },
+        "@id": { "type": "string" },
+        "@source": { "type": "string" },
+        "@validityDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "@restrictions": { "$ref": "#/definitions/RestrictionsType" }
+      }
+    },
+    "ReferencedAttachmentType": {
+      "type": "object",
+      "required": [
+        "URL",
+        "MimeType",
+        "Description"
+      ],
+      "properties": {
+        "URL": {
+          "type": "string",
+          "format": "uri"
+        },
+        "MimeType": { "type": "string" },
+        "Description": { "type": "string" }
+      }
+    },
+    "WebServicesAttachmentType": {
+      "type": "object",
+      "required": [
+        "Include",
+        "Description"
+      ],
+      "properties": {
+        "Include": { "$ref": "/schemas/v1/common-reference#/definitions/Include" },
+        "Description": { "type": "string" }
+      }
+    },
+    "EncodingType": {
+      "allOf": [
+        { "type": "string" },
+        {
+          "enum": [
+            "Base64",
+            "Uuencoding"
+          ]
+        }
+      ]
+    },
+    "AttachmentType": {
+      "type": "object",
+      "required": [
+        "EncodedAttachment",
+        "ReferencedAttachment",
+        "WebServicesAttachment"
+      ],
+      "properties": {
+        "EncodedAttachment": { "$ref": "#/definitions/EncodedAttachmentType" },
+        "ReferencedAttachment": { "$ref": "#/definitions/ReferencedAttachmentType" },
+        "WebServicesAttachment": { "$ref": "#/definitions/WebServicesAttachmentType" },
+        "@id": { "type": "string" },
+        "@source": { "type": "string" },
+        "@validityDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "@restrictions": { "$ref": "#/definitions/RestrictionsType" }
+      }
+    },
+    "ReferenceType": {
+      "type": "object",
+      "required": [ "Any" ],
+      "properties": {
+        "Any": {
+          "type": "array",
+          "items": { "type": "object" },
+          "maxItems": 2,
+          "minItems": 1
+        },
+        "format": { "type": "object" }
+      }
+    },
+    "NonNullStringType": {
+      "allOf": [
+        { "type": "string" },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "NonNullLanguageStringType": {
+      "type": "object",
+      "properties": {
+        "Value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "@lang": { "type": "string" }
+      }
+    }
+  }
+}

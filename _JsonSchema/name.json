@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "id": "http://ns.medbiq.org/schemas/v1/name",
+  "title": "Name",
+  "description": "MedBiquitous Name Schema",
+  "definitions": {
+    "NonNullStringType": {
+      "allOf": [
+        { "type": "string" },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "NameDetails": {
+      "type": "object",
+      "properties": {
+        "FormattedName": { "$ref": "#/definitions/NonNullStringType" },
+        "Title": { "$ref": "#/definitions/NonNullStringType" },
+        "GivenName": {
+          "$ref": "#/definitions/NonNullStringType"
+        },
+        "FamilyName": {
+          "$ref": "#/definitions/NonNullStringType"
+        },
+        "GenerationIdentifier": { "type": "string" },
+        "Degree": {        "$ref": "#/definitions/NonNullStringType"
+        },
+        "@id": { "type": "string" },
+        "@source": { "type": "string" },
+        "@validityDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+      }
+    },
+    "NameType": {
+      "allOf": [
+        { "$ref": "#/definitions/NameDetails" },
+        {
+          "type": "object",
+          "properties": {
+            "Alias": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/NameDetails" },
+              "minItems": 0
+            },
+            "FormerName": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/NameDetails" },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    }
+  }
+}

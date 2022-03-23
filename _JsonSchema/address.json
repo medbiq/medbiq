@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "$id": "http://ns.medbiq.org/schemas/v1/address",
+  "title": "Address",
+  "description": "MedBiquitous Address Schema",
+  "type": "object",
+    "properties": {
+       "Address": {"$ref": "#/definitions/AddressType"}
+     },
+  "definitions": {
+    "AddressCategoryType": {
+      "allOf": [
+        { "type": "string" },
+        {
+          "enum": [
+            "Residential",
+            "Business",
+            "Undeliverable"
+          ]
+        }
+      ]
+    },
+    "NonNullStringType": { 
+      "allOf": [
+        { "type": "string" },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "CountryType": {
+      "type": "object",
+      "properties": {
+        "CountryName": { "$ref": "#/definitions/NonNullStringType" },
+        "CountryCode": { "$ref": "#/definitions/NonNullStringType" }
+      }
+    },
+    "StreetAddressLineType": {
+      "type": "object",
+      "properties": {
+        "Value": { "type": "string" },
+        "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+      }
+    },
+    "AddressType": {
+      "type": "object",
+      "required": [ "Country" ],
+      "properties": {
+        "ID": { "$ref": "#/definitions/NonNullStringType" },
+        "Organization": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 0
+        },
+        "StreetAddressLine": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/StreetAddressLineType" },
+          "minItems": 0
+        },
+        "City": { "$ref": "#/definitions/NonNullStringType" },
+        "StateOrProvince": { "$ref": "#/definitions/NonNullStringType" },
+        "PostalCode": { "$ref": "#/definitions/NonNullStringType" },
+        "Region": { "$ref": "#/definitions/NonNullStringType" },
+        "District": { "$ref": "#/definitions/NonNullStringType" },
+        "Country": { "$ref": "#/definitions/CountryType" },
+        "@addressCategory": { "$ref": "#/definitions/AddressCategoryType" },
+        "@id": { "type": "string" },
+        "@source": { "type": "string" },
+        "@validityDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+      }
+    },
+    "CountryTypeWithAttributes": {
+      "description": "Complex type using CountryType as its base to allow custom attributes.",
+      "allOf": [
+        { "$ref": "#/definitions/CountryType" },
+        {
+          "type": "object",
+          "properties": {
+            "@id": { "type": "string" },
+            "@source": { "type": "string" },
+            "@validityDate": {
+              "type": "string",
+              "format": "date"
+            },
+            "@restrictions": { "$ref": "/schemas/v1/common#/definitions/RestrictionsType" }
+          }
+        }
+      ]
+    }
+  }
+}
